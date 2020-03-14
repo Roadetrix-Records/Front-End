@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
-import HamburgerMenu from 'react-hamburger-menu';
+import React from 'react';
+
+// Component Imports
+import Nav from './Nav/Nav';
 
 // Style Imports
-import { Container, Nav, Hamburger } from './DashboardStyles';
+import { Container, Main, Box } from './DashboardStyles';
 
 function Dashboard(){
-    const [ open, setOpen ] = useState(false);
+    
 
-    const handleClick = () => {
-        setOpen(!open);
-    }
 
     return(
         <Container>
-            <Nav>
-                <Hamburger>
-                    <HamburgerMenu
-                        isOpen={open}
-                        menuClicked={handleClick}
-                        color='white'
-                    />
-                </Hamburger>
-            </Nav>
+            <Nav/>
+            <Main>
+                <Box></Box>
+                <Box></Box>
+                <Box></Box>
+                <Box></Box>
+            </Main>
         </Container>
     )
 }

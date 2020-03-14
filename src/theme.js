@@ -18,5 +18,15 @@ export const adminTheme = {
 }
 
 export const theme = {
-
+    colors: {
+        error: 'crimson',
+        blue: 'dodgerblue',
+        white: 'white',
+        black: 'black'
+    },
+    breakpoints: {
+        tablet: '@media (max-width: 799px)',
+        desktop: '@media (min-width: 800px)'
+    },
+    font: 'Raleway, sans-serif'
 }
