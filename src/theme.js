@@ -19,14 +19,18 @@ export const adminTheme = {
 
 export const theme = {
     colors: {
-        error: 'crimson',
-        blue: 'dodgerblue',
-        white: 'white',
-        black: 'black'
+        darkPink: '#F9AFAF',
+        lightPink: '#FFC2C2',
+        black: '#2C2929',
+        darkGrey: '#323232',
+        white: '#FFFFFF'
     },
     breakpoints: {
         tablet: '@media (max-width: 799px)',
         desktop: '@media (min-width: 800px)'
     },
-    font: 'Raleway, sans-serif'
+    fonts: {
+        carter: 'Carter One, cursive',
+        courgette: 'Courgette, cursive'
+    } 
 }
