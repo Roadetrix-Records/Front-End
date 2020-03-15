@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { theme } from '../../theme';
+import { adminTheme } from '../../theme';
 
 export const Container = styled.section`
     display: flex;
-    ${theme.breakpoints.tablet}{
+    ${adminTheme.breakpoints.tablet}{
         flex-direction: column;
     }
 `;
@@ -48,12 +48,12 @@ export const Links = styled.ul`
 
 export const StyledLink = styled(Link)`
     display: ${props => props.open ? 'block' : 'none'};
-    color: ${theme.colors.white};
+    color: ${adminTheme.colors.white};
     text-decoration: none;
     margin: 10px 0;
     text-align: center;
     font-size: 2rem;
-    font-family: ${theme.font};
+    font-family: ${adminTheme.font};
 `;
 
 export const Main = styled.main`
@@ -63,7 +63,7 @@ export const Main = styled.main`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    ${theme.breakpoints.tablet}{
+    ${adminTheme.breakpoints.tablet}{
         margin-left: 0;
         margin-top: 80px;
     }

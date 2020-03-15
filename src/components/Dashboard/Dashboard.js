@@ -8,8 +8,6 @@ import { Container, Main, Box } from './DashboardStyles';
 
 function Dashboard(){
     
-
-
     return(
         <Container>
             <Nav/>
