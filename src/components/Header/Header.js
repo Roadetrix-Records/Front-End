@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { HeaderContainer, LogoContainer, Title, Nav, StyledLink } from './HeaderStyles';
+import { HeaderContainer, LogoContainer, Title, Nav, StyledLink, Img } from './HeaderStyles';
+import logo from '../../assets/logo.png'
 
 function Header(){
     const [ selection, setSelection ] = useState(-1);
@@ -11,6 +12,7 @@ function Header(){
         setSelection(e.target.id * 1);
     }
 
+    // Stateful logic in order to keep track of what page the user is on
     useEffect(() => {
         switch(history.location.pathname){
             case '/':
@@ -37,6 +39,7 @@ function Header(){
         <HeaderContainer>
             <LogoContainer>
                 <Title>Roadetrix</Title>
+                <Img src={logo}></Img>
                 <Title>Records</Title>
             </LogoContainer>
             <Nav>
