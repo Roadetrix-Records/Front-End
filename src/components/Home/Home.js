@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header/Header';
+import InstagramFeed from './InstagramFeed';
 
 import { Body } from '../GlobalStyles';
 import { Section, SpotifyCard } from './HomeStyles';
@@ -14,7 +15,7 @@ function Home(){
                 <SpotifyCard/>
             </Section>
             <Section>
-                <h1>Integrated Instagram Feed</h1>
+                <InstagramFeed/>
             </Section>
             <Section>
                 <h1>Integrated Youtube Feed</h1>
