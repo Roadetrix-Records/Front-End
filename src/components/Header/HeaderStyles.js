@@ -19,6 +19,10 @@ export const LogoContainer = styled.div`
     align-items: center;
 `;
 
+export const Img = styled.img`
+    width: 100px;
+`;
+
 export const Title = styled.h1`
     color: ${theme.colors.lightPink};
     font-size: 5rem;
@@ -30,7 +34,7 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 15px;
 `;
 
 export const StyledLink = styled(Link)`
