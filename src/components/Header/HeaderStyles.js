@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 `;
 
 export const LogoContainer = styled.div`
