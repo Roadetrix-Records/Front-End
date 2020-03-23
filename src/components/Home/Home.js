@@ -1,19 +1,18 @@
 import React from 'react';
 import Header from '../Header/Header';
+import Carousel from './Carousel';
 import InstagramFeed from './InstagramFeed';
 
 import { Body } from '../GlobalStyles';
-import { Section, SpotifyCard } from './HomeStyles';
+import { Section } from './HomeStyles';
 
 function Home(){
     return(
         <Body>
             <Header/>
-            <Section>
-                <SpotifyCard/>
-                <SpotifyCard/>
-                <SpotifyCard/>
-            </Section>
+            <Carousel>
+                
+            </Carousel>
             <Section>
                 <InstagramFeed/>
             </Section>

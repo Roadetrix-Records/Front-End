@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 import { theme } from '../../theme';
 
+export const Title = styled.h1`
+    margin-top: 50px;
+    text-align: center;
+    color: ${theme.colors.white};
+    font-size: 4rem;
+    font-family: ${theme.fonts.carter};
+`;
+
 export const Container = styled.section`
     width: 700px;
     height: 400px;
     border-radius: 10px;
-    margin: ${props => props.error ? '50px auto' : '100px auto'};
+    margin: 50px auto;
     background-color: ${theme.colors.darkGrey};
     -webkit-box-shadow: 0px 0px 9px 1px rgba(255,194,194,1);
     -moz-box-shadow: 0px 0px 9px 1px rgba(255,194,194,1);
