@@ -19,6 +19,7 @@ export const DNav = styled.nav`
     align-items: ${props => props.open ? 'flex-start' : 'center'};
     padding: ${props => props.open ? '20px' : '20px 0'};
     transition: width 500ms ease;
+    z-index: 1;
 `;
 
 export const MNav = styled.nav`
@@ -32,6 +33,7 @@ export const MNav = styled.nav`
     justify-content: ${props => props.open ? 'flex-start' : 'center'};
     padding: ${props => props.open ? '20px 0' : '0'};
     transition: height 500ms ease;
+    z-index: 1;
 `;
 
 export const Hamburger = styled.div`
@@ -69,12 +71,43 @@ export const Main = styled.main`
     }
 `;
 
+const handleBackgroundColor = color => {
+    switch(color){
+        case 'spotify':
+            return adminTheme.colors.spotify;
+        case 'spotifyBlack':
+            return adminTheme.colors.spotifyBlack;
+        default:
+            return adminTheme.colors.black;
+    }
+}
+
 export const Box = styled.div`
+    position: relative;
     width: 40%;
     max-width: 600px;
     min-width: 400px;
     height: 30%;
     margin: 0 50px;
     margin-top: 50px;
-    border: 1px solid blue;
+    background-color: ${props => handleBackgroundColor(props.color)};
+`;
+
+export const Button = styled.button`
+    background-color: ${props => handleBackgroundColor(props.colors)};
+    border-radius: 10px;
+    border: none;
+    color: ${adminTheme.colors.white};
+    padding: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 10px;
+    &:hover{
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    }
 `;
