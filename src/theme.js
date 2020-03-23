@@ -3,7 +3,9 @@ export const adminTheme = {
         error: 'crimson',
         blue: 'dodgerblue',
         white: 'white',
-        black: 'black'
+        black: 'black',
+        spotify: '#1ed760',
+        spotifyBlack: '#191414'
     },
     fontSizes: {
         title: '4rem',
@@ -31,6 +33,7 @@ export const theme = {
     },
     fonts: {
         carter: 'Carter One, cursive',
-        courgette: 'Courgette, cursive'
+        courgette: 'Courgette, cursive',
+        noto: 'Noto Sans, sans-serif'
     } 
 }
