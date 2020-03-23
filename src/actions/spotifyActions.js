@@ -4,9 +4,9 @@ export const FETCH_SPOTIFY = 'FETCH_SPOTIFY';
 export const FETCH_SPOTIFY_SUCCESS = 'FETCH_SPOTIFY_SUCCESS';
 export const FETCH_SPOTIFY_ERROR = 'FETCH_SPOTIFY_ERROR';
 
-export const getData = () => dispatch => {
+export const getSpotifyData = () => dispatch => {
     dispatch({ type: FETCH_SPOTIFY });
-    axios.get()
+    axios.get('http://localhost:5000/spotify')
     .then(res => {
         console.log(res);
         dispatch({ type: FETCH_SPOTIFY_SUCCESS, payload: res.data });
