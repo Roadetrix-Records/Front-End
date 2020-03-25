@@ -6,13 +6,13 @@ export const FETCH_SPOTIFY_ERROR = 'FETCH_SPOTIFY_ERROR';
 
 export const getSpotifyData = () => dispatch => {
     dispatch({ type: FETCH_SPOTIFY });
-    axios.get('http://localhost:5000/spotify')
-    .then(res => {
-        console.log(res);
-        dispatch({ type: FETCH_SPOTIFY_SUCCESS, payload: res.data });
+    axios.get('http://localhost:5000/spotify', {
+        crossdomain: true
+    })
+    .then(() => {
+        dispatch({ type: FETCH_SPOTIFY_SUCCESS });
     })
     .catch(err => {
-        console.log(err);
-        dispatch({ type: FETCH_SPOTIFY_ERROR, payload: err.message });
+        dispatch({ type: FETCH_SPOTIFY_ERROR, payload: err.data });
     })
 }
