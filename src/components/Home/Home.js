@@ -8,14 +8,14 @@ import { Section } from './HomeStyles';
 
 function Home(){
     return(
-        <Body>
+        <Body gradient>
             <Header/>
+            <Section gradient>
+                <InstagramFeed/>
+            </Section>
             <Carousel>
                 
             </Carousel>
-            <Section>
-                <InstagramFeed/>
-            </Section>
             <Section>
                 <h1>Integrated Youtube Feed</h1>
             </Section>

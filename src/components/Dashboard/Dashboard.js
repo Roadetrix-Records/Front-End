@@ -6,14 +6,18 @@ import { getSpotifyData } from '../../actions/spotifyActions';
 import Nav from './Nav/Nav';
 
 // Style Imports
-import { Container, Main, Box, Button } from './DashboardStyles';
+import { Container, Main, Box, Button, ButtonContainer } from './DashboardStyles';
 
 function Dashboard(){
+    const data = useSelector(state => state.spotifyData);
     const dispatch = useDispatch();
+
+    const loginSpotify = () => {
+        console.log('Logging in');
+    }
 
     const fetchSpotify = () => {
         console.log('Fetching');
-        dispatch(getSpotifyData());
     }
 
     return(
@@ -21,7 +25,15 @@ function Dashboard(){
             <Nav/>
             <Main>
                 <Box color='spotify'>
-                    <Button color='spotifyBlack' onClick={fetchSpotify}>Update Spotify</Button>
+                    {data ? (
+                        <p> Data is currently being displayed </p>
+                    ) : (
+                        <p> Data is not currently being displayed </p>
+                    )}
+                    <ButtonContainer>
+                        <Button color='spotifyBlack' onClick={loginSpotify}>Login to Spotify</Button>
+                        <Button color='spotifyBlack' onClick={fetchSpotify}>Update</Button>
+                    </ButtonContainer>
                 </Box>
                 <Box></Box>
                 <Box></Box>

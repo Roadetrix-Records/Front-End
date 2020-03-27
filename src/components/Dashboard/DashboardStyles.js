@@ -93,6 +93,13 @@ export const Box = styled.div`
     background-color: ${props => handleBackgroundColor(props.color)};
 `;
 
+export const ButtonContainer = styled.div`
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 10px;
+`;
+
 export const Button = styled.button`
     background-color: ${props => handleBackgroundColor(props.colors)};
     border-radius: 10px;
@@ -101,10 +108,7 @@ export const Button = styled.button`
     padding: 10px;
     font-size: 1.5em;
     cursor: pointer;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: 10px;
+    margin: 0 10px;    
     &:hover{
         -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);

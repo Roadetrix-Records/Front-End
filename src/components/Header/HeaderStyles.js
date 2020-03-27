@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 export const HeaderContainer = styled.header`
     width: 100%;
     height: 160px;
-    background-color: ${theme.colors.darkGrey};
-    border-bottom: 10px solid ${theme.colors.darkPink};
+    background: rgb(44,41,41);
+    background: radial-gradient(circle, rgba(44,41,41,1) 0%, rgba(50,50,50,1) 100%);
+    // border-bottom: 10px solid ${theme.colors.black};
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 2;
 `;
 
 export const LogoContainer = styled.div`
