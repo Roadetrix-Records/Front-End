@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../theme';
+import { Link } from 'react-router-dom';
 
 import { Spotify, Instagram, Youtube } from '@styled-icons/boxicons-logos'
 
@@ -19,28 +20,39 @@ export const Header = styled.header`
         align-items: center;
         a{
             text-decoration: none;
-            font-size: 1.8rem;
-            margin: 0 15px;
-            font-family: ${theme.fonts.roboto};
-            color: ${theme.colors.darkGrey};
         }
+        .social{
+            margin: 0;
+            cursor: pointer;
+        }
+    }
+`;
+
+export const StyledLink = styled(Link)`
+    font-size: 1.8rem;
+    margin: 0 15px;
+    font-family: ${theme.fonts.roboto};
+    color: ${props => props.selected ? theme.colors.darkPink : theme.colors.darkGrey};
+    &:hover{
+        color: ${theme.colors.darkPink};
+        transition: color .5s ease;
     }
 `;
 
 export const SpotifyLogo = styled(Spotify)`
     margin: 0 10px;
-    width: 50px;
+    width: 30px;
     color: ${theme.colors.darkGrey};
 `;
 
 export const InstagramLogo = styled(Instagram)`
     margin: 0 10px;
-    width: 50px;
+    width: 30px;
     color: ${theme.colors.darkGrey};
 `;
 
 export const YoutubeLogo = styled(Youtube)`
     margin: 0 10px; 
-    width: 50px;
+    width: 30px;
     color: ${theme.colors.darkGrey};
 `;
