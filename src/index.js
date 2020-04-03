@@ -8,7 +8,6 @@ import * as serviceWorker from './serviceWorker';
 // Redux Imports
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { indexReducer } from './reducers/indexReducer';
 import thunk from 'redux-thunk';
 
 

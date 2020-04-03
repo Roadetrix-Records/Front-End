@@ -10,7 +10,7 @@ export default () => {
             <nav>
                 <Link to=''>Home</Link>
                 <Link to=''>Releases</Link>
-                <Link to=''>Submit Demo</Link>
+                <Link to='/submissions'>Submit Demo</Link>
                 <Link to=''>About</Link>
                 <Link to=''>Contact</Link>
                 <SpotifyLogo/>
