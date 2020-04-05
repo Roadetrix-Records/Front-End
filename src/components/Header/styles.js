@@ -10,6 +10,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: ${props => props.dark ? theme.colors.black : theme.colors.white};
     img{
         margin-left: 20px;
         width: 250px;
@@ -32,27 +33,9 @@ export const StyledLink = styled(Link)`
     font-size: 1.8rem;
     margin: 0 15px;
     font-family: ${theme.fonts.roboto};
-    color: ${props => props.selected ? theme.colors.darkPink : theme.colors.darkGrey};
+    color: ${props => props.selected ? theme.colors.darkPink : props.dark ? theme.colors.grey : theme.colors.darkGrey};
     &:hover{
         color: ${theme.colors.darkPink};
         transition: color .5s ease;
     }
-`;
-
-export const SpotifyLogo = styled(Spotify)`
-    margin: 0 10px;
-    width: 30px;
-    color: ${theme.colors.darkGrey};
-`;
-
-export const InstagramLogo = styled(Instagram)`
-    margin: 0 10px;
-    width: 30px;
-    color: ${theme.colors.darkGrey};
-`;
-
-export const YoutubeLogo = styled(Youtube)`
-    margin: 0 10px; 
-    width: 30px;
-    color: ${theme.colors.darkGrey};
 `;
