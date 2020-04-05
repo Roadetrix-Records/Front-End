@@ -5,11 +5,11 @@ export default {
     },
     colors: {
         darkPink: '#F9AFAF',
-        lightPink: '#FFC2C2',
+        lightPink: '#FFCFCE',
         darkGrey: '#2C2929',
         lightGrey: '#323232',
         white: '#FFFFFF',
         grey: '#8D8D8D',
-        black: '#1A1414'
+        black: '#1D1D1D'
     }
 }
