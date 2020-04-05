@@ -6,7 +6,8 @@ import theme from '../../theme';
 export const Releases = styled.section`
     width: 100%;
     height: calc(100vh - 100px);
-    background: url(${Background}) no-repeat center;
+    background: url(${Background}) no-repeat center center fixed;
+    background-size: cover;
 `;
 
 export const InstaDisplay = styled.section`
@@ -24,7 +25,7 @@ export const InstaDisplay = styled.section`
     }
     .bottom{
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
         right: 0;
         width: 40%;
         max-width: 500px;
@@ -38,6 +39,18 @@ export const InstaDisplay = styled.section`
         font-family: ${theme.fonts.anton};
         letter-spacing: 1px;
     }
+`;
+
+// Styles for Submission component
+export const Submissions = styled.section`
+    width: 100%;
+    height: 90vh;
+    background-color: ${theme.colors.lightPink};
+`;
+
+export const CTAContainer = styled.div`
+    width: 80%;
+    height: 100%;
 `;
 
 // Styles for Feed component
@@ -70,10 +83,24 @@ export const Recent = styled.div`
             font-size: 2rem;
             img{
                 width: 30px;
+                height: 30px;
                 margin-top: 10px;
                 cursor: pointer;
+                &:hover{
+                    animation: growAnimation 1s ease;
+                    animation-iteration-count: 1;
+                    width: 40px;
+                }
             }
         }
+    }
+    @keyframes growAnimation{
+        0% { 
+            width: 30px; 
+        } 
+        100% { 
+            width: 40px; 
+         } 
     }
 `;
 
