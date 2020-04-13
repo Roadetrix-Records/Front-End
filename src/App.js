@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 // Component Imports
 import Header from './components/Header';
 import Home from './components/Home';
+import Releases from './components/Releases';
 import Submissions from './components/Submissions';
 
 function App() {
@@ -14,7 +15,11 @@ function App() {
         <Header dark={true}/>
         <Home/>
       </Route>
-      <Route path='/releases'>
+      <Route exact path='/releases'>
+        <Header/>
+        <Releases/>
+      </Route>
+      <Route path='/releases/:id'>
         <Header/>
       </Route>
       <Route path='/submissions'>

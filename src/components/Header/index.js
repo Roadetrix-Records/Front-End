@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header, SpotifyLogo, InstagramLogo, YoutubeLogo, StyledLink } from './styles';
-import logoBlack from '../../assets/logo-black.svg';
-import logoGrey from '../../assets/logo-grey.svg';
+import logoBlack from '../../assets/logo-black.png';
+import logoGrey from '../../assets/logo-grey.png';
 import { useHistory } from 'react-router-dom';
 
 export default ({dark}) => {

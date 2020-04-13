@@ -36,11 +36,11 @@ const dummyRecent = [
 export default () => {
     return(
         <Recent>
-            <FeaturedCard track={dummyFeatured}/>
+            <FeaturedCard release={dummyFeatured}/>
             <h2>Latest Releases</h2>
             <div className='recent-releases'>
-                {dummyRecent.map(track => {
-                    return <RecentCard track={track} key={track.songId}/>
+                {dummyRecent.map(release => {
+                    return <RecentCard release={release} key={release.id}/>
                 })}
                 <div className='see-all'>
                     <p>See All Releases</p>
