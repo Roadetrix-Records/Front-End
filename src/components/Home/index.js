@@ -1,17 +1,25 @@
 import React from 'react';
-import { Releases } from './styles';
+import { Releases, Instagram } from './styles';
+
+// Component Imports
 import Recent from './Recent/Recent';
-import Instagram from './Instagram/Instagram';
-import Submission from './Submission/Submission';
+import Feed from './Instagram/Feed';
+
+// Asset Imports
+import darkWavyBg from '../../assets/dark-wavy-bg.svg';
+import pinkWavyBg from '../../assets/pink-wavy-bg.svg';
 
 export default () => {
     return (
         <>
             <Releases>
                 <Recent/>
-                <Instagram/>
-                <Submission/>
             </Releases>
+            <Instagram>
+                <img src={darkWavyBg} className='top'/>
+                <img src={pinkWavyBg} className='bottom'/>
+                <Feed/>
+            </Instagram>
         </>
     );
 }

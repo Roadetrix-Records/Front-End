@@ -10,7 +10,7 @@ export const Releases = styled.section`
     background-size: cover;
 `;
 
-export const InstaDisplay = styled.section`
+export const Instagram = styled.section`
     width: 100%;
     height: 80vh;
     position: relative;
@@ -21,7 +21,7 @@ export const InstaDisplay = styled.section`
         width: 40%;
         max-width: 500px;
         min-width: 300px;
-        z-index: -1;
+        z-index: 1;
     }
     .bottom{
         position: absolute;
@@ -30,7 +30,7 @@ export const InstaDisplay = styled.section`
         width: 40%;
         max-width: 500px;
         min-width: 300px;
-        z-index: -1;
+        z-index: 1;
     }
     h2{
         padding-top: 40px;
@@ -38,6 +38,7 @@ export const InstaDisplay = styled.section`
         font-size: 5rem;
         font-family: ${theme.fonts.anton};
         letter-spacing: 1px;
+        z-index: 2;
     }
 `;
 
@@ -77,6 +78,7 @@ export const Recent = styled.div`
         display: flex;
         align-items: center;
         width: 100%;
+        margin-bottom: 100px;
         .see-all{
             font-family: ${theme.fonts.roboto};
             color: ${theme.colors.white};
@@ -108,12 +110,26 @@ export const Recent = styled.div`
 export const FeaturedCard = styled.div`
     display: flex;
     margin-top: 50px;
-    img{
+    .img-container{
         width: 250px;
         height: 250px;
-        cursor: pointer;
-        &:hover{
-            transform: scale(1.02);
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .img-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: ${theme.colors.darkGrey};
+            opacity: 0;
+            &:hover {
+                opacity: 0.2;
+                transition: opacity 0.5s ease;
+            }
         }
     }
     .text-container{
@@ -145,12 +161,26 @@ export const RecentCard = styled.div`
         margin-top: 20px;
         letter-spacing: 1px;
     }
-    img{
+    .img-container{
         width: 250px;
         height: 250px;
-        cursor: pointer;
-        &:hover{
-            transform: scale(1.02);
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .img-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: ${theme.colors.darkGrey};
+            opacity: 0;
+            &:hover {
+                opacity: 0.2;
+                transition: opacity 0.5s ease;
+            }
         }
     }
     p{
