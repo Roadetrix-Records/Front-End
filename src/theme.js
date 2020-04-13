@@ -11,5 +11,10 @@ export default {
         white: '#FFFFFF',
         grey: '#8D8D8D',
         black: '#1D1D1D'
+    },
+    spotify: {
+        darkGreen: '#1db954',
+        lightGreen: '#1ed760',
+        black: '#191414'
     }
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Background from '../../assets/flower-bg.png';
 import theme from '../../theme';
+import { Spotify } from '@styled-icons/boxicons-logos'
 
 // Styles for parent components on home page
 export const Releases = styled.section`
@@ -148,7 +149,32 @@ export const FeaturedCard = styled.div`
             color: ${theme.colors.lightPink};
             font-size: 2rem;
         }
+        .save-to-playlist {
+            margin-top: 10px;
+            background-color: ${theme.spotify.lightGreen};
+            // border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 0;
+            p {
+                color: ${theme.spotify.black};
+                font-size: 1.8rem;
+                font-family: ${theme.fonts.roboto};
+                margin-left: 5px;
+            }
+            &:hover{
+                background-color: ${theme.spotify.darkGreen};
+            }
+        }
     }
+`;
+
+export const SpotifyLogo = styled(Spotify)`
+    width: 30px;
+    margin-right: 5px;
+    color: ${theme.spotify.black};
 `;
 
 export const RecentCard = styled.div`
