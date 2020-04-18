@@ -23,13 +23,13 @@ const dummyRecent = [
         id: 3,
         songTitle: 'Rose Tinted',
         albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67706c0000da84c72117606dd6c3f34178244a'
+        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2732537b18acd67d435f9a81376'
     },
     {
         id: 4,
         songTitle: 'Paradise',
         albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2735c0cacb0919d8d000dfeba41'
+        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2737ed6ed3347b4a40ec3513a2c'
     }
 ]
 

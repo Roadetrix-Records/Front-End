@@ -38,7 +38,7 @@ function App() {
       <Route path='/contact'>
         <Header/>
       </Route>
-      <Route path='/callback'>
+      <Route exact path='/callback'>
         {spotifyCallback()}
       </Route>
 
