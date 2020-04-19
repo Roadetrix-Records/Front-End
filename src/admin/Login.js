@@ -11,6 +11,9 @@ export default () => {
         e.preventDefault();
         console.log(credentials);
         // TODO: Handle authentication and redirect
+
+        // If authentication works
+        window.localStorage.setItem('admin', true);
         setCredentials({
             username: '',
             password: ''

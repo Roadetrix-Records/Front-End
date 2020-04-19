@@ -16,8 +16,8 @@ export default () => {
                 <Recent/>
             </Releases>
             <Instagram>
-                <img src={darkWavyBg} className='top'/>
-                <img src={pinkWavyBg} className='bottom'/>
+                <img src={darkWavyBg} className='top' alt=''/>
+                <img src={pinkWavyBg} className='bottom' alt=''/>
                 <Feed/>
             </Instagram>
         </>
