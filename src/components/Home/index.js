@@ -1,9 +1,8 @@
 import React from 'react';
-import { Releases, Instagram } from './styles';
+import { Releases } from './styles';
 
 // Component Imports
 import Recent from './Recent/Recent';
-import Feed from './Instagram/Feed';
 
 // Asset Imports
 import darkWavyBg from '../../assets/dark-wavy-bg.svg';
@@ -15,11 +14,8 @@ export default () => {
             <Releases>
                 <Recent/>
             </Releases>
-            <Instagram>
-                <img src={darkWavyBg} className='top'/>
-                <img src={pinkWavyBg} className='bottom'/>
-                <Feed/>
-            </Instagram>
+            <img src={darkWavyBg} className='top' alt=''/>
+            <img src={pinkWavyBg} className='bottom' alt=''/>
         </>
     );
 }

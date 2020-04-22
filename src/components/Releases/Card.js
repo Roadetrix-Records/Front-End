@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({release}) => {
-    console.log(release.imgUrl);
     return (
         <Link to={`/releases/${release.id}`}>
             <div className='release-card'>

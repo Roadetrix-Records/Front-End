@@ -166,6 +166,7 @@ export const FeaturedCard = styled.div`
             }
             &:hover{
                 background-color: ${theme.spotify.darkGreen};
+                transition: background-color 1s ease;
             }
         }
     }

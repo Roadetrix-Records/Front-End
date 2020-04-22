@@ -33,6 +33,11 @@ const dummyRecent = [
     }
 ]
 
+// useEffect(() => {
+    // Get 3 most recent releases excluding most recent: image. track name. album name
+    // If album => no track name to display
+// }, [])
+
 export default () => {
     return(
         <Recent>
@@ -45,7 +50,7 @@ export default () => {
                 <div className='see-all'>
                     <p>See All Releases</p>
                     <Link to='/releases'>
-                        <img src={Arrow}/>
+                        <img src={Arrow} alt=''/>
                     </Link>
                 </div>
             </div>

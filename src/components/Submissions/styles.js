@@ -101,7 +101,8 @@ export const Form = styled.form`
         font-size: 2rem;
         cursor: pointer;
         &:hover{
-            transform: scale(1.01);
+            background-color: ${theme.colors.darkPink};
+            transition: background-color 1s ease;
         }
     }
 `;

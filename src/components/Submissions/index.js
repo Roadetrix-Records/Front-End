@@ -9,7 +9,7 @@ export default () => {
         <Submissions>
             <div className='title-container'>
                 <h1>Demo Submissions</h1>
-                <img src={squiggle}/>
+                <img src={squiggle} alt=''/>
             </div>
             <section>
                 <div className='container'>

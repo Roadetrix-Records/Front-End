@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header, SpotifyLogo, InstagramLogo, YoutubeLogo, StyledLink } from './styles';
+import { Header, StyledLink } from './styles';
 import logoBlack from '../../assets/logo-black.png';
 import logoGrey from '../../assets/logo-grey.png';
 import { useHistory } from 'react-router-dom';
@@ -37,7 +37,7 @@ export default ({dark}) => {
 
     return (
         <Header dark={dark}> 
-            <img src={dark ? logoGrey : logoBlack}/>
+            <img src={dark ? logoGrey : logoBlack} alt='Roadetrix Logo'/>
             <nav>
                 <StyledLink 
                     to='/'
