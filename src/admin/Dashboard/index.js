@@ -4,69 +4,125 @@ import axios from 'axios';
 
 
 export default () => {
+    /* 
+        When the {update Spotify} button is clicked by an admin,
+        If logged in
+            This function will fetch all the necessary spotify data and send it to the backend to be stored in db
+        If not logged in or expired token
+            This function will redirect to the spotify login and then redirect back to the admin/dashboard route
+    */
     const handleUpdate = () => {
         const spotifyToken = window.localStorage.getItem('spotifyToken');
         if(spotifyToken){
-            const artist_id = '7Md5xGlvby3sPI2NLkbYlv';
-            axios.get(`https://api.spotify.com/v1/artists/${artist_id}/albums`, 
-            {
+            const artist_id = '7Md5xGlvby3sPI2NLkbYlv'; // Id for Roadetrix Spotify Accout
+            axios.get(`https://api.spotify.com/v1/artists/${artist_id}/albums`, {
                 headers: {
                     'Authorization': 'Bearer ' + spotifyToken
                 }
             })
             .then(res => {
-                console.log(res.data.items);
-                // Data to be stored in db
-                const data = [];
+                // To view the data returned for albums, uncomment this console.log
+                // console.log(res.data.items);
+                let data = {};
+                let albums = [];
+                let artists = [];
+                let tracks = [];
+                let albumTracks = [];
+                let albumArtists = [];
+                let trackArtists = [];
 
-                // Artists found while mapping through album data
-                const artists = [];
-
-                // Add all albums to the final returned array
-                data.push(res.data.items.map(album => {
-                    for(let i=0; i<album.artists.length; i++){
-                        if(!artists.includes(album.artists[i].href)){
-                            artists.push(album.artists[i].href);
+                // Get all albums
+                let newArtist = []; // Used to store all unique artists ids, to be fetched later
+                res.data.items.forEach(album => {
+                    album.artists.forEach(artist => {
+                        if(!newArtist.includes(artist.id)){
+                            newArtist.push(artist.id);
                         }
-                    }
-                    return {
+                        // Data for album artists join table
+                        albumArtists.push({
+                            albumId: album.id,
+                            artistId: artist.id
+                        })
+                    })                    
+                    albums.push({
                         id: album.id,
                         name: album.name,
                         releaseDate: album.release_date,
                         imgUrl: album.images[1].url,
                         externalUrl: album.external_urls.spotify
-                    }
-                }));
-
-                // Add all artists to the final retunred array
-                const formattedArtists = [];
-                artists.forEach(artist => {
-                    axios.get(artist,
-                    {
+                    })
+                    // Get all tracks
+                    axios.get(`https://api.spotify.com/v1/albums/${album.id}/tracks`, {
                         headers: {
                             'Authorization': 'Bearer ' + spotifyToken
                         }
                     })
                     .then(res => {
-                        formattedArtists.push({
-                            id: res.data.id,
-                            name: res.data.name,
-                            externalUrl: res.data.external_urls.spotify,
-                            followers: res.data.followers.total,
-                            imgUrl: res.data.images[1].url
+                        // To view the data returned for tracks per album, uncomment this console.log
+                        // console.log(res.data.items);
+                        res.data.items.forEach(track => {
+                            // Data for album tracks join table
+                            albumTracks.push({
+                                trackId: track.id,
+                                albumId: album.id
+                            })
+                            // Data for tracks
+                            tracks.push({
+                                id: track.id,
+                                name: track.name,
+                                trackUrl: track.href
+                            })
+                            track.artists.forEach(artist => {
+                                trackArtists.push({
+                                    trackId: track.id,
+                                    artistId: artist.id
+                                })
+                            })
                         })
                     })
-                    .catch(err => {
-                        console.log(err);
-                    })
+                });
+
+                // Get all artists - create a query string with all the existing artists (MAX 20 ARTIST IDs)
+                let artistsQueryString = 'https://api.spotify.com/v1/artists?ids=';
+                newArtist.forEach(artistId => {
+                    artistsQueryString = artistsQueryString.concat(artistId, ',');
                 })
-                data.push(formattedArtists);
+                artistsQueryString = artistsQueryString.substring(0, artistsQueryString.length - 1);
+                axios.get(artistsQueryString, {
+                    headers: {
+                        'Authorization': 'Bearer ' + spotifyToken
+                    }
+                })
+                .then(res => {
+                    // To view the data returned for artists, uncomment this console.log
+                    // console.log(res.data.artists);
+                    // Data for artists
+                    res.data.artists.forEach(artist => {
+                        artists.push({
+                            id: artist.id,
+                            name: artist.name,
+                            externalUrl: artist.external_urls.spotify,
+                            followers: artist.followers.total,
+                            imgUrl: artist.images[1].url
+                        });
+                    });
+                });
 
-                
+                // Structure returned data
+                data = {
+                    albums,
+                    artists,
+                    tracks,
+                    albumTracks,
+                    albumArtists,
+                    trackArtists
+                }
 
+                // POST request to roadetrix backend, passing all the data
                 console.log(data);
             })
             .catch(err => {
+                console.log(err);
                 if(err.response.status === 401){
                     window.localStorage.removeItem(spotifyToken);
                     window.location.href = spotifyAuth();
