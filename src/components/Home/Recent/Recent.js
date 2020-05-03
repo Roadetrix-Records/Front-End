@@ -1,59 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Recent } from '../styles';
 import FeaturedCard from './FeaturedCard';
 import RecentCard from './RecentCard';
 import Arrow from '../../../assets/arrow.svg';
 import { Link } from 'react-router-dom';
-
-const dummyFeatured = {
-        id: 1,
-        songTitle: 'Outset',
-        albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2736262995af53c2590a771e022'
-    }
-
-const dummyRecent = [
-    {
-        id: 2,
-        songTitle: 'Phantasm',
-        albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67706c0000da84927772ce54afacdc191bd9bf'
-    },
-    {
-        id: 3,
-        songTitle: 'Rose Tinted',
-        albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2732537b18acd67d435f9a81376'
-    },
-    {
-        id: 4,
-        songTitle: 'Paradise',
-        albumName: 'Dystopia',
-        imgUrl: 'https://i.scdn.co/image/ab67616d0000b2737ed6ed3347b4a40ec3513a2c'
-    }
-]
-
-// useEffect(() => {
-    // Get 3 most recent releases excluding most recent: image. track name. album name
-    // If album => no track name to display
-// }, [])
+import axios from 'axios';
 
 export default () => {
+    const [ latest, setLatest ] = useState(null)
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/spotify/latest-4')
+        .then(res => {
+            setLatest(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }, [])
+
     return(
         <Recent>
-            <FeaturedCard release={dummyFeatured}/>
+            {latest && (
+                <FeaturedCard release={latest[0]}/>
+            )}
             <h2>Latest Releases</h2>
-            <div className='recent-releases'>
-                {dummyRecent.map(release => {
-                    return <RecentCard release={release} key={release.id}/>
-                })}
-                <div className='see-all'>
-                    <p>See All Releases</p>
-                    <Link to='/releases'>
-                        <img src={Arrow} alt=''/>
-                    </Link>
+            {latest && (
+                <div className='recent-releases'>
+                    {latest.map((release, index) => {
+                        if(index > 0){
+                            return <RecentCard release={release} key={release.albumId}/>
+                        }
+                    })}
+                    <div className='see-all'>
+                        <p>See All Releases</p>
+                        <Link to='/releases'>
+                            <img src={Arrow} alt=''/>
+                        </Link>
+                    </div>
                 </div>
-            </div>
+            )}
+            
         </Recent>
     );
 }

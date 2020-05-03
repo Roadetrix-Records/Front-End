@@ -3,11 +3,12 @@ import { RecentCard } from '../styles';
 import { Link } from 'react-router-dom';
 
 export default ({ release }) => {
+    // console.log(release)
     return (
         <RecentCard>
-            <Link to={`/releases/${release.id}`}>
+            <Link to={`/releases/${release.albumId}`}>
                 <div className='img-container'>
-                    <img src={release.imgUrl} alt={release.songTitle}/>
+                    <img src={release.albumImgUrl} alt={release.songTitle}/>
                     <div className='img-overlay'/>
                 </div>
             </Link>
