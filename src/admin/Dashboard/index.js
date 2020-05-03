@@ -59,6 +59,7 @@ export default () => {
                 }
             })
             .catch(err => {
+                console.log('data for albums', err);
                 if(err.response.status === 401){
                     window.localStorage.removeItem(spotifyToken);
                     window.location.href = spotifyAuth();
@@ -102,6 +103,7 @@ export default () => {
                     }
                 })
                 .catch(err => {
+                    console.log('data for tracks', err);
                     if(err.response.status === 401){
                         window.localStorage.removeItem(spotifyToken);
                         window.location.href = spotifyAuth();
@@ -122,6 +124,7 @@ export default () => {
                 }
             })
             .then(res => {
+                console.log(res);
                 const artistsRes = res.data.artists;
                 for(let i=0; i<artistsRes.length; i++){
                     artists.push({
@@ -130,11 +133,12 @@ export default () => {
                         externalUrl: artistsRes[i].external_urls.spotify,
                         privateUrl: artistsRes[i].href,
                         followers: artistsRes[i].followers.total,
-                        imgUrl: artistsRes[i].images[1].url
+                        imgUrl: artistsRes[i].images[1] ? artistsRes[i].images[1].url : ''
                     })
                 }
             })
             .catch(err => {
+                console.log('data for artists', err);
                 if(err.response.status === 401){
                     window.localStorage.removeItem(spotifyToken);
                     window.location.href = spotifyAuth();

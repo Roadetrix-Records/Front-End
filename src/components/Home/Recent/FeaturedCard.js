@@ -10,6 +10,7 @@ import axios from 'axios';
 // }, [])
 
 export default ({ release }) => {
+    // console.log(release);
     const handleSave = () => {
         const spotifyToken = window.localStorage.getItem('spotifyToken')
         if(spotifyToken){
@@ -37,9 +38,9 @@ export default ({ release }) => {
 
     return (
         <FeaturedCard>
-            <Link to={`/releases/${release.id}`}>
+            <Link to={`/releases/${release.albumId}`}>
                 <div className='img-container'>
-                    <img src={release.imgUrl} alt={release.songTitle}/>
+                    <img src={release.albumImgUrl} alt={release.songTitle}/>
                     <div className='img-overlay'/>
                 </div>
             </Link> 
