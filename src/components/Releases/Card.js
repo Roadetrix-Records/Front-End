@@ -6,10 +6,10 @@ export default ({release}) => {
         <Link to={`/releases/${release.id}`}>
             <div className='release-card'>
                 <div className='img-container'>
-                    <img src={release.imgUrl} alt={release.songTitle}/>
+                    <img src={release.imgUrl} alt={release.name}/>
                     <div className='img-overlay'/>
                 </div>
-                <h3>{release.songTitle}</h3>
+                <h3>{release.name}</h3>
             </div>
         </Link>
     );

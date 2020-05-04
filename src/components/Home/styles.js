@@ -90,20 +90,11 @@ export const Recent = styled.div`
                 margin-top: 10px;
                 cursor: pointer;
                 &:hover{
-                    animation: growAnimation 1s ease;
-                    animation-iteration-count: 1;
-                    width: 40px;
+                    opacity: 0.8;
+                    transition: opacity 1s ease;
                 }
             }
         }
-    }
-    @keyframes growAnimation{
-        0% { 
-            width: 30px; 
-        } 
-        100% { 
-            width: 40px; 
-         } 
     }
 `;
 
