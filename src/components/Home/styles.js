@@ -68,33 +68,66 @@ export const Recent = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    h2{
-        font-family: ${theme.fonts.anton};
-        font-size: 4rem;
-        color: ${theme.colors.white};
-        margin: 50px 0;
-        letter-spacing: 2px;
+    .see-all {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2{
+            font-family: ${theme.fonts.anton};
+            font-size: 3rem;
+            color: ${theme.colors.white};
+            margin: 50px 0;
+            letter-spacing: 2px;
+        }
+        .spacer{
+            margin: 0 7px;
+        }
+        .bar{
+            margin: 0 30px;
+            height: 1px;
+            width: 100%;
+            background-color: ${theme.colors.white};
+        }
+        p{
+            font-family: ${theme.fonts.roboto};
+            color: ${theme.colors.white};
+            font-size: 2rem;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .link{
+            display: flex;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+        }
     }
+    
     .recent-releases{
         display: flex;
         align-items: center;
         width: 100%;
         margin-bottom: 100px;
-        .see-all{
-            font-family: ${theme.fonts.roboto};
-            color: ${theme.colors.white};
-            font-size: 2rem;
-            img{
-                width: 30px;
-                height: 30px;
-                margin-top: 10px;
-                cursor: pointer;
-                &:hover{
-                    opacity: 0.8;
-                    transition: opacity 1s ease;
-                }
-            }
-        }
+        // .see-all{
+        //     font-family: ${theme.fonts.roboto};
+        //     color: ${theme.colors.white};
+        //     font-size: 2rem;
+        //     img{
+        //         width: 30px;
+        //         height: 30px;
+        //         margin-top: 10px;
+        //         cursor: pointer;
+        //         &:hover{
+        //             opacity: 0.8;
+        //             transition: opacity 1s ease;
+        //         }
+        //     }
+        // }
     }
 `;
 

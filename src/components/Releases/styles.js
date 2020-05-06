@@ -18,7 +18,7 @@ export const Releases = styled.section`
     .releases-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         a {
             text-decoration: none;
             color: ${theme.colors.darkGrey};
@@ -29,7 +29,7 @@ export const Releases = styled.section`
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 20px;
+            margin: 20px 0;
             cursor: pointer;
             .img-container {
                 position: relative;

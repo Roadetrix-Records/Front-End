@@ -88,21 +88,28 @@ export const Form = styled.form`
         height: 30px;
         font-size: 1.5rem;
     }
-    .button{
-        margin-top: 20px;
-        width: 100%;
-        height: 50px;
-        background-color: ${theme.colors.lightPink};
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: ${theme.fonts.roboto};
-        color: ${theme.colors.white};
+    p{
         font-size: 2rem;
-        cursor: pointer;
-        &:hover{
-            background-color: ${theme.colors.darkPink};
-            transition: background-color 1s ease;
-        }
+        font-family: ${theme.fonts.roboto};
+        color: ${theme.colors.darkPink};
+        margin-top: 10px;
+    }
+`;
+
+export const Submit = styled.div`
+    margin-top: 20px !important;
+    width: 100%;
+    height: 50px;
+    background-color: ${props => props.submitting ? 'grey' : theme.colors.lightPink};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: ${theme.fonts.roboto};
+    color: ${theme.colors.white};
+    font-size: 2rem;
+    cursor: pointer;
+    &:hover{
+        background-color: ${props => props.submitting ? 'grey' : theme.colors.darkPink};
+        transition: background-color 1s ease;
     }
 `;

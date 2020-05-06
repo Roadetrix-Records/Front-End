@@ -19,7 +19,7 @@ function App() {
       
       {/* User Page Routes */}
       <Route exact path='/'>
-        <Header dark={true}/>
+        {/* <Header dark="true"/> */}
         <Home/>
       </Route>
       <Route exact path='/releases'>

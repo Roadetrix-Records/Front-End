@@ -9,7 +9,6 @@ export default () => {
     useEffect(() => {
         axios.get('http://localhost:5000/spotify/albums')
         .then(res => {
-            console.log(res.data);
             setReleases(res.data);
         })
         .catch(err => {
