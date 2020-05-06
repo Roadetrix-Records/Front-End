@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Header';
 import { Releases } from './styles';
 
 // Component Imports
@@ -12,9 +13,10 @@ export default () => {
     return (
         <>
             <Releases>
+                <Header dark='true'/>
                 <Recent/>
             </Releases>
-            <img src={darkWavyBg} className='top' alt=''/>
+            {/* <img src={darkWavyBg} className='top' alt=''/> */}
             <img src={pinkWavyBg} className='bottom' alt=''/>
         </>
     );

@@ -10,7 +10,7 @@ export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${props => props.dark ? theme.colors.black : theme.colors.white};
+    background-color: ${props => props.dark ? 'rgba(255, 255, 255, 0)' : theme.colors.white};
     img{
         margin-left: 20px;
         width: 250px;

@@ -8,6 +8,7 @@ import Releases from './components/Releases';
 import Submissions from './components/Submissions';
 import Login from './admin/Login';
 import Dashboard from './admin/Dashboard';
+import Details from './components/Releases/Details';
 
 // Util Imports
 import spotifyCallback from './utils/spotifyCallback';
@@ -18,7 +19,7 @@ function App() {
       
       {/* User Page Routes */}
       <Route exact path='/'>
-        <Header dark={true}/>
+        {/* <Header dark="true"/> */}
         <Home/>
       </Route>
       <Route exact path='/releases'>
@@ -27,6 +28,7 @@ function App() {
       </Route>
       <Route path='/releases/:id'>
         <Header/>
+        <Details/>
       </Route>
       <Route path='/submissions'>
         <Header />

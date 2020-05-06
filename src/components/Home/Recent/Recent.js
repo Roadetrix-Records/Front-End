@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default () => {
-    const [ latest, setLatest ] = useState(null)
+    const [ latest, setLatest ] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:5000/spotify/latest-4')
@@ -21,24 +21,30 @@ export default () => {
 
     return(
         <Recent>
-            {latest && (
+            {latest.length > 0 && (
+                <>
                 <FeaturedCard release={latest[0]}/>
-            )}
-            <h2>Latest Releases</h2>
-            {latest && (
+                <div className='see-all'>
+                    <h2>Latest</h2>
+                    <div className='spacer'/>
+                    <h2>Releases</h2>
+                    <div className='bar'/>
+                    <Link to='/releases'>
+                        <div className='link'>
+                            <p>See</p>" "
+                            <p>all</p>
+                            <img src={Arrow} alt=''/>
+                        </div>
+                    </Link>
+                </div>
                 <div className='recent-releases'>
                     {latest.map((release, index) => {
                         if(index > 0){
                             return <RecentCard release={release} key={release.albumId}/>
                         }
                     })}
-                    <div className='see-all'>
-                        <p>See All Releases</p>
-                        <Link to='/releases'>
-                            <img src={Arrow} alt=''/>
-                        </Link>
-                    </div>
                 </div>
+                </>
             )}
             
         </Recent>
