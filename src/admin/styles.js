@@ -10,8 +10,14 @@ export const Login = styled.div`
     h1 {
         font-size: 4rem;
         font-family: ${theme.fonts.roboto};
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         text-align: center;
+    }
+    p {
+        margin-bottom: 30px;
+        font-family: ${theme.fonts.roboto};
+        font-size: 2rem;
+        color: red;
     }
     .form-container {
         background-color: ${theme.colors.lightBlue};
