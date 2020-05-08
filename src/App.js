@@ -12,6 +12,7 @@ import Details from './components/Releases/Details';
 
 // Util Imports
 import spotifyCallback from './utils/spotifyCallback';
+import PrivateRoute from './utils/privateRoute';
 
 function App() {
   return (
@@ -49,9 +50,7 @@ function App() {
         <Login/>
       </Route>
       {/* TODO: Make private route */}
-      <Route path='/admin/dashboard'>
-        <Dashboard/>
-      </Route>
+      <PrivateRoute component={Dashboard} path='/admin/dashboard' exact/>
     </div>
   );
 }

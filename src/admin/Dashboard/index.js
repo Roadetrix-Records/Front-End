@@ -1,8 +1,10 @@
 import React from 'react';
 import spotifyAuth from '../../utils/spotifyAuth';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 export default () => {
+    const history = useHistory();
     /* 
         When the {update Spotify} button is clicked by an admin,
         If logged in
@@ -167,11 +169,17 @@ export default () => {
             window.location.href = spotifyAuth();
         }
     }
+
+    const handleLogOut = () => {
+        window.localStorage.removeItem('adminToken');
+        history.push('/admin');
+    }
     
     return (
         <div>
             <h1>dashboard</h1>
             <button onClick={handleUpdate}>Update Spotify</button>
+            <button onClick={handleLogOut}>Log Out</button>
         </div>
     );
 }
