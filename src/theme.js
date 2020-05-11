@@ -1,7 +1,8 @@
 export default {
     fonts: {
         roboto: 'Roboto, sans-serif',
-        anton: 'Anton, sans-serif'
+        anton: 'Anton, sans-serif',
+        ubuntu: 'Ubuntu, sans-serif'
     },
     colors: {
         darkPink: '#F9AFAF',
