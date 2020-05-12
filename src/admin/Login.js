@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Login } from './styles';
+import { Login, UserInput, PasswordInput, UserIcon, LockIcon } from './styles';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -10,22 +10,24 @@ export default () => {
         password: ''
     })
     const [ error, setError ] = useState('');
+    const [ userFocus, setUserFocus ] = useState(false);
+    const [ passFocus, setPassFocus ] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
-        // TODO: Handle authentication and redirect
-        axios.post('http://localhost:5000/auth/login', credentials)
-        .then(res => {
-            window.localStorage.setItem('adminToken', res.data.token);
-            setCredentials({
-                username: '',
-                password: ''
-            })
-            history.push('/admin/dashboard');
-        })
-        .catch(err => {
-            setError(err.response.data.message);
-        })
+        console.log('submitting');
+        // axios.post('http://localhost:5000/auth/login', credentials)
+        // .then(res => {
+        //     window.localStorage.setItem('adminToken', res.data.token);
+        //     setCredentials({
+        //         username: '',
+        //         password: ''
+        //     })
+        //     history.push('/admin/dashboard');
+        // })
+        // .catch(err => {
+        //     setError(err.response.data.message);
+        // })
     }
 
     const handleChange = e => {
@@ -37,9 +39,34 @@ export default () => {
 
     return (
         <Login>
-            <h1>Roadetrix Records Admin Login</h1>
+            <div className='login-container'>
+                <h1>ADMIN LOGIN</h1>
+                <form>
+                    <UserInput focus={userFocus}>
+                        <UserIcon/>
+                        <input
+                            name='username'
+                            type='text'
+                            value={credentials.username}
+                            onChange={handleChange}
+                            placeholder='Username'
+                        />
+                    </UserInput>
+                    <PasswordInput focus={passFocus}>
+                        <LockIcon/>
+                        <input
+                            name='password'
+                            type='password'
+                            value={credentials.password}
+                            onChange={handleChange}
+                            placeholder='Password'
+                        />
+                    </PasswordInput>
+                    <div className='login-btn' onClick={handleSubmit}>Login</div>
+                </form>
+            </div>
             {error.length > 0 && <p>{error}</p>}
-            <div className='form-container'>            
+            {/* <div className='form-container'>            
                 <form>
                     <label>Username</label>
                     <input
@@ -54,9 +81,8 @@ export default () => {
                         value={credentials.password}
                         onChange={handleChange}
                     />
-                    <div className='login-btn' onClick={handleSubmit}>Login</div>
                 </form>
-            </div>
+            </div> */}
         </Login>
     )
 }
