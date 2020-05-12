@@ -21,7 +21,7 @@ export const Submissions = styled.section`
         display: flex;
         height: 500px;
         width: 100%;
-        background-color: ${theme.colors.lightGrey};
+        background-color: ${theme.spotify.black};
         .container{
             display: flex;
             justify-content: space-between;
@@ -85,6 +85,7 @@ export const Form = styled.form`
         font-size: 2.3rem;
     }
     input{
+        margin-top: 10px;
         height: 30px;
         font-size: 1.5rem;
     }

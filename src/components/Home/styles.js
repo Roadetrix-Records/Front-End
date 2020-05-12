@@ -208,6 +208,48 @@ export const SocialContainer = styled.section`
     }
 `;
 
+export const PlaylistContainer = styled.section`
+    position: relative;
+    height: 600px;
+    background-color: ${theme.spotify.black};
+    padding-left: 10%;
+    h1{
+        color: ${theme.spotify.darkGreen};
+        font-size: 4rem;
+        font-family: ${theme.fonts.anton};
+        letter-spacing: 2px;
+        display: inline-block;
+        padding-top: 40px;
+        z-index: 2;
+        position: absolute;
+    }
+    #bg1{
+        height: 500px;
+        opacity: 0.5;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    #bg2{
+        height: 100%;;
+        position: absolute;
+        right: 0;
+        opacity: 0.5;
+        z-index: 1;
+    }
+`;
+
+export const SubmissionsContainer = styled.section`
+    h1{
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 30px;
+    }
+`;
+
 // Logos
 export const SpotifyLogo = styled(Spotify)`
     width: 30px;

@@ -17,7 +17,7 @@ export default () => {
     let token = hash.access_token
     if (token) {
         window.localStorage.setItem('spotifyToken', token);
-        if(window.localStorage.getItem('admin')){
+        if(window.localStorage.getItem('adminToken')){
             history.push('/admin/dashboard');
         }else{
             history.push('/');
