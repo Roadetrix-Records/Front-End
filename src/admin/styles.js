@@ -3,8 +3,8 @@ import theme from './theme';
 import { User, LockAlt } from '@styled-icons/boxicons-solid'
 
 export const Login = styled.div`
-    background: rgb(77,168,191);
-    background: linear-gradient(90deg, rgba(77,168,191,1) 0%, rgba(91,192,190,1) 100%);
+    background: rgb(91,192,190);
+    background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
     display: flex;
     width: 100%;
     height: 100vh;
@@ -53,8 +53,8 @@ export const Login = styled.div`
                 .login-btn{
                     width: 150px;
                     height: 40px;
-                    background: rgb(77,168,191);
-                    background: linear-gradient(90deg, rgba(77,168,191,1) 0%, rgba(91,192,190,1) 100%);
+                    background: rgb(91,192,190);
+                    background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
                     box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.75);
                     color: white;
                     display: flex;
@@ -64,6 +64,9 @@ export const Login = styled.div`
                     font-size: 1.5rem;
                     cursor: pointer;
                     border-radius: 10px;
+                    &:hover{
+                        opacity: 0.9;
+                    }
                 }
             }
         }

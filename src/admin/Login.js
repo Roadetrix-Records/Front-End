@@ -7,19 +7,24 @@ import axios from 'axios';
 export default () => {
     const history = useHistory();
     const [ credentials, setCredentials ] = useState({
-        username: '',
-        password: ''
+        username: window.localStorage.getItem('roadetrixUser') || '',
+        password: window.localStorage.getItem('roadetrixPass') || ''
     })
     const [ error, setError ] = useState('');
     const [ userFocus, setUserFocus ] = useState(false);
     const [ passFocus, setPassFocus ] = useState(false);
-    const [ checked, setChecked ] = useState(false);
+    const [ checked, setChecked ] = useState(window.localStorage.getItem('roadetrixRemember') || false);
 
     const handleSubmit = e => {
         e.preventDefault();
         axios.post('http://localhost:5000/auth/login', credentials)
         .then(res => {
             window.localStorage.setItem('adminToken', res.data.token);
+            if(checked){
+                window.localStorage.setItem('roadetrixUser', credentials.username);
+                window.localStorage.setItem('roadetrixPass', credentials.password);
+                window.localStorage.setItem('roadetrixRemember', checked);
+            }
             setCredentials({
                 username: '',
                 password: ''

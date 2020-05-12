@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import theme from '../../theme';
 import { Link } from 'react-router-dom';
 
-import { Spotify, Instagram, Youtube } from '@styled-icons/boxicons-logos'
-
 export const Header = styled.header`
     height: 100px;
     width: 100%;

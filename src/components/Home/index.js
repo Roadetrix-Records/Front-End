@@ -5,6 +5,8 @@ import { Releases } from './styles';
 // Component Imports
 import Recent from './Recent/Recent';
 import Social from './Social/Social';
+import Playlists from './Playlists/Playlists';
+import Submissions from './Submissions/Submissions';
 
 export default () => {
     return (
@@ -14,6 +16,8 @@ export default () => {
                 <Recent/>
             </Releases>
             <Social/>
+            <Playlists/>
+            <Submissions/>
         </>
     );
 }
