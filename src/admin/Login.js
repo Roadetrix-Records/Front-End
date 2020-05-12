@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Login, UserInput, PasswordInput, UserIcon, LockIcon } from './styles';
+import { Login, UserInput, PasswordInput, Error, UserIcon, LockIcon } from './styles';
 import { useHistory } from 'react-router-dom';
+import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
 
 export default () => {
@@ -12,22 +13,22 @@ export default () => {
     const [ error, setError ] = useState('');
     const [ userFocus, setUserFocus ] = useState(false);
     const [ passFocus, setPassFocus ] = useState(false);
+    const [ checked, setChecked ] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('submitting');
-        // axios.post('http://localhost:5000/auth/login', credentials)
-        // .then(res => {
-        //     window.localStorage.setItem('adminToken', res.data.token);
-        //     setCredentials({
-        //         username: '',
-        //         password: ''
-        //     })
-        //     history.push('/admin/dashboard');
-        // })
-        // .catch(err => {
-        //     setError(err.response.data.message);
-        // })
+        axios.post('http://localhost:5000/auth/login', credentials)
+        .then(res => {
+            window.localStorage.setItem('adminToken', res.data.token);
+            setCredentials({
+                username: '',
+                password: ''
+            })
+            history.push('/admin/dashboard');
+        })
+        .catch(err => {
+            setError(err.response.data.message);
+        })
     }
 
     const handleChange = e => {
@@ -35,6 +36,26 @@ export default () => {
             ...credentials,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handleFocus = e => {
+        if(e.target.name === 'username'){
+            setUserFocus(true);
+        }else{
+            setPassFocus(true);
+        }
+    }
+
+    const handleBlur = e => {
+        if(e.target.name === 'username'){
+            setUserFocus(false);
+        }else{
+            setPassFocus(false);
+        }
+    }
+
+    const handleCheck= e => {
+        setChecked(e.target.checked);
     }
 
     return (
@@ -50,6 +71,8 @@ export default () => {
                             value={credentials.username}
                             onChange={handleChange}
                             placeholder='Username'
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
                         />
                     </UserInput>
                     <PasswordInput focus={passFocus}>
@@ -60,29 +83,25 @@ export default () => {
                             value={credentials.password}
                             onChange={handleChange}
                             placeholder='Password'
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
                         />
                     </PasswordInput>
-                    <div className='login-btn' onClick={handleSubmit}>Login</div>
+                    <div className='remember-container'>
+                    <Checkbox
+                        onChange={handleCheck}
+                        checked={checked}
+                        color="default"
+                        inputProps={{ 'aria-label': 'checkbox with default color' }}
+                    />
+                        <p>Remember Me</p>
+                    </div>
+                    <div className='btn-container'>
+                        <div className='login-btn' onClick={handleSubmit}>Sign In</div>
+                    </div>
                 </form>
+                {error.length > 0 && <Error>{error}</Error>}
             </div>
-            {error.length > 0 && <p>{error}</p>}
-            {/* <div className='form-container'>            
-                <form>
-                    <label>Username</label>
-                    <input
-                        name='username'
-                        value={credentials.username}
-                        onChange={handleChange}
-                    />
-                    <label>Password</label>
-                    <input
-                        name='password'
-                        type='password'
-                        value={credentials.password}
-                        onChange={handleChange}
-                    />
-                </form>
-            </div> */}
         </Login>
     )
 }
