@@ -1,57 +1,70 @@
 import styled from 'styled-components';
 import theme from './theme';
+import { User, LockAlt } from '@styled-icons/boxicons-solid'
 
 export const Login = styled.div`
+    background: rgb(77,168,191);
+    background: linear-gradient(90deg, rgba(77,168,191,1) 0%, rgba(91,192,190,1) 100%);
     display: flex;
+    width: 100%;
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    h1 {
-        font-size: 4rem;
-        font-family: ${theme.fonts.roboto};
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    p {
-        margin-bottom: 30px;
-        font-family: ${theme.fonts.roboto};
-        font-size: 2rem;
-        color: red;
-    }
-    .form-container {
-        background-color: ${theme.colors.lightBlue};
-        border-radius: 20px;
-        width: 300px;
+    .login-container{
+        width: 500px;
+        height: 400px;
+        background-color: white;
+        box-shadow: 0px 0px 35px -3px rgba(0,0,0,0.52);
         display: flex;
         justify-content: center;
-        padding: 60px 0;
-        form {
+        align-items: center;
+        flex-direction: column;
+        h1{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 2rem;
+            color: ${theme.colors.blueGreen};
+        }
+        form{
             display: flex;
             flex-direction: column;
-            color: ${theme.colors.white};
-            font-family: ${theme.fonts.roboto};
-            font-size: 2.5rem;
-            width: 80%;
-            label {
-                margin-bottom: 20px;
-            }
-            input {
-                height: 30px;
-                width: 100%;
-                margin-bottom: 20px;
-                font-size: 2rem;
-                padding-left: 2px;
-            }
-            .login-btn {
-                margin-top: 20px;
-                cursor: pointer;
-                background-color: ${theme.colors.blueGreen};
-                padding: 10px;
-                display: flex;
-                justify-content: center;
-                border-radius: 10px;
-            }
+            width: 100%;
+            align-items: center;
         }
     }
+`;
+
+export const UserInput = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 90%;
+    border-bottom: 1px solid ${theme.colors.lightGrey};
+    input{
+        border: none;
+        outline: none;
+        width: 100%;
+    }
+`;
+
+export const PasswordInput = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 90%;
+    border-bottom: 1px solid ${theme.colors.lightGrey};
+    input{
+        border: none;
+        outline: none;
+        width: 100%;
+    }
+`;
+
+export const UserIcon = styled(User)`
+    width: 20px;
+    color: ${theme.colors.lightGrey};
+`;
+
+export const LockIcon = styled(LockAlt)`
+    width: 20px;
+    color: ${theme.colors.lightGrey};
 `;
