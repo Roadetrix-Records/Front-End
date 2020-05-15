@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import theme from './theme';
 import { User, LockAlt } from '@styled-icons/boxicons-solid'
 
+
+// Login Styles
 export const Login = styled.div`
     background: rgb(91,192,190);
     background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);

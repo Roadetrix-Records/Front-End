@@ -13,7 +13,7 @@ export default () => {
     const [ error, setError ] = useState('');
     const [ userFocus, setUserFocus ] = useState(false);
     const [ passFocus, setPassFocus ] = useState(false);
-    const [ checked, setChecked ] = useState(window.localStorage.getItem('roadetrixRemember') || false);
+    const [ checked, setChecked ] = useState(window.localStorage.getItem('roadetrixRemember') ? true : false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -24,6 +24,10 @@ export default () => {
                 window.localStorage.setItem('roadetrixUser', credentials.username);
                 window.localStorage.setItem('roadetrixPass', credentials.password);
                 window.localStorage.setItem('roadetrixRemember', checked);
+            }else{
+                window.localStorage.removeItem('roadetrixUser');
+                window.localStorage.removeItem('roadetrixPass');
+                window.localStorage.removeItem('roadetrixRemember');
             }
             setCredentials({
                 username: '',
