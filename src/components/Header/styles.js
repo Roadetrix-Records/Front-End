@@ -30,7 +30,7 @@ export const Header = styled.header`
 export const StyledLink = styled(Link)`
     font-size: 1.8rem;
     margin: 0 15px;
-    font-family: ${theme.fonts.roboto};
+    font-family: ${theme.fonts.ubuntu};
     color: ${props => props.selected ? theme.colors.darkPink : props.dark ? theme.colors.grey : theme.colors.darkGrey};
     &:hover{
         color: ${theme.colors.darkPink};
