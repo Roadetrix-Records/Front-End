@@ -51,6 +51,8 @@ export const ToolBar = styled.div`
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     background-color: white;
     z-index: 2;
+    display: flex;
+    align-items: center;
     .logout-btn{
         width: 130px;
         height: 50px;
@@ -95,6 +97,50 @@ export const PlaylistContainer = styled.div`
     height: 40%;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     background-color: white;
+    .top{
+        display: flex;
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 20px;
+            h1{
+                font-family: ${theme.fonts.anton};
+                font-size: 2.5rem;
+            }
+            .bar{
+                width: 150px;
+                height: 1px;
+                margin: 5px 0;
+                background-color: ${theme.colors.blueGreen};
+            }
+            p{
+                font-family: ${theme.fonts.ubuntu};
+                font-size: 1.3rem;
+            }
+        }
+    }
+    .bottom{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        form{
+            display: flex;
+            .update-btn{
+                width: 100px;
+                height: 30px;
+                border-radius: 10px;
+                background: rgb(91,192,190);
+                background: linear-gradient(0deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: white
+            }
+        }
+    }
 `;
 
 export const Submissions = styled.div`
