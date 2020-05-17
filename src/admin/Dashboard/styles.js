@@ -126,10 +126,25 @@ export const PlaylistContainer = styled.div`
         flex-direction: column;
         align-items: center;
         form{
+            margin: 10px 0;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            input {
+                width: 60%;
+                height: 40px;
+                border-radius: 10px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: ${theme.colors.blueGreen};
+                font-size: 2rem;
+                font-family: ${theme.fonts.ubuntu};
+                outline: none;
+            }
             .update-btn{
-                width: 100px;
-                height: 30px;
+                width: 150px;
+                height: 40px;
                 border-radius: 10px;
                 background: rgb(91,192,190);
                 background: linear-gradient(0deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
@@ -137,7 +152,20 @@ export const PlaylistContainer = styled.div`
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                color: white
+                color: white;
+                margin-left: 10px;
+                p{
+                    font-family: ${theme.fonts.ubuntu};
+                    font-size: 2rem;
+                    color: inherit;
+                }
+                &:hover{
+                    background: rgba(255, 255, 255, 0);
+                    color: ${theme.colors.blueGreen};
+                    border: 1px solid ${theme.colors.blueGreen};
+                    width: 148px;
+                    height: 38px;
+                }
             }
         }
     }

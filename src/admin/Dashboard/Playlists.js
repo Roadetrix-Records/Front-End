@@ -14,6 +14,7 @@ export default () => {
                 </div>
             </div>
             <div className='bottom'>
+                {/* TODO: Display any playlist urls current stored in the db */}
                 <PlaylistInput/>
                 <PlaylistInput/>
                 <PlaylistInput/>

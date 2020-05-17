@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export default () => {
     const [ link, setLink ] = useState('');
@@ -8,7 +9,13 @@ export default () => {
     }
 
     const handleUpdate = () => {
-        console.log(link);
+        axios.post('http://localhost:5000/playlists', {link})
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     return (
