@@ -39,7 +39,7 @@ export const Recent = styled.div`
             background-color: ${theme.colors.white};
         }
         p{
-            font-family: ${theme.fonts.roboto};
+            font-family: ${theme.fonts.ubuntu};
             color: ${theme.colors.white};
             font-size: 2rem;
         }
@@ -101,7 +101,7 @@ export const FeaturedCard = styled.div`
             letter-spacing: 2px;
         }
         p{
-            font-family: ${theme.fonts.roboto};
+            font-family: ${theme.fonts.ubuntu};
         }
         .album{
             margin-top: 10px;
@@ -111,21 +111,24 @@ export const FeaturedCard = styled.div`
         .save-to-playlist {
             margin-top: 10px;
             background-color: ${theme.spotify.lightGreen};
-            // border-radius: 15px;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             padding: 5px 0;
+            width: 200px;
             p {
-                color: ${theme.spotify.black};
+                color: inherit;
                 font-size: 1.8rem;
-                font-family: ${theme.fonts.roboto};
+                font-family: ${theme.fonts.ubuntu};
                 margin-left: 5px;
             }
             &:hover{
-                background-color: ${theme.spotify.darkGreen};
-                transition: background-color 1s ease;
+                border: 1px solid ${theme.spotify.lightGreen};
+                background-color: rgba(255, 255, 255, 0);
+                width: 199px;
+                color: ${theme.spotify.lightGreen};
             }
         }
     }
@@ -254,7 +257,7 @@ export const SubmissionsContainer = styled.section`
 export const SpotifyLogo = styled(Spotify)`
     width: 30px;
     margin-right: 5px;
-    color: ${theme.spotify.black};
+    color: inherit;
 `;
 
 export const SpotifySocial = styled(Spotify)`
