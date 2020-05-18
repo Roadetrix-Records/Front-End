@@ -1,9 +1,12 @@
 import React from 'react';
-import { RecentCard } from '../styles';
+
+// Dependency Imports
 import { Link } from 'react-router-dom';
 
+// Style Imports
+import { RecentCard } from '../styles';
+
 export default ({ release }) => {
-    // console.log(release)
     return (
         <RecentCard>
             <Link to={`/releases/${release.albumId}`}>

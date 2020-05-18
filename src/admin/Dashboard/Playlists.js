@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { PlaylistContainer, SpotifyLogo } from './styles';
 import PlaylistInput from './PlaylistInput';
 import axios from 'axios';
+import { BASE_URL } from '../../enviornment';
 
 export default () => {
     const [ playlistUrls, setPlaylistUrls ] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/playlists')
+        axios.get(`${BASE_URL}/playlists`)
         .then(res => {
             res.data.sort((a, b) => {
                 return a.id - b.id

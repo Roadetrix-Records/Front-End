@@ -3,6 +3,7 @@ import { Login, UserInput, PasswordInput, Error, UserIcon, LockIcon } from './st
 import { useHistory } from 'react-router-dom';
 import Checkbox from '@material-ui/core/Checkbox';
 import axios from 'axios';
+import { BASE_URL } from '../enviornment';
 
 export default () => {
     const history = useHistory();
@@ -17,7 +18,7 @@ export default () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:5000/auth/login', credentials)
+        axios.post(`${BASE_URL}/auth/login`, credentials)
         .then(res => {
             window.localStorage.setItem('adminToken', res.data.token);
             if(checked){

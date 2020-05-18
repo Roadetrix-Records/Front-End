@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from '../Header';
-import { Releases } from './styles';
 
 // Component Imports
+import Header from '../Header';
 import Recent from './Recent/Recent';
 import Social from './Social/Social';
 import Playlists from './Playlists/Playlists';
 import Submissions from './Submissions/Submissions';
+
+// Style Imports
+import { Releases } from './styles';
+
 
 export default () => {
     return (

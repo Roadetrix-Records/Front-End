@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import spotifyAuth from '../../utils/spotifyAuth';
 import axios from 'axios';
+import { BASE_URL } from '../../enviornment';
 
 export default (props) => {
     const [ link, setLink ] = useState('');
@@ -26,7 +27,7 @@ export default (props) => {
             }
         })
         .then(res => {
-            axios.put('http://localhost:5000/playlists', {
+            axios.put(`${BASE_URL}/playlists`, {
                 id,
                 url: link,
                 playlistId,

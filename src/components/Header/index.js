@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
+// Component Imports
+import { useHistory } from 'react-router-dom';
+
+// Style Imports
 import { Header, StyledLink } from './styles';
 import logoBlack from '../../assets/logo-black.png';
 import logoGrey from '../../assets/logo-grey.png';
-import { useHistory } from 'react-router-dom';
 
 export default ({dark}) => {
     const [ selection, setSelection ] = useState(-1);

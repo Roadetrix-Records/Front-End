@@ -1,3 +1,5 @@
+import { CLIENT_URL } from '../enviornment';
+
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const clientId = 'c7499dcc8400439d8db3799a33de0f08';
 
@@ -16,6 +18,6 @@ const scopes = [
 
 // Returns a query string to be sent to if user is not authenticated with spotify
 export default () => {
-    const redirectUri = process.env.PUBLIC_URL || 'http://localhost:3000/callback/';
+    const redirectUri = `${CLIENT_URL}/callback/`;
     return `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes)}&response_type=token&show_dialog=true`
 }

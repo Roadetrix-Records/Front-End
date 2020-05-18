@@ -1,8 +1,14 @@
 import React from 'react';
-import { FeaturedCard, SpotifyLogo } from '../styles';
-import { Link } from 'react-router-dom';
-import spotifyAuth from '../../../utils/spotifyAuth';
+
+// Dependency Imports
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+// Util Imports
+import spotifyAuth from '../../../utils/spotifyAuth';
+
+// Style Imports
+import { FeaturedCard, SpotifyLogo } from '../styles';
 
 export default ({ release }) => {
     

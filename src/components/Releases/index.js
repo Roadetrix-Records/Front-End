@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Releases } from './styles';
+// Component Imports
 import Card from './Card';
+
+// Dependency Imports
 import axios from 'axios';
+
+// Util Imports
+import { BASE_URL } from '../../enviornment';
+
+// Style Imports
+import { Releases } from './styles';
+
 
 export default () => {
     const [ releases, setReleases ] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/spotify/albums')
+        axios.get(`${BASE_URL}/spotify/albums`)
         .then(res => {
             setReleases(res.data);
         })

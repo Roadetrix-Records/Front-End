@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { PlaylistContainer } from '../styles';
+
+// Component Imports
 import Card from './Card';
+
+// Dependency Imports
+import axios from 'axios';
+
+// Util Imports
+import { BASE_URL } from '../../../enviornment';
+
+// Style Imports
 import playlistBg1 from '../../../assets/playlist-bg-1.svg';
 import playlistBg2 from '../../../assets/playlist-bg-2.svg';
-import axios from 'axios';
+import { PlaylistContainer } from '../styles';
 
 export default () => {
     const [ playlists, setPlaylists ] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/playlists')
+        axios.get(`${BASE_URL}/playlists`)
         .then(res => {
             res.data.sort((a, b) => {
                 return a.id - b.id;
             })
-            console.log(res.data);
             setPlaylists(res.data);
         })
         .catch(err => {

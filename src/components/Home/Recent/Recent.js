@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Recent } from '../styles';
+
+// Component Imports
 import FeaturedCard from './FeaturedCard';
 import RecentCard from './RecentCard';
-import Arrow from '../../../assets/arrow.svg';
-import { Link } from 'react-router-dom';
+
+// Dependency Imports
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+// Util Imports
+import { BASE_URL } from '../../../enviornment';
+
+// Style Imports
+import Arrow from '../../../assets/arrow.svg';
+import { Recent } from '../styles';
 
 export default () => {
     const [ latest, setLatest ] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/spotify/latest-4')
+        axios.get(`${BASE_URL}/spotify/latest-4`)
         .then(res => {
             setLatest(res.data);
         })

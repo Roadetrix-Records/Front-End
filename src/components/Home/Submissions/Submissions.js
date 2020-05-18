@@ -1,10 +1,14 @@
 import React from 'react';
+
+// Dependency Imports
+import { Link } from 'react-router-dom';
+
+// Style Imports
 import { SubmissionsContainer } from '../styles';
 import dropbox from '../../../assets/dropbox.svg';
 import googleDrive from '../../../assets/google-drive.svg';
 import soundcloud from '../../../assets/soundcloud.svg';
 import youtube from '../../../assets/youtube.svg';
-import { Link } from 'react-router-dom';
 
 export default () => {
     return (
