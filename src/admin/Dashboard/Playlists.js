@@ -12,6 +12,7 @@ export default () => {
             res.data.sort((a, b) => {
                 return a.id - b.id
             })
+            console.log(res.data);
             setPlaylistUrls(res.data);
         })
         .catch(err => {
@@ -30,7 +31,6 @@ export default () => {
                 </div>
             </div>
             <div className='bottom'>
-                {/* TODO: Display any playlist urls current stored in the db */}
                 {playlistUrls && (
                     <>
                         <PlaylistInput id={1} url={playlistUrls[0].url}/>

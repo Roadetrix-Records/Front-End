@@ -214,17 +214,36 @@ export const SocialContainer = styled.section`
 export const PlaylistContainer = styled.section`
     position: relative;
     height: 600px;
-    background-color: ${theme.spotify.black};
-    padding-left: 10%;
-    h1{
-        color: ${theme.spotify.darkGreen};
-        font-size: 4rem;
-        font-family: ${theme.fonts.anton};
-        letter-spacing: 2px;
-        display: inline-block;
-        padding-top: 40px;
+    background-color: ${theme.spotify.black};    
+    .content-container{
         z-index: 2;
         position: absolute;
+        h1{
+            font-family: ${theme.fonts.anton};
+            font-size: 4rem;
+            color: ${theme.spotify.darkGreen};
+        }
+    }
+    .playlists{
+        display: flex;
+        .card{
+            width: 300px;
+            img{
+                width: 100%;
+            }
+            .follow-btn{
+                width: 100%;
+                height: 40px;
+                background-color: ${theme.spotify.darkGreen};
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    font-size: 2rem;
+                    font-family: ${theme.fonts.ubuntu};
+                }
+            }
+        }
     }
     #bg1{
         height: 500px;
@@ -239,6 +258,7 @@ export const PlaylistContainer = styled.section`
         height: 100%;;
         position: absolute;
         right: 0;
+        bottom: 0;
         opacity: 0.5;
         z-index: 1;
     }
