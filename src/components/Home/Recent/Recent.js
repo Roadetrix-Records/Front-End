@@ -47,7 +47,7 @@ export default () => {
                     </Link>
                 </div>
                 <div className='recent-releases'>
-                    {latest.map((release, index) => {
+                    {latest && latest.map((release, index) => {
                         if(index > 0){
                             return <RecentCard release={release} key={release.albumId}/>
                         }
