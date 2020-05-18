@@ -182,6 +182,7 @@ export const SocialContainer = styled.section`
         font-size: 3rem;
         text-align: center;
         margin-top: 30px;
+        font-weight: bold;
     }
     .social-links {
         margin: 0 auto;
@@ -214,17 +215,72 @@ export const SocialContainer = styled.section`
 export const PlaylistContainer = styled.section`
     position: relative;
     height: 600px;
-    background-color: ${theme.spotify.black};
-    padding-left: 10%;
-    h1{
-        color: ${theme.spotify.darkGreen};
-        font-size: 4rem;
-        font-family: ${theme.fonts.anton};
-        letter-spacing: 2px;
-        display: inline-block;
-        padding-top: 40px;
+    background-color: ${theme.spotify.black};    
+    .content-container{
         z-index: 2;
+        width: 100%;
+        height: 100%;
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1{
+            font-family: ${theme.fonts.anton};
+            font-size: 4rem;
+            color: ${theme.spotify.darkGreen};
+            margin-bottom: 40px;
+
+        }
+    }
+    .playlists{
+        display: flex;
+        .card{
+            width: 300px;
+            margin: 0 10px;
+            .img-container{
+                position: relative;
+                img{
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                .img-overlay {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background-color: ${theme.colors.darkGrey};
+                    opacity: 0;
+                    &:hover {
+                        opacity: 0.2;
+                        transition: opacity 0.5s ease;
+                    }
+                }
+            }
+            
+            .follow-btn{
+                width: 100%;
+                height: 40px;
+                background-color: ${theme.spotify.darkGreen};
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                cursor: pointer;
+                p{
+                    font-size: 2rem;
+                    font-family: ${theme.fonts.ubuntu};
+                    color: ${theme.colors.white};
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0);
+                    border: 1px solid ${theme.spotify.darkGreen};
+                    width: calc(100% - 2px);
+                    height: 38px;
+                }
+            }
+        }
     }
     #bg1{
         height: 500px;
@@ -239,17 +295,75 @@ export const PlaylistContainer = styled.section`
         height: 100%;;
         position: absolute;
         right: 0;
+        bottom: 0;
         opacity: 0.5;
         z-index: 1;
     }
 `;
 
 export const SubmissionsContainer = styled.section`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    a{
+        text-decoration: none;
+    }
     h1{
         font-family: ${theme.fonts.ubuntu};
         font-size: 3rem;
         text-align: center;
         margin-top: 30px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    p{
+        text-align: center;
+        font-size: 1.7rem;
+        margin-bottom: 5px;
+        font-family: ${theme.fonts.ubuntu};
+        span{
+            color: ${theme.colors.darkPink};
+        }
+    }
+    .example-container{
+        margin: 20px;
+        display: flex;
+        .display{
+            height: 60px;
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            img{
+                width: 60px;
+            }
+            p{
+                margin-left: 10px;
+            }
+        }
+    }
+    .cta-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 50px;
+        background: rgb(255,165,162);
+        background: linear-gradient(270deg, rgba(255,165,162,1) 0%, rgba(246,177,177,1) 100%);
+        border-radius: 10px;
+        cursor: pointer;
+        color: ${theme.colors.white};
+        margin-bottom: 30px;
+        p{
+            color: inherit;
+            font-size: 2rem;
+        }
+        &:hover{
+            border: 1px solid ${theme.colors.darkPink};
+            width: 298px;
+            height: 48px;
+            color: ${theme.colors.darkPink};
+            background: rgba(255, 255, 255, 0);
+        }
     }
 `;
 

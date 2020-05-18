@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PlaylistContainer, SpotifyLogo } from './styles';
 import PlaylistInput from './PlaylistInput';
+import axios from 'axios';
 
 export default () => {
+    const [ playlistUrls, setPlaylistUrls ] = useState(null);
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/playlists')
+        .then(res => {
+            res.data.sort((a, b) => {
+                return a.id - b.id
+            })
+            console.log(res.data);
+            setPlaylistUrls(res.data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }, [])
+
     return(
         <PlaylistContainer>
             <div className='top'>
@@ -14,11 +31,14 @@ export default () => {
                 </div>
             </div>
             <div className='bottom'>
-                {/* TODO: Display any playlist urls current stored in the db */}
-                <PlaylistInput/>
-                <PlaylistInput/>
-                <PlaylistInput/>
-                <PlaylistInput/>
+                {playlistUrls && (
+                    <>
+                        <PlaylistInput id={1} url={playlistUrls[0].url}/>
+                        <PlaylistInput id={2} url={playlistUrls[1].url}/>
+                        <PlaylistInput id={3} url={playlistUrls[2].url}/>
+                        <PlaylistInput id={4} url={playlistUrls[3].url}/>
+                    </>
+                )}
             </div>
         </PlaylistContainer>
     );
