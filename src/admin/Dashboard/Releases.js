@@ -2,6 +2,7 @@ import React from 'react';
 import spotifyAuth from '../../utils/spotifyAuth';
 import axios from 'axios';
 import { ReleaseContainer, SpotifyLogo } from './styles';
+import { BASE_URL } from '../../enviornment';
 
 export default () => {
     /* 
@@ -155,7 +156,7 @@ export default () => {
             }
 
             // ================= Handle post request to backend =================
-            axios.post(`http://localhost:5000/spotify/data`, compiled)
+            axios.post(`${BASE_URL}/spotify/data`, compiled)
             .then(res => {
                 console.log(res);
             })

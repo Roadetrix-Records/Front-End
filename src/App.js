@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 
 // Component Imports
 import Header from './components/Header';
@@ -9,6 +8,9 @@ import Submissions from './components/Submissions';
 import Login from './admin/Login';
 import Dashboard from './admin/Dashboard';
 import Details from './components/Releases/Details';
+
+// Dependency Imports
+import { Route } from 'react-router-dom';
 
 // Util Imports
 import spotifyCallback from './utils/spotifyCallback';

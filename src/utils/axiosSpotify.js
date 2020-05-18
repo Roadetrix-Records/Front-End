@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { BASE_URL } from '../enviornment';
 
 export const axiosSpotify = () => {
     return axios.create({
-        baseUrl: 'http://localhost:5000/spotify'
+        baseUrl: `${BASE_URL}/spotify`
     })
 }
 
