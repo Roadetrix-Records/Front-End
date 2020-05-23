@@ -37,7 +37,11 @@ export default () => {
             history.push('/admin/dashboard');
         })
         .catch(err => {
-            setError(err.response.data.message);
+            if(typeof err === 'string'){
+                setError(err.response.data.message);
+            }else{
+                console.log(err);
+            }
         })
     }
 
