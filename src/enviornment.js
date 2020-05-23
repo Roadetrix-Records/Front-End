@@ -2,8 +2,8 @@ let BASE_URL;
 let CLIENT_URL;
 
 if(process.env.REACT_APP_ENV === 'production'){
-    BASE_URL='https://roadetrix-staging.herokuapp.com/'
-    CLIENT_URL='https://roadetrix.com/'
+    BASE_URL='https://roadetrix-staging.herokuapp.com'
+    CLIENT_URL='https://roadetrix.com'
 }
 
 if(process.env.REACT_APP_ENV === 'development'){
