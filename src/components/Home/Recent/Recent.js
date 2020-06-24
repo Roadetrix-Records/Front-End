@@ -40,7 +40,7 @@ export default () => {
                     <div className='bar'/>
                     <Link to='/releases'>
                         <div className='link'>
-                            <p>See</p>" "
+                            <p className='margin'>See</p>
                             <p>all</p>
                             <img src={Arrow} alt=''/>
                         </div>

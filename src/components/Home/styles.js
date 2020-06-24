@@ -22,6 +22,7 @@ export const Recent = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
+        max-width: 900px;
         h2{
             font-family: ${theme.fonts.anton};
             font-size: 3rem;
@@ -52,6 +53,9 @@ export const Recent = styled.div`
         .link{
             display: flex;
             align-items: center;
+            .margin{
+                margin-right: 6px;
+            }
         }
         a{
             text-decoration: none;

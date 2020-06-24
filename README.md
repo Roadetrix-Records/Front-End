@@ -14,13 +14,11 @@ lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
 ![ ](read_me_images/architecture.png)
 
 ## Dependencies
----------------
 | Dependency | URL                                 |
 |------------|-------------------------------------|
 |   axios    | asdfasdfasdfasdfasdfasdfasf         |
 
 ## Getting started
----------------
 To get the site running locally:
 - Clone this repo
 - npm install to install all required dependencies
@@ -29,7 +27,6 @@ To get the site running locally:
 Note: Data and some functionality will be missing if [roadetrixBackend](https://github.com/Roadetrix-Records/Back-End) is not also running locally on your system.
 
 ## Making Contributions
----------------
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 ### Issue/Bug Request
