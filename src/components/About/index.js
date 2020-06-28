@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header';
+import Header from '../Header/Header';
 
 import { About } from './styles';
 import texture from '../../assets/about-bg-wave.svg';

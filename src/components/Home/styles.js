@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Background from '../../assets/flower-bg.png';
+import Background from '../../assets/bg-blurred.png';
 import theme from '../../theme';
 import { Spotify, Instagram, Youtube, Twitter, Discord } from '@styled-icons/boxicons-logos'
 
