@@ -63,10 +63,11 @@ export const Menu = styled.div`
     top: 0;
     z-index: 999;
     right: 0;
-    width: ${props => props.open ? '400px' : '0'};
+    width: ${props => props.open ? '300px' : '0'};
     height: 100vh;
-    background: rgb(0,0,0);
-    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+    // background: rgb(0,0,0);
+    // background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+    background-color: ${theme.colors.darkGrey};
     transition: width 0.5s ease;
 `;
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 // Dependency Imports
 import { useHistory } from 'react-router-dom';
@@ -25,6 +25,10 @@ export default ({dark}) => {
         setOpen(!open);
     }
 
+    const handleClose = useCallback(() => {
+        setOpen(false);
+    })
+
     useEffect(() => {
         switch(history.location.pathname){
             case '/':
@@ -46,6 +50,11 @@ export default ({dark}) => {
                 break;
         }
     }, [history.location.pathname])
+
+    useEffect(() => {
+        window.addEventListener('resize', handleClose);
+        return () => window.removeEventListener('resize', handleClose);
+    }, []);
 
     return (
         <Header dark={dark}> 

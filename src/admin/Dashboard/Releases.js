@@ -154,7 +154,6 @@ export default () => {
                 albumTracks,
                 trackArtists
             }
-            console.log(BASE_URL)
             // ================= Handle post request to backend =================
             axios.post(`${BASE_URL}/spotify/data`, compiled, {
                 headers: {
