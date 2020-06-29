@@ -2,7 +2,7 @@ import React from 'react';
 
 // Component Imports
 import Header from './components/Header/Header';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Releases from './components/Releases';
 import Submissions from './components/Submissions';
 import Login from './admin/Login';

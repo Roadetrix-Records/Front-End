@@ -5,7 +5,6 @@ import { Spotify, Instagram, Youtube, Twitter, Discord } from '@styled-icons/box
 
 // Styles for parent components on home page
 export const Releases = styled.section`
-    width: 100%;
     height: 900px;
     background: url(${Background}) no-repeat center center fixed;
     background-size: cover;
@@ -13,16 +12,23 @@ export const Releases = styled.section`
 
 // Styles for Recent component
 export const Recent = styled.div`
+    max-width: 1500px;
     width: 80%;
     height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    .latest-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .see-all {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 900px;
+        width: 100%;
+        max-width: 1500px;
         h2{
             font-family: ${theme.fonts.anton};
             font-size: 3rem;
@@ -61,11 +67,12 @@ export const Recent = styled.div`
             text-decoration: none;
         }
     }
-    
     .recent-releases{
         display: flex;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
+        max-width: 1500px;
         margin-bottom: 100px;
     }
 `;
@@ -94,6 +101,10 @@ export const FeaturedCard = styled.div`
                 opacity: 0.2;
                 transition: opacity 0.5s ease;
             }
+        }
+        @media (max-width: 1000px){
+            width: 200px;
+            height: 200px;
         }
     }
     .text-container{
@@ -139,7 +150,6 @@ export const FeaturedCard = styled.div`
 `;
 
 export const RecentCard = styled.div`
-    margin-right: 50px;
     h3{
         font-family: ${theme.fonts.anton};
         color: ${theme.colors.white};
@@ -168,6 +178,11 @@ export const RecentCard = styled.div`
                 opacity: 0.2;
                 transition: opacity 0.5s ease;
             }
+        }
+        @media (max-width: 1000px){
+            width: 200px;
+            height: 200px;
+            display: ${props => props.index === 3 ? 'none' : 'block'};
         }
     }
     p{
