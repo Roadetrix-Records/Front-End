@@ -19,7 +19,7 @@ export default () => {
     const [ latest, setLatest ] = useState([])
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/latest-4`)
+        axios.get(`${BASE_URL}/spotify/latest-6`)
         .then(res => {
             setLatest(res.data);
         })
@@ -32,27 +32,30 @@ export default () => {
         <Recent>
             {latest.length > 0 && (
                 <>
-                <FeaturedCard release={latest[0]}/>
-                <div className='see-all'>
-                    <h2>Latest</h2>
-                    <div className='spacer'/>
-                    <h2>Releases</h2>
-                    <div className='bar'/>
-                    <Link to='/releases'>
-                        <div className='link'>
-                            <p>See</p>" "
-                            <p>all</p>
-                            <img src={Arrow} alt=''/>
+                    <FeaturedCard release={latest[0]}/>
+                    <div className='latest-container'>
+                        <div className='see-all'>
+                            <h2>Latest</h2>
+                            <div className='spacer'/>
+                            <h2>Releases</h2>
+                            <div className='bar'/>
+                            <Link to='/releases'>
+                                <div className='link'>
+                                    <p className='margin'>See</p>
+                                    <p>all</p>
+                                    <img src={Arrow} alt=''/>
+                                </div>
+                            </Link>
                         </div>
-                    </Link>
-                </div>
-                <div className='recent-releases'>
-                    {latest && latest.map((release, index) => {
-                        if(index > 0){
-                            return <RecentCard release={release} key={release.albumId}/>
-                        }
-                    })}
-                </div>
+                        <div className='recent-releases'>
+                            {latest && latest.map((release, index) => {
+                                if(index > 0){
+                                    return <RecentCard release={release} key={release.albumId} index={index}/>
+                                }
+                            })}
+                        </div>
+                    </div>
+                    
                 </>
             )}
         </Recent>

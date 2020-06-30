@@ -154,14 +154,17 @@ export default () => {
                 albumTracks,
                 trackArtists
             }
-
             // ================= Handle post request to backend =================
-            axios.post(`${BASE_URL}/spotify/data`, compiled)
+            axios.post(`${BASE_URL}/spotify/data`, compiled, {
+                headers: {
+                    Authorization: window.localStorage.getItem('adminToken')
+                }
+            })
             .then(res => {
                 console.log(res);
             })
             .catch(err => {
-                console.log(err);
+                console.log('POST request to backend:', err);
             })
 
         }else{

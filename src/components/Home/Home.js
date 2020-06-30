@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Component Imports
-import Header from '../Header';
+import Header from '../Header/Header';
 import Recent from './Recent/Recent';
 import Social from './Social/Social';
 import Playlists from './Playlists/Playlists';

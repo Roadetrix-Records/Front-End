@@ -1,13 +1,14 @@
 import React from 'react';
 
 // Component Imports
-import Header from './components/Header';
-import Home from './components/Home';
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 import Releases from './components/Releases';
 import Submissions from './components/Submissions';
 import Login from './admin/Login';
 import Dashboard from './admin/Dashboard';
 import Details from './components/Releases/Details';
+import About from './components/About';
 
 // Dependency Imports
 import { Route } from 'react-router-dom';
@@ -38,7 +39,7 @@ function App() {
         <Submissions/>
       </Route>
       <Route path='/about'>
-        <Header/>
+        <About/>
       </Route>
       <Route path='/contact'>
         <Header/>
