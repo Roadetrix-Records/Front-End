@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 // Style Imports
 import { RecentCard } from '../styles';
 
-export default ({ release }) => {
+export default ({ release, index }) => {
+    console.log(index)
     return (
-        <RecentCard>
+        <RecentCard index={index}>
             <Link to={`/releases/${release.albumId}`}>
                 <div className='img-container'>
                     <img src={release.albumImgUrl} alt={release.songTitle}/>

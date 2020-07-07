@@ -69,6 +69,9 @@ export const Menu = styled.div`
     // background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     background-color: ${theme.colors.darkGrey};
     transition: width 0.5s ease;
+    @media(max-width: 400px){
+        width: ${props => props.open ? '200px' : '0'};
+    }
 `;
 
 export const Links = styled.div`

@@ -8,6 +8,12 @@ export const Releases = styled.section`
     height: 900px;
     background: url(${Background}) no-repeat center center fixed;
     background-size: cover;
+    @media (max-width: 530px){
+        height: 800px;
+    }
+    @media (max-width: 360px){
+        height: 650px;
+    }
 `;
 
 // Styles for Recent component
@@ -29,32 +35,52 @@ export const Recent = styled.div`
         justify-content: space-between;
         width: 100%;
         max-width: 1500px;
-        h2{
-            font-family: ${theme.fonts.anton};
-            font-size: 3rem;
-            color: ${theme.colors.white};
-            margin: 50px 0;
-            letter-spacing: 2px;
-        }
-        .spacer{
-            margin: 0 7px;
+        .header{
+            display: flex;
+            h2{
+                font-family: ${theme.fonts.anton};
+                font-size: 3rem;
+                color: ${theme.colors.white};
+                margin: 50px 0;
+                letter-spacing: 2px;
+                ${theme.breakpoints.phone}{
+                    letter-spacing: 1px;
+                    font-size: 2rem;
+                }
+            }
+            .spacer{
+                margin: 0 7px;
+                ${theme.breakpoints.phone}{
+                    margin: 0 4px;
+                }
+            }
         }
         .bar{
             margin: 0 30px;
             height: 1px;
             width: 100%;
             background-color: ${theme.colors.white};
+            ${theme.breakpoints.phone}{
+                display: none;
+            }
         }
         p{
             font-family: ${theme.fonts.ubuntu};
             color: ${theme.colors.white};
             font-size: 2rem;
+            ${theme.breakpoints.phone}{
+                font-size: 1.5rem;
+            }
         }
         img{
             width: 20px;
             height: 20px;
             cursor: pointer;
             margin-left: 10px;
+            ${theme.breakpoints.phone}{
+                width: 15px;
+                height: 15px;
+            }
         }
         .link{
             display: flex;
@@ -106,9 +132,25 @@ export const FeaturedCard = styled.div`
             width: 200px;
             height: 200px;
         }
+        @media (max-width: 530px){
+            width: 170px;
+            height: 170px;
+        }
+        ${theme.breakpoints.phone}{
+            width: 150px;
+            height: 150px;
+        }
+        @media (max-width: 400px){
+            width: 130px;
+            height: 130px;
+        }
     }
     .text-container{
         margin-left: 50px;
+        width: 200px;
+        ${theme.breakpoints.phone}{
+            margin-left: 30px;
+        }
         h3{
             color: ${theme.colors.white};
             font-family: ${theme.fonts.anton};
@@ -132,12 +174,15 @@ export const FeaturedCard = styled.div`
             align-items: center;
             cursor: pointer;
             padding: 5px 0;
-            width: 200px;
+            width: 100%;
             p {
                 color: inherit;
                 font-size: 1.8rem;
                 font-family: ${theme.fonts.ubuntu};
                 margin-left: 5px;
+                @media (max-width: 400px){
+                    font-size: 1.5rem;
+                }
             }
             &:hover{
                 border: 1px solid ${theme.spotify.lightGreen};
@@ -179,10 +224,49 @@ export const RecentCard = styled.div`
                 transition: opacity 0.5s ease;
             }
         }
-        @media (max-width: 1000px){
+        @media (max-width: 1300px){
             width: 200px;
             height: 200px;
-            display: ${props => props.index === 3 ? 'none' : 'block'};
+        }
+        @media (max-width: 1050px){
+            width: 250px;
+            height: 250px;
+        }
+        @media (max-width: 1000px){
+            width: 230px;
+            height: 230px;
+        }
+        @media (max-width: 900px){
+            width: 200px;
+            height: 200px;
+        }
+        @media (max-width: 800px){
+            width: 250px;
+            height: 250px;
+        }
+        @media (max-width: 650px){
+            width: 230px;
+            height: 230px;
+        }
+        @media (max-width: 600px){
+            width: 200px;
+            height: 200px;
+        }
+        @media (max-width: 530px){
+            width: 170px;
+            height: 170px;
+        }
+        ${theme.breakpoints.phone}{
+            width: 150px;
+            height: 150px;
+        }
+        @media (max-width: 400px){
+            width: 130px;
+            height: 130px;
+        }
+        @media (max-width: 360px){
+            width: 115px;
+            height: 115px;
         }
     }
     p{
@@ -191,6 +275,15 @@ export const RecentCard = styled.div`
         color: ${theme.colors.lightPink};
         text-align: center;
         font-size: 1.8rem;
+    }
+    @media (max-width: 1600px){
+        display: ${props => props.index === 5 && 'none'};
+    }
+    @media (max-width: 1050px){
+        display: ${props => props.index == 4 && 'none'};
+    }
+    @media (max-width: 800px){
+        display: ${props => props.index == 3 && 'none'};
     }
 `;
 
@@ -391,6 +484,9 @@ export const SpotifyLogo = styled(Spotify)`
     width: 30px;
     margin-right: 5px;
     color: inherit;
+    @media (max-width: 400px){
+        width: 20px;
+    }
 `;
 
 export const SpotifySocial = styled(Spotify)`

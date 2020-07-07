@@ -17,5 +17,8 @@ export default {
         darkGreen: '#1db954',
         lightGreen: '#1ed760',
         black: '#191414'
+    },
+    breakpoints: {
+        phone: '@media (max-width: 450px)'
     }
 }

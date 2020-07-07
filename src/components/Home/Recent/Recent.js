@@ -35,9 +35,11 @@ export default () => {
                     <FeaturedCard release={latest[0]}/>
                     <div className='latest-container'>
                         <div className='see-all'>
-                            <h2>Latest</h2>
-                            <div className='spacer'/>
-                            <h2>Releases</h2>
+                            <div className='header'>
+                                <h2>Latest</h2>
+                                <div className='spacer'/>
+                                <h2>Releases</h2>
+                            </div>
                             <div className='bar'/>
                             <Link to='/releases'>
                                 <div className='link'>
