@@ -295,29 +295,38 @@ export const SocialContainer = styled.section`
         text-align: center;
         margin-top: 30px;
         font-weight: bold;
-    }
-    .social-links {
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 900px;
-        a{
-            text-decoration: none;
+        ${theme.breakpoints.phone}{
+            font-size: 2.5rem;
         }
-        .social {
-            margin: 20px;
-            width: 200px;
+    }
+    .social-container {
+        width: 100%;
+        .social-links {
+            margin: 0 auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            h2 {
-                font-family: ${theme.fonts.anton};
-                font-size: 2.5rem;
-                color: ${theme.colors.lightGrey};
-                letter-spacing: 3px;
-                &:hover{
-                    color: ${theme.colors.lightPink};
+            width: 80%;
+            a{
+                text-decoration: none;
+            }
+            .social {
+                margin: 20px;
+                width: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h2 {
+                    font-family: ${theme.fonts.anton};
+                    font-size: 2.5rem;
+                    color: ${theme.colors.lightGrey};
+                    letter-spacing: 3px;
+                    &:hover{
+                        color: ${theme.colors.lightPink};
+                    }
+                    @media (max-width: 920px){
+                        font-size: 2rem;
+                    }
                 }
             }
         }
@@ -492,25 +501,55 @@ export const SpotifyLogo = styled(Spotify)`
 export const SpotifySocial = styled(Spotify)`
     color: ${theme.spotify.black};
     width: 70px;
+    @media (max-width: 920px){
+        width: 60px;
+    }
+    ${theme.breakpoints.phone}{
+        width: 50px;
+    }
 `;
 
 export const InstagramSocial = styled(Instagram)`
     color: ${theme.spotify.black};
     width: 70px;
+    @media (max-width: 920px){
+        width: 60px;
+    }
+    ${theme.breakpoints.phone}{
+        width: 50px;
+    }
 `;
 
 export const YouTubeSocial = styled(Youtube)`
     color: ${theme.spotify.black};
     width: 70px;
+    @media (max-width: 920px){
+        width: 60px;
+    }
+    ${theme.breakpoints.phone}{
+        width: 50px;
+    }
 `;
 
 export const DiscordSocial = styled(Discord)`
     color: ${theme.spotify.black};
     width: 70px;
+    @media (max-width: 920px){
+        width: 60px;
+    }
+    ${theme.breakpoints.phone}{
+        width: 50px;
+    }
 `;
 
 export const TwitterSocial = styled(Twitter)`
     color: ${theme.spotify.black};
     width: 70px;
+    @media (max-width: 920px){
+        width: 60px;
+    }
+    ${theme.breakpoints.phone}{
+        width: 50px;
+    }
 `;
 
