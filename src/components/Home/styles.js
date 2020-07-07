@@ -336,7 +336,10 @@ export const SocialContainer = styled.section`
 export const PlaylistContainer = styled.section`
     position: relative;
     height: 600px;
-    background-color: ${theme.spotify.black};    
+    background-color: ${theme.spotify.black};   
+    @media (max-width: 915px){
+        height: 500px;
+    } 
     .content-container{
         z-index: 2;
         width: 100%;
@@ -359,6 +362,15 @@ export const PlaylistContainer = styled.section`
         .card{
             width: 300px;
             margin: 0 10px;
+            @media (max-width: 1300px){
+                width: 250px;
+            }
+            @media (max-width: 1130px){
+                width: 200px;
+            }
+            @media (max-width: 915px){
+                width: 150px;
+            }
             .img-container{
                 position: relative;
                 img{
@@ -379,7 +391,40 @@ export const PlaylistContainer = styled.section`
                     }
                 }
             }
-            
+            a{
+                text-decoration: none;
+            }
+            .details-btn{
+                width: 100%;
+                height: 40px;
+                background-color: ${theme.colors.lightPink};
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                cursor: pointer;
+                margin-bottom: 10px;
+                @media (max-width: 915px){
+                    height: 30px;
+                }
+                p{
+                    font-size: 2rem;
+                    font-family: ${theme.fonts.ubuntu};
+                    color: ${theme.colors.white};
+                    @media (max-width: 915px){
+                        font-size: 1.5rem;
+                    }
+                }
+                &:hover{
+                    background-color: rgba(255, 255, 255, 0);
+                    border: 1px solid ${theme.colors.lightPink};
+                    width: calc(100% - 2px);
+                    height: 38px;
+                    @media (max-width: 915px){
+                        height: 28px;
+                    }
+                }
+            }
             .follow-btn{
                 width: 100%;
                 height: 40px;
@@ -389,16 +434,25 @@ export const PlaylistContainer = styled.section`
                 align-items: center;
                 border-radius: 10px;
                 cursor: pointer;
+                @media (max-width: 915px){
+                    height: 30px;
+                }
                 p{
                     font-size: 2rem;
                     font-family: ${theme.fonts.ubuntu};
                     color: ${theme.colors.white};
+                    @media (max-width: 915px){
+                        font-size: 1.5rem;
+                    }
                 }
                 &:hover{
                     background-color: rgba(255, 255, 255, 0);
                     border: 1px solid ${theme.spotify.darkGreen};
                     width: calc(100% - 2px);
                     height: 38px;
+                    @media (max-width: 915px){
+                        height: 28px;
+                    }
                 }
             }
         }
@@ -411,9 +465,12 @@ export const PlaylistContainer = styled.section`
         left: 40%;
         transform: translate(-50%, -50%);
         z-index: 1;
+        @media (max-width: 915px){
+            height: 400px;
+        }
     }
     #bg2{
-        height: 100%;;
+        height: 100%;
         position: absolute;
         right: 0;
         bottom: 0;
