@@ -82,6 +82,7 @@ export const Links = styled.div`
     top: 80px;
     right: 5px;
     opacity: ${props => props.open ? '1' : '0'};
+    display: ${props => !props.open && 'none'};
     transition: opacity 0.25s ease-in-out;
     .link-container{
         width: 100%;

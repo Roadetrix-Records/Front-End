@@ -11,7 +11,7 @@ export const Releases = styled.section`
     @media (max-width: 530px){
         height: 800px;
     }
-    @media (max-width: 360px){
+    @media (max-width: 450px){
         height: 650px;
     }
 `;
@@ -340,6 +340,9 @@ export const PlaylistContainer = styled.section`
     @media (max-width: 915px){
         height: 500px;
     } 
+    @media (max-width: 750px){
+        height: 700px;
+    }
     .content-container{
         z-index: 2;
         width: 100%;
@@ -359,6 +362,14 @@ export const PlaylistContainer = styled.section`
     }
     .playlists{
         display: flex;
+        @media (max-width: 750px){
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 450px;
+        }
+        @media (max-width: 450px){
+            width: 320px;
+        }
         .card{
             width: 300px;
             margin: 0 10px;
@@ -370,6 +381,10 @@ export const PlaylistContainer = styled.section`
             }
             @media (max-width: 915px){
                 width: 150px;
+            }
+            @media (max-width: 750px){
+                width: 140px;
+                margin-bottom: 50px;
             }
             .img-container{
                 position: relative;
@@ -468,6 +483,9 @@ export const PlaylistContainer = styled.section`
         @media (max-width: 915px){
             height: 400px;
         }
+        @media (max-width: 750px){
+            height: 250px;
+        }
     }
     #bg2{
         height: 100%;
@@ -513,9 +531,15 @@ export const SubmissionsContainer = styled.section`
             margin: 10px;
             img{
                 width: 60px;
+                ${theme.breakpoints.phone}{
+                    width: 40px;
+                }
             }
             p{
                 margin-left: 10px;
+                ${theme.breakpoints.phone}{
+                    font-size: 1.3rem;
+                }
             }
         }
     }
@@ -534,6 +558,9 @@ export const SubmissionsContainer = styled.section`
         p{
             color: inherit;
             font-size: 2rem;
+            ${theme.breakpoints.phone}{
+                font-size: 1.5rem;
+            }
         }
         &:hover{
             border: 1px solid ${theme.colors.darkPink};
@@ -541,6 +568,14 @@ export const SubmissionsContainer = styled.section`
             height: 48px;
             color: ${theme.colors.darkPink};
             background: rgba(255, 255, 255, 0);
+            ${theme.breakpoints.phone}{
+                width: 248px;
+                height: 38px;
+            }
+        }
+        ${theme.breakpoints.phone}{
+            width: 250px;
+            height: 40px;
         }
     }
 `;
