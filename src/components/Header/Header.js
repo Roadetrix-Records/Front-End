@@ -30,25 +30,27 @@ export default ({dark}) => {
     })
 
     useEffect(() => {
-        switch(history.location.pathname){
-            case '/':
-                setSelection(0);
-                break;
-            case '/releases':
-                setSelection(1);
-                break;
-            case '/submissions':
-                setSelection(2);
-                break;
-            case '/about':
-                setSelection(3);
-                break;
-            case '/contact':
-                setSelection(4);
-                break;
-            default:
-                break;
-        }
+        console.log(history.location.pathname);
+        if(history.location.pathname.includes('/releases')){
+            setSelection(1);
+        }else{
+            switch(history.location.pathname){
+                case '/':
+                    setSelection(0);
+                    break;
+                case '/submissions':
+                    setSelection(2);
+                    break;
+                case '/about':
+                    setSelection(3);
+                    break;
+                case '/contact':
+                    setSelection(4);
+                    break;
+                default:
+                    break;
+            }
+        } 
     }, [history.location.pathname])
 
     useEffect(() => {
