@@ -12,9 +12,21 @@ export const Submissions = styled.section`
             font-size: 6rem;
             font-family: ${theme.fonts.anton};
             letter-spacing: 2px;
+            @media (max-width: 800px){
+                font-size: 5rem;
+            }
+            @media (max-width: 500px){
+                font-size: 4rem;
+            }
+            @media (max-width: 400px){
+                font-size: 3rem;
+            }
         }
         img{
             width: 300px;
+            @media (max-width: 800px){
+                width: 250px;
+            }
         }
     }
     section{
@@ -22,6 +34,9 @@ export const Submissions = styled.section`
         height: 500px;
         width: 100%;
         background-color: ${theme.spotify.black};
+        @media (max-width: 1150px){
+            height: 700px;
+        }
         .container{
             display: flex;
             justify-content: space-between;
@@ -29,18 +44,43 @@ export const Submissions = styled.section`
             margin-top: 100px;
             width: 60%;
             max-width: 900px;
+            @media (max-width: 1150px){
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+            @media (max-width: 800px){
+                width: 70%;
+            }
+            @media (max-width: 650px){
+                width: 80%;
+            }
         }
         .text-container{
+            @media (max-width: 1150px){
+                width: 80%;
+                margin-bottom: 30px;
+            }
+            @media (max-width: 800px){
+                width: 100%;
+            }
             h2{
                 font-family: ${theme.fonts.anton};
                 font-size: 3rem;
                 color: ${theme.colors.white};
                 letter-spacing: 2px;
+                @media (max-width: 400px){
+                    font-size: 2rem;
+                }
             }
             p{
                 font-family: ${theme.fonts.roboto};
                 font-size: 1.8rem;
                 color: ${theme.colors.white};
+                @media (max-width: 400px){
+                    font-size: 1.5rem;
+                }
             }
             .first{
                 margin: 20px 0;
@@ -60,6 +100,12 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     width: 60%;
+    @media (max-width: 1150px){
+        width: 80%;
+    }
+    @media (max-width: 800px){
+        width: 100%;
+    }
     .name{
         margin: 0;
         margin-bottom: 10px;
@@ -83,6 +129,9 @@ export const Form = styled.form`
         font-family: ${theme.fonts.roboto};
         color: ${theme.colors.white};
         font-size: 2.3rem;
+        @media (max-width: 400px){
+            font-size: 1.8rem;
+        }
     }
     input{
         margin-top: 10px;
