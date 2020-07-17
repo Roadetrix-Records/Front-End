@@ -280,10 +280,10 @@ export const RecentCard = styled.div`
         display: ${props => props.index === 5 && 'none'};
     }
     @media (max-width: 1050px){
-        display: ${props => props.index == 4 && 'none'};
+        display: ${props => props.index === 4 && 'none'};
     }
     @media (max-width: 800px){
-        display: ${props => props.index == 3 && 'none'};
+        display: ${props => props.index === 3 && 'none'};
     }
 `;
 

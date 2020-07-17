@@ -3,12 +3,12 @@ import React from 'react';
 // Component Imports
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Releases from './components/Releases';
+import Releases from './components/Releases/Releases';
 import Submissions from './components/Submissions';
 import Login from './admin/Login';
-import Dashboard from './admin/Dashboard';
-import Details from './components/Releases/Details';
 import About from './components/About';
+
+import Dashboard from './admin/Dashboard/Dashboard';
 
 // Dependency Imports
 import { Route } from 'react-router-dom';
@@ -20,7 +20,7 @@ import PrivateRoute from './utils/privateRoute';
 function App() {
   return (
     <div className="App">
-      
+            
       {/* User Page Routes */}
       <Route exact path='/'>
         {/* <Header dark="true"/> */}
@@ -29,10 +29,6 @@ function App() {
       <Route exact path='/releases'>
         <Header/>
         <Releases/>
-      </Route>
-      <Route path='/releases/:id'>
-        <Header/>
-        <Details/>
       </Route>
       <Route path='/submissions'>
         <Header />

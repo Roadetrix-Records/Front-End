@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { RecentCard } from '../styles';
 
 export default ({ release, index }) => {
-    console.log(index)
     return (
         <RecentCard index={index}>
             <Link to={`/releases/${release.albumId}`}>

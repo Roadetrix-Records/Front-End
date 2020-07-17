@@ -174,11 +174,13 @@ export default () => {
     
     return (
         <ReleaseContainer>
-            <SpotifyLogo/>
-            <div className='content'>
-                <h1>Most Recent</h1>
-                <div className='line'/>
-                <div className='update-btn' onClick={handleUpdate}>Update Spotify</div>
+            <div className='top'>
+                <SpotifyLogo/>    
+                <div className='content'>
+                    <h1>Most Recent</h1>
+                    <div className='bar'/>
+                    <div className='update-btn' onClick={handleUpdate}>Update Spotify</div>
+                </div>
             </div>
         </ReleaseContainer>
     )

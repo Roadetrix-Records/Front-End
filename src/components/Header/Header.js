@@ -30,7 +30,6 @@ export default ({dark}) => {
     })
 
     useEffect(() => {
-        console.log(history.location.pathname);
         if(history.location.pathname.includes('/releases')){
             setSelection(1);
         }else{
