@@ -119,6 +119,7 @@ export const PlaylistCard = styled.div`
     }
     img{
         width: 100%;
+        user-select: none;
     }
 `;
 

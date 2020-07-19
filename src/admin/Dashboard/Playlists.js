@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../../enviornment';
 import { PlaylistContainer, AddIcon, AddForm, Error } from './styles';
 import spotifyAuth from '../../utils/spotifyAuth';
 import PlaylistsPreview from './PlaylistsPreview';
 
+import arrayMove from 'array-move';
+
 export default () => {
     const [ playlists, setPlaylists ] = useState([]);
-    const [ addPlaylist, setAddPlaylist ] = useState(true);
+    const [ addPlaylist, setAddPlaylist ] = useState(false);
     const [ newPlaylist, setNewPlaylist ] = useState('');
     const [ error, setError ] = useState('');
     const [ playlistCount, setPlaylistCount ] = useState(0);
 
+    const [ dragged, setDragged ] = useState(false);
+
     const MAX_PLAYLISTS = 4;
+    const history = useHistory();
 
     const handleAdd = () => {
         setAddPlaylist(!addPlaylist);
@@ -68,6 +74,12 @@ export default () => {
         setPlaylistCount(playlistCount - 1);
     }
 
+    const onSortEnd = ({ oldIndex, newIndex }) => {
+        setPlaylists(arrayMove(playlists, oldIndex, newIndex));
+        setDragged(!dragged);
+    }
+
+    // When the component render, fetch current playlists from database
     useEffect(() => {
         axios.get(`${BASE_URL}/playlists`)
         .then(res => {
@@ -82,15 +94,6 @@ export default () => {
     }, [])
 
     useEffect(() => {
-        // Make sure indexes are proper
-        if(playlists.length > 0){
-            for(let i=0; i<MAX_PLAYLISTS; i++){
-                if(playlists[i] && (playlists[i].id !== (i + 1))){
-                    playlists[i].id = playlists[i].id - 1
-                }
-            }
-        }
-        console.log(playlists);
         axios.post(`${BASE_URL}/playlists`, playlists, {
             headers: {
                 Authorization: window.localStorage.getItem('adminToken')
@@ -100,9 +103,21 @@ export default () => {
             console.log(res);
         })
         .catch(err => {
-            console.log(err);
+            if(err.response.status === 401){
+                history.push('/admin');
+            }
         })
     }, [ playlists ]);
+
+    // After a card has been dragged, update all the ids (they must stay in order)
+    useEffect(() => {
+        setPlaylists(playlists.map((playlist, i) => {
+            return {
+                ...playlist,
+                id: i + 1
+            }
+        }));
+    }, [ dragged ]);
 
     return(
         <PlaylistContainer>
@@ -126,7 +141,7 @@ export default () => {
                     <Error display={addPlaylist}>{error}</Error>
                 </div>
             )}
-            <PlaylistsPreview playlists={playlists} handleDelete={handleDelete}/>
+            <PlaylistsPreview playlists={playlists} handleDelete={handleDelete} onSortEnd={onSortEnd}/>
         </PlaylistContainer>
     );
 }
