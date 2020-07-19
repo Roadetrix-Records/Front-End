@@ -12,7 +12,7 @@ import { Releases, Featured } from './styles';
 
 
 export default () => {
-    const [ releases, setReleases ] = useState(null);
+    const [ releases, setReleases ] = useState([]);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/albums`)
@@ -23,6 +23,8 @@ export default () => {
             console.log(err);
         })
     }, [])
+
+    console.log(releases);
 
     return (
         <Releases>

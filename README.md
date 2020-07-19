@@ -28,6 +28,8 @@ Roadetrix Records is an emerging independent record label focusing on releasing 
 | styled-icons      | [docs](https://styled-icons.js.org/) |
 | react-router-dom  | [npm](https://www.npmjs.com/package/react-router-dom) |
 | dotenv            | [npm](https://www.npmjs.com/package/dotenv) |
+| react-sortable-hoc | [npm](https://www.npmjs.com/package/react-sortable-hoc) |
+| array-move | [npm](https://www.npmjs.com/package/array-move) | 
 
 ## Back-End Documentation
 [Back-End Github Repo](https://github.com/Roadetrix-Records/Back-End)
@@ -62,11 +64,8 @@ Client ID (public): `c7499dcc8400439d8db3799a33de0f08`
 | [squiggle.svg](./src/assets/squiggle.svg)           | Josiah Roa | N/A |
 | [playlist-bg-1.svg](./src/assets/playlist-bg-1.svg) | Josiah Roa | N/A |
 | [playlist-bg-2.svg](./src/assets/playlist-bg-2.svg) | Josiah Roa | N/A |
-| [dashboard-texture-1.svg](./src/assets/dashboard-texture-1.svg) | Josiah Roa | N/A |
-| [dashboard-texture-2.svg](./src/assets/dashboard-texture-2.svg) | Josiah Roa | N/A |
-| [dashboard-texture-3.svg](./src/assets/dashboard-texture-3.svg) | Josiah Roa | N/A |
 | [about-bg-wave.svg](./src/assets/about-bg-wave.svg) | Josiah Roa | N/A |
-| [bg-blurred.png](./src/assets/bg-blurred.png) | Josiah Roa & ? | N/A |
+| [bg-blurred.png](./src/assets/bg-blurred.png) | Jonah Tuska & Josiah Roa | N/A |
 
 ## Environments
 Different enviornments set up different urls for endpoints to connect to production,

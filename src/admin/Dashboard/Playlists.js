@@ -99,19 +99,16 @@ export default () => {
                 Authorization: window.localStorage.getItem('adminToken')
             }
         })
-        .then(res => {
-            console.log(res);
-        })
         .catch(err => {
             if(err.response.status === 401){
                 history.push('/admin');
             }
         })
-    }, [ playlists ]);
+    }, [ playlists, history ]);
 
     // After a card has been dragged, update all the ids (they must stay in order)
     useEffect(() => {
-        setPlaylists(playlists.map((playlist, i) => {
+        setPlaylists(prevState => prevState.map((playlist, i) => {
             return {
                 ...playlist,
                 id: i + 1
@@ -126,7 +123,7 @@ export default () => {
                     <AddIcon/>
                     <p>Add Playlist</p>
                 </div>
-                <AddForm display={addPlaylist} error={error.length > 0}>
+                <AddForm display={addPlaylist ? 1 : 0} error={error.length > 0}>
                     <input
                         value={newPlaylist}
                         onChange={handleChange}

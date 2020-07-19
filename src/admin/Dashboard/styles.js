@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import theme from '../theme';
 import { Spotify } from '@styled-icons/boxicons-logos'
 import { AddCircle } from '@styled-icons/material-outlined/';
-import { Delete, DragHandle } from '@styled-icons/material/';
+import { Delete, DragHandle, Audiotrack } from '@styled-icons/material/';
+import { Playlist, Album } from '@styled-icons/boxicons-solid/';
+import { Mail } from '@styled-icons/entypo/';
 
 export const Dashboard = styled.div`
     display: flex;
@@ -11,6 +13,65 @@ export const Dashboard = styled.div`
     }
 `;
 
+export const Nav = styled.nav`
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    background: rgb(11,19,43);
+    background: linear-gradient(0deg, rgba(11,19,43,1) 0%, rgba(33,33,33,1) 100%); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2{
+        font-family: ${theme.fonts.ubuntu};
+        color: ${theme.colors.white};
+        font-size: 2.3rem;
+    }
+    .btn-container{
+        width: 100%;
+        .btn{
+            cursor: pointer;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            
+        }
+    }
+    .logout-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        .bar{
+            height: 1px;
+            width: 80%;
+            background-color: ${theme.colors.blueGreen};
+            margin-bottom: 30px;
+        }
+        h2{
+            cursor: pointer;
+            &:hover{
+                color: ${theme.colors.blueGreen};
+            }
+        }
+    }
+`;
+
+export const SideBar = styled.div`
+    display: ${props => props.selected ? 'block' : 'none'};
+    height: 100%;
+    width: 5px;
+    background-color: ${theme.colors.blueGreen};
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+`;
+
+// ----------- Styles for playlist page -----------
 export const PlaylistContainer = styled.div`
     .add-playlist{
         margin: 20px;
@@ -123,6 +184,7 @@ export const PlaylistCard = styled.div`
     }
 `;
 
+// ----------- Styles for release page -----------
 export const ReleaseContainer = styled.div`
     width: 500px;
     height: 40%;
@@ -162,91 +224,7 @@ export const ReleaseContainer = styled.div`
     }
 `;
 
-// export const PlaylistContainer = styled.div`
-//     width: 500px;
-//     height: 40%;
-//     .top{
-//         display: flex;
-//         .content{
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             margin-left: 20px;
-//             h1{
-//                 font-family: ${theme.fonts.anton};
-//                 font-size: 2.5rem;
-//             }
-//             .bar{
-//                 width: 150px;
-//                 height: 1px;
-//                 margin: 5px 0;
-//                 background-color: ${theme.colors.blueGreen};
-//             }
-//             p{
-//                 font-family: ${theme.fonts.ubuntu};
-//                 font-size: 1.3rem;
-//             }
-//         }
-//     }
-//     .bottom{
-//         width: 100%;
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//     }
-// `;
-
-// export const PlaylistInput = styled.div`
-//     width: 100%;
-//     img{
-//         width: 200px;
-//         margin-left:
-//     }
-//     form{
-//         margin: 10px 0;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 100%;
-//         input {
-//             width: 60%;
-//             height: 40px;
-//             border-radius: 10px;
-//             border-style: solid;
-//             border-width: 1px;
-//             border-color: ${theme.colors.blueGreen};
-//             font-size: 1.3rem;
-//             font-family: ${theme.fonts.ubuntu};
-//             outline: none;
-//         }
-//         .update-btn{
-//             width: 150px;
-//             height: 40px;
-//             border-radius: 10px;
-//             background: rgb(91,192,190);
-//             background: linear-gradient(0deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             cursor: pointer;
-//             color: white;
-//             margin-left: 10px;
-//             p{
-//                 font-family: ${theme.fonts.ubuntu};
-//                 font-size: 1.3rem;
-//                 color: inherit;
-//             }
-//             &:hover{
-//                 background: rgba(255, 255, 255, 0);
-//                 color: ${theme.colors.blueGreen};
-//                 border: 1px solid ${theme.colors.blueGreen};
-//                 width: 148px;
-//                 height: 38px;
-//             }
-//         }
-//     }
-// `;
-
+// ----------- Styles for submissions page -----------
 export const Submissions = styled.div`
     width: 100%;
     height: 100%;
@@ -254,6 +232,7 @@ export const Submissions = styled.div`
     background-color: white;
 `;
 
+// ----------- Styles for contact page -----------
 export const Contact = styled.div`
     width: 100%;
     height: 100%;
@@ -261,6 +240,7 @@ export const Contact = styled.div`
     background-color: white;
 `;
 
+// ----------- Styles for extra components -----------
 export const Error = styled.p`
     display: ${props => props.display ? 'block' : 'none'};
     font-size: 1.5rem;
@@ -294,4 +274,32 @@ export const DragIcon = styled(DragHandle)`
     width: 25px;
     margin-right: 5px;
     cursor: grab;
+`;
+
+export const PlaylistIcon = styled(Playlist)`
+    color: ${props => props.selected ? theme.colors.blueGreen : theme.colors.white};
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 20px;
+`;
+
+export const ReleasesIcon = styled(Album)`
+    color: ${props => props.selected ? theme.colors.blueGreen : theme.colors.white};
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 20px;
+`;
+
+export const SubmissionsIcon = styled(Audiotrack)`
+    color: ${props => props.selected ? theme.colors.blueGreen : theme.colors.white};
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 20px;
+`;
+
+export const MessagesIcon = styled(Mail)`
+    color: ${props => props.selected ? theme.colors.blueGreen : theme.colors.white};
+    width: 30px;
+    margin-left: 50px;
+    margin-right: 20px;
 `;
