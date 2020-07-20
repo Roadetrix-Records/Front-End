@@ -5,7 +5,8 @@ import NavBar from './NavBar';
 import { Dashboard } from './styles';
 
 export default () => {
-    const [ selected, setSelected ] = useState(0);
+    // Change this to 0
+    const [ selected, setSelected ] = useState(1);
 
     const handleChange = value => {
         setSelected(value);

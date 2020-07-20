@@ -1,7 +1,7 @@
 import React from 'react';
 import { MobileNav, Hamburger, Menu, Links, StyledLink } from './styles';
 
-export default ({ dark, open, toggleOpen, handleClick, selection }) => {
+export default ({ open, toggleOpen, handleClick, selection }) => {
     return (
         <MobileNav>
             <Hamburger onClick={toggleOpen} open={open}>

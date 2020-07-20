@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import theme from '../theme';
-import { Spotify } from '@styled-icons/boxicons-logos'
 import { AddCircle } from '@styled-icons/material-outlined/';
 import { Delete, DragHandle, Audiotrack } from '@styled-icons/material/';
 import { Playlist, Album } from '@styled-icons/boxicons-solid/';
@@ -10,6 +9,7 @@ export const Dashboard = styled.div`
     display: flex;
     .wrapper{
         margin-left: 300px;
+        width: 760px;
     }
 `;
 
@@ -186,41 +186,114 @@ export const PlaylistCard = styled.div`
 
 // ----------- Styles for release page -----------
 export const ReleaseContainer = styled.div`
-    width: 500px;
-    height: 40%;
-    display: flex;
-    align-items: flex-start;
-    .top{
-        display: flex;
-        .content{
+    .fetch-container{
+        margin: 20px;
+        h1{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 3rem;
+            user-select: none;
+        }
+        p{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+            margin: 5px 0;
+            user-select: none;
+        }
+        .sub{
+            color: ${theme.colors.lightGrey};
+        }
+        .fetch-btn{
+            margin-top: 10px;
+            width: 160px;
+            height: 30px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            margin-left: 20px;
-            h1{
-                font-family: ${theme.fonts.anton};
-                font-size: 2.5rem;
-            }
-            .bar{
-                width: 150px;
-                height: 1px;
-                margin: 5px 0;
-                background-color: ${theme.colors.blueGreen};
-            }
-            .update-btn{
-                width: 200px;
-                height: 30px;
-                background-color: ${theme.colors.blueGreen};
-                color: ${theme.colors.white};
-                border-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: ${theme.fonts.ubuntu};
-                font-size: 2rem;
-                cursor: pointer;
+            align-items: center;
+            border-radius: 10px;
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+            background: rgb(91,192,190);
+            background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            &:hover{
+                border: 1px solid ${theme.colors.blueGreen};
+                width: 158px;
+                height: 28px;
+                color: ${theme.colors.blueGreen};
+                background: none;
             }
         }
+    }
+    .featured-release{
+        margin: 20px;
+        h1{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 3rem;
+            user-select: none;
+        }
+        p{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+            margin: 5px 0;
+            user-select: none;
+        }
+    }
+    .preview-releases{
+        width: 100%;
+        margin: 20px;
+        p{
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+            margin: 5px 0;
+            user-select: none;
+        }
+        .preview-header{
+            margin-bottom: 30px;
+            h1{
+                font-family: ${theme.fonts.ubuntu};
+                font-size: 3rem;
+                user-select: none;
+            }
+            
+        }
+        .release-container{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+`;
+
+export const ReleasePreview = styled.div`
+    margin-bottom: 20px;
+    .img-container{
+        cursor: pointer;
+        position: relative;
+        width: 230px;
+        height: 230px;
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: ${theme.colors.lightGrey};
+            z-index: 2;
+            opacity: 0;
+            &:hover{
+                opacity: 0.2;
+            }
+        }
+    }
+    p{
+        user-select: none;
     }
 `;
 
@@ -247,11 +320,6 @@ export const Error = styled.p`
     color: red;
     font-family: ${theme.fonts.ubuntu};
     user-select: none;
-`;
-
-export const SpotifyLogo = styled(Spotify)`
-    color: ${theme.colors.black};
-    width: 80px;
 `;
 
 export const AddIcon = styled(AddCircle)`
