@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../../enviornment';
-import { PlaylistContainer, AddIcon, AddForm, Error } from './styles';
-import spotifyAuth from '../../utils/spotifyAuth';
+import { BASE_URL } from '../../../enviornment';
+import { PlaylistContainer, AddIcon, AddForm, Error } from '../styles';
+import spotifyAuth from '../../../utils/spotifyAuth';
 import PlaylistsPreview from './PlaylistsPreview';
 
 import arrayMove from 'array-move';

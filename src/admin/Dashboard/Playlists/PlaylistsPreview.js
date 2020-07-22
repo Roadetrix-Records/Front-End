@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaylistsPreview } from './styles';
+import { PlaylistsPreview } from '../styles';
 import PlaylistCard from './PlaylistCard';
 
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';

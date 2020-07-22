@@ -4,6 +4,7 @@ import { AddCircle } from '@styled-icons/material-outlined/';
 import { Delete, DragHandle, Audiotrack } from '@styled-icons/material/';
 import { Playlist, Album } from '@styled-icons/boxicons-solid/';
 import { Mail } from '@styled-icons/entypo/';
+import { Hide } from '@styled-icons/boxicons-regular/';
 
 export const Dashboard = styled.div`
     display: flex;
@@ -239,6 +240,29 @@ export const ReleaseContainer = styled.div`
             margin: 5px 0;
             user-select: none;
         }
+        .set-featured-btn{
+            margin-top: 10px;
+            width: 200px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+            background: rgb(91,192,190);
+            background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            &:hover{
+                border: 1px solid ${theme.colors.blueGreen};
+                width: 198px;
+                height: 33px;
+                color: ${theme.colors.blueGreen};
+                background: none;
+            }
+        }
     }
     .preview-releases{
         width: 100%;
@@ -322,6 +346,18 @@ export const Error = styled.p`
     user-select: none;
 `;
 
+export const HideOverlay = styled.div`
+    display: ${props => props.display ? 'flex' : 'none'};
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: ${theme.colors.lightGrey};
+    z-index: 2;
+    opacity: 0.8;
+`;
+
 export const AddIcon = styled(AddCircle)`
     color ${theme.colors.blueGreen};
     width: 40px;
@@ -371,3 +407,9 @@ export const MessagesIcon = styled(Mail)`
     margin-left: 50px;
     margin-right: 20px;
 `;
+
+export const HideIcon = styled(Hide)`
+    color: ${theme.colors.white};
+    width: 40px;
+`;
+

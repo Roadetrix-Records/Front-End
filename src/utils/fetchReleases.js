@@ -1,7 +1,8 @@
 import spotifyAuth from './spotifyAuth';
 import { BASE_URL } from '../enviornment';
-
+import moment from 'moment';
 import axios from 'axios';
+
 /* 
     When the {update Spotify} button is clicked by an admin,
     If logged in
@@ -163,6 +164,19 @@ export const fetchReleases = async () => {
         .catch(err => {
             console.log('POST request to backend:', err);
         })
+
+        // ================= Update LastFetch =================
+        let currentDate = await moment().format('MMMM Do YYYY, h:mm:ss a')
+        await axios.put(`${BASE_URL}/spotify/last-fetch`, {
+            date: currentDate
+        })
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
         return true;
     }else{
         window.location.href = spotifyAuth();

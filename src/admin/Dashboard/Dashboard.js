@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Playlists from './Playlists';
-import Releases from './Releases';
+import Playlists from './Playlists/Playlists';
+import Releases from './Releases/Releases';
 import NavBar from './NavBar';
 import { Dashboard } from './styles';
 

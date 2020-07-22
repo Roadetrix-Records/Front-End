@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaylistCard, DeleteIcon, DragIcon } from './styles';
+import { PlaylistCard, DeleteIcon, DragIcon } from '../styles';
 
 export default ({ id, playlistImg, handleDelete }) => {
     return (

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import spotifyAuth from '../../utils/spotifyAuth';
+import spotifyAuth from '../../../utils/spotifyAuth';
 import axios from 'axios';
-import { BASE_URL } from '../../enviornment';
-import { PlaylistInput } from './styles';
+import { BASE_URL } from '../../../enviornment';
+import { PlaylistInput } from '../styles';
 
 export default (props) => {
     const [ link, setLink ] = useState('');

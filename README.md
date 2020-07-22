@@ -30,6 +30,7 @@ Roadetrix Records is an emerging independent record label focusing on releasing 
 | dotenv            | [npm](https://www.npmjs.com/package/dotenv) |
 | react-sortable-hoc | [npm](https://www.npmjs.com/package/react-sortable-hoc) |
 | array-move | [npm](https://www.npmjs.com/package/array-move) | 
+| moment | [dovs](https://momentjs.com/) |
 
 ## Back-End Documentation
 [Back-End Github Repo](https://github.com/Roadetrix-Records/Back-End)
