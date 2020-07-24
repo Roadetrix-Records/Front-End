@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 // Component Imports
-import Card from './Card';
 
 // Dependency Imports
 import axios from 'axios';
@@ -9,11 +8,11 @@ import axios from 'axios';
 import { BASE_URL } from '../../enviornment';
 
 // Style Imports
-import { Releases } from './styles';
+import { Releases, Featured } from './styles';
 
 
 export default () => {
-    const [ releases, setReleases ] = useState(null);
+    const [ releases, setReleases ] = useState([]);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/albums`)
@@ -25,18 +24,13 @@ export default () => {
         })
     }, [])
 
+    console.log(releases);
+
     return (
         <Releases>
-            {/* Latest release goes here */}
-            <h1>Releases</h1>
-            <div className='bar'/>
-            {releases &&  (
-                <div className='releases-container'>
-                    {releases.map(release => {
-                        return <Card release={release} key={release.id}/>
-                    })}
-                </div>
-            )}
+            <Featured>
+                
+            </Featured>
         </Releases>
     )
 }

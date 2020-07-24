@@ -1,7 +1,7 @@
 import React from 'react';
 import { MobileNav, Hamburger, Menu, Links, StyledLink } from './styles';
 
-export default ({ dark, open, toggleOpen, handleClick, selection }) => {
+export default ({ open, toggleOpen, handleClick, selection }) => {
     return (
         <MobileNav>
             <Hamburger onClick={toggleOpen} open={open}>
@@ -18,7 +18,7 @@ export default ({ dark, open, toggleOpen, handleClick, selection }) => {
                             id={0}
                             onClick={handleClick}
                             selected={selection === 0}
-                            dark={true}
+                            dark={1}
                         >Home</StyledLink>
                     </div>
                     <div className='link-container'>
@@ -27,7 +27,7 @@ export default ({ dark, open, toggleOpen, handleClick, selection }) => {
                             id={1}
                             onClick={handleClick}
                             selected={selection === 1}
-                            dark={true}
+                            dark={1}
                         >Releases</StyledLink>
                     </div>
                     <div className='link-container'>
@@ -36,7 +36,7 @@ export default ({ dark, open, toggleOpen, handleClick, selection }) => {
                             id={2}
                             onClick={handleClick}
                             selected={selection === 2}
-                            dark={true}
+                            dark={1}
                         >Submit Demo</StyledLink>
                     </div>
                     <div className='link-container'>
@@ -45,7 +45,7 @@ export default ({ dark, open, toggleOpen, handleClick, selection }) => {
                             id={3}
                             onClick={handleClick}
                             selected={selection === 3}
-                            dark={true}
+                            dark={1}
                         >About</StyledLink>
                     </div>
                     <div className='link-container'>
@@ -54,7 +54,7 @@ export default ({ dark, open, toggleOpen, handleClick, selection }) => {
                             id={4}
                             onClick={handleClick}
                             selected={selection === 4}
-                            dark={true}
+                            dark={1}
                         >Contact</StyledLink>
                     </div>
                 </div>

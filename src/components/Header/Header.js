@@ -27,10 +27,9 @@ export default ({dark}) => {
 
     const handleClose = useCallback(() => {
         setOpen(false);
-    })
+    }, [])
 
     useEffect(() => {
-        console.log(history.location.pathname);
         if(history.location.pathname.includes('/releases')){
             setSelection(1);
         }else{
@@ -56,7 +55,7 @@ export default ({dark}) => {
     useEffect(() => {
         window.addEventListener('resize', handleClose);
         return () => window.removeEventListener('resize', handleClose);
-    }, []);
+    }, [ handleClose ]);
 
     return (
         <Header dark={dark}> 

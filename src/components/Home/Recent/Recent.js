@@ -54,6 +54,7 @@ export default () => {
                                 if(index > 0){
                                     return <RecentCard release={release} key={release.albumId} index={index}/>
                                 }
+                                return null
                             })}
                         </div>
                     </div>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import spotifyAuth from '../../utils/spotifyAuth';
+import spotifyAuth from '../../../utils/spotifyAuth';
 import axios from 'axios';
-import { BASE_URL } from '../../enviornment';
+import { BASE_URL } from '../../../enviornment';
+import { PlaylistInput } from '../styles';
 
 export default (props) => {
     const [ link, setLink ] = useState('');
     const [ error, setError ] = useState(undefined);
+    const [ playlistImage, setPlaylistImage ] = useState(null);
 
     const handleChange = e => {
         setLink(e.target.value);
@@ -27,6 +29,7 @@ export default (props) => {
             }
         })
         .then(res => {
+            console.log(res);
             axios.put(`${BASE_URL}/playlists`, {
                 id,
                 url: link,
@@ -50,20 +53,27 @@ export default (props) => {
     }
     
     useEffect(() => {
-        setLink(props.url);
+        setLink(props.playlist.url);
+        setPlaylistImage(props.playlist.img)
     }, [])
 
     return (
-        <form>
-            <input
-                name={`link${props.id}`}
-                type='text'
-                onChange={handleChange}
-                value={link}
-            />
-            <div onClick={handleUpdate} className='update-btn' id={props.id}>
-                <p id={props.id}>Update</p>
-            </div>
-        </form>
+        <PlaylistInput>
+            {playlistImage && (
+                    <img src={playlistImage}/>
+            )}
+            <form>
+                <input
+                    name={`link${props.id}`}
+                    type='text'
+                    onChange={handleChange}
+                    value={link}
+                />
+                <div onClick={handleUpdate} className='update-btn' id={props.id}>
+                    <p id={props.id}>Update</p>
+                </div>
+            </form>
+        </PlaylistInput>
+        
     );
 }

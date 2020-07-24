@@ -9,7 +9,7 @@ export default () => {
         <About>
             <div className='top'>
                 <Header dark='true'/>
-                <img src={texture} className='texture'/>
+                <img src={texture} alt='' className='texture'/>
             </div>        
         </About>
     );
