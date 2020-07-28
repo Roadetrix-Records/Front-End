@@ -242,6 +242,7 @@ export const ReleaseContainer = styled.div`
         }
         .set-featured-btn{
             margin-top: 10px;
+            margin-bottom: 20px;
             width: 200px;
             height: 35px;
             display: flex;
@@ -281,6 +282,20 @@ export const ReleaseContainer = styled.div`
                 user-select: none;
             }
             
+        }
+        .selecting-featured{
+            margin-bottom: 20px;
+            background: rgb(91,192,190);
+            background: linear-gradient(90deg, rgba(91,192,190,1) 0%, rgba(77,168,191,1) 100%);
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                color: white;
+                font-size: 2rem;
+            }
         }
         .release-container{
             width: 100%;

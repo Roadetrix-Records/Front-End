@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../../enviornment';
 import { ReleasePreview, HideOverlay, HideIcon } from '../styles';
 
-export default ({ release }) => {
+export default ({ release, selectingFeatured, handleSelect, featuredId }) => {
     const [ hidden, setHidden ] = useState(release.isHidden);
 
     const handleHidden = () => {
@@ -20,7 +20,15 @@ export default ({ release }) => {
 
     return (
         <ReleasePreview>
-            <div className='img-container' onClick={handleHidden}>
+            <div className='img-container' onClick={() => {
+                if(release.id !== featuredId){
+                    if (selectingFeatured){
+                        handleSelect(release.id);
+                    } else {
+                        handleHidden();
+                    }
+                }
+            }}>
                 <div className='overlay'/>
                 <HideOverlay display={hidden ? 1 : 0}>
                     <HideIcon/>
