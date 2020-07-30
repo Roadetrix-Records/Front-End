@@ -13,9 +13,6 @@ export default () => {
     const [ addPlaylist, setAddPlaylist ] = useState(false);
     const [ newPlaylist, setNewPlaylist ] = useState('');
     const [ error, setError ] = useState('');
-    const [ playlistCount, setPlaylistCount ] = useState(0);
-
-    const [ dragged, setDragged ] = useState(false);
 
     const MAX_PLAYLISTS = 4;
     const history = useHistory();
@@ -29,8 +26,8 @@ export default () => {
     }
 
     // Grab playlist data from spotify
-    const handleUpdate = e => {
-        if (playlistCount === MAX_PLAYLISTS){
+    const handleUpdate = () => {
+        if (playlists.length === MAX_PLAYLISTS){
             setError('Cannot add anymore playlists, please remove an existing playlist.')
             return;
         }
@@ -48,14 +45,16 @@ export default () => {
         })
         .then(res => {
             setError('');
-            setPlaylistCount(playlistCount + 1);
-            setPlaylists([...playlists, {
-                id: playlistCount + 1,
-                url: newPlaylist,
-                playlistId,
-                img: res.data.images[0].url,
-                privateUrl: res.data.href
-            }])
+            setPlaylists([
+                ...playlists, 
+                {
+                    id: playlists.length + 1,
+                    url: newPlaylist,
+                    playlistId,
+                    img: res.data.images[0].url,
+                    privateUrl: res.data.href
+                }
+            ])
             setNewPlaylist('');
         })
         .catch(err => {
@@ -71,30 +70,27 @@ export default () => {
 
     const handleDelete = id => {
         setPlaylists(playlists.filter(playlist => playlist.id !== id));
-        setPlaylistCount(playlistCount - 1);
     }
 
-    const onSortEnd = ({ oldIndex, newIndex }) => {
+    // Performs a swap in the playlists array
+    const movePlaylists = (oldIndex, newIndex) => {
         setPlaylists(arrayMove(playlists, oldIndex, newIndex));
-        setDragged(!dragged);
     }
 
-    // When the component render, fetch current playlists from database
-    useEffect(() => {
-        axios.get(`${BASE_URL}/playlists`)
-        .then(res => {
-            setPlaylists(res.data.sort((a, b) => {
-                return a.id - b.id
-            }));
-            setPlaylistCount(res.data.length);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }, [])
+    const updateOrder = () => {
+        setPlaylists(prevState => prevState.map((playlist, i) => {
+            return {
+                ...playlist,
+                id: i + 1
+            }
+        }));
+    }
 
-    useEffect(() => {
-        axios.post(`${BASE_URL}/playlists`, playlists, {
+    // This function runs everytime a playlist has been dragged
+    const onSortEnd = async ({ oldIndex, newIndex }) => {
+        await movePlaylists(oldIndex, newIndex);
+        await updateOrder();
+        await axios.post(`${BASE_URL}/playlists`, playlists, {
             headers: {
                 Authorization: window.localStorage.getItem('adminToken')
             }
@@ -104,17 +100,20 @@ export default () => {
                 history.push('/admin');
             }
         })
-    }, [ playlists, history ]);
+    }
 
-    // After a card has been dragged, update all the ids (they must stay in order)
+    // When the component render, fetch current playlists from database
     useEffect(() => {
-        setPlaylists(prevState => prevState.map((playlist, i) => {
-            return {
-                ...playlist,
-                id: i + 1
-            }
-        }));
-    }, [ dragged ]);
+        axios.get(`${BASE_URL}/playlists`)
+        .then(res => {
+            setPlaylists(res.data.sort((a, b) => {
+                return a.id - b.id
+            }));
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }, [])
 
     return(
         <PlaylistContainer>
