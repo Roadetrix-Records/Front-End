@@ -72,8 +72,9 @@ export default () => {
     }, [ updated ])
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/featured`)
+        axios.get(`${BASE_URL}/spotify/admin-featured`)
         .then(res => {
+            console.log('Inside fetch', res.data)
             setFeaturedRelease(res.data);
         })
         .catch(err => {
@@ -130,6 +131,7 @@ export default () => {
                                     release={release} 
                                     selectingFeatured={selectingFeatured} 
                                     handleSelect={handleSelect}
+                                    featuredId={featuredRelease && featuredRelease.id}
                                 />
                     })}
                 </div>
