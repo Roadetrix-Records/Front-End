@@ -8,7 +8,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../enviornment';
 
 // Style Imports
-import { Releases, Featured, Header, ImgContainer, FeaturedInfo, Divider, Button } from './styles';
+import { Releases, Featured, Header, ImgContainer, FeaturedInfo, Divider, Button, SubHeader, SearchIcon } from './styles';
 
 
 export default () => {
@@ -47,7 +47,7 @@ export default () => {
                             <div className='info'>
                                 <div>
                                     <h1>Check out our featured release!</h1>
-                                    <Divider/>
+                                    <Divider color='white'/>
                                     <p>{featured.albumName}</p>
                                 </div>
                                 <Button>View Details</Button>
@@ -56,6 +56,15 @@ export default () => {
                     </Header>
                 )}
             </Featured>
+            <SubHeader>
+                <div className='search-bar-wrapper'>
+                    <div className='search-bar'>
+                        <SearchIcon/>
+                        <input/>
+                    </div>
+                </div>
+                <Divider/>
+            </SubHeader>
         </Releases>
     )
 }

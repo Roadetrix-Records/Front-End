@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../theme';
+import { Search } from '@styled-icons/boxicons-regular/';
 
 export const Releases = styled.section`
     
@@ -10,6 +11,7 @@ export const Featured = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 
 export const Header = styled.header`
@@ -68,10 +70,47 @@ export const FeaturedInfo = styled.section`
 export const Divider = styled.div`
     width: 100%;
     height: 1px;
-    background-color: ${theme.colors.white};
+    background-color: ${props => props.color === 'white' ? theme.colors.white : theme.colors.lightGrey};
     margin: 10px 0;
+`;
+
+export const SubHeader = styled.div`
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 80%;
+    height: 50px;
+    .search-bar-wrapper{
+        display: flex;
+        justify-content: flex-end;
+        .search-bar{
+            display: flex;
+            align-items: center;
+            input{
+                width: 300px;
+                height: 30px;
+                border: 1px solid ${theme.colors.lightGrey};
+                border-radius: 20px;
+                outline: none;
+                padding-left: 10px;
+                font-size: 1.5rem;
+                font-family: ${theme.fonts.ubuntu};
+                &:focus{
+                    border: 1px solid ${theme.colors.lightPink};
+                }
+            }
+        }
+    }
 `;
 
 export const Button = styled.div`
 
+`;
+
+export const SearchIcon = styled(Search)`
+    width: 30px;
+    color: ${theme.colors.lightGrey};
+    &:hover{
+        cursor: pointer;
+        color: ${theme.colors.lightPink};
+    }
 `;
