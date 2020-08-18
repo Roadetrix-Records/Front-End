@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // Component Imports
+import ReleaseCard from './ReleaseCard';
 
 // Dependency Imports
 import axios from 'axios';
@@ -8,7 +9,19 @@ import axios from 'axios';
 import { BASE_URL } from '../../enviornment';
 
 // Style Imports
-import { Releases, Featured, Header, ImgContainer, FeaturedInfo, Divider, Button, SubHeader, SearchIcon } from './styles';
+import { 
+    Releases, 
+    Featured, 
+    Header, 
+    ImgContainer, 
+    FeaturedInfo, 
+    Divider, 
+    Button, 
+    SubHeader, 
+    SearchIcon, 
+    ReleaseContainer,
+    ReleaseWrapper
+} from './styles';
 
 
 export default () => {
@@ -34,7 +47,7 @@ export default () => {
     }, [])
 
     console.log(releases);
-    console.log(featured)
+    console.log(featured);
 
     return (
         <Releases>
@@ -60,11 +73,22 @@ export default () => {
                 <div className='search-bar-wrapper'>
                     <div className='search-bar'>
                         <SearchIcon/>
-                        <input/>
+                        <input
+                            placeholder='Search our releases!'
+                        />
                     </div>
                 </div>
                 <Divider/>
             </SubHeader>
+            {releases && (
+                <ReleaseWrapper>
+                    <ReleaseContainer>
+                        {releases.map(release => {
+                            return <ReleaseCard release={release} key={release.id}/>
+                        })}
+                    </ReleaseContainer>
+                </ReleaseWrapper>
+            )}
         </Releases>
     )
 }

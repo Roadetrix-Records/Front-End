@@ -102,6 +102,45 @@ export const SubHeader = styled.div`
     }
 `;
 
+export const ReleaseWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+export const ReleaseContainer = styled.div`
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+`;
+
+export const ReleaseCard = styled.div`
+    cursor: pointer;
+    border: 1px solid ${theme.colors.lightGrey};
+    border-radius: 5px;
+    margin: 10px;
+    width: 250px;
+    img{
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom: 1px solid ${theme.colors.lightGrey};
+    }
+    .info-container{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        h2{
+            font-size: 1.5rem;
+            font-family: ${theme.fonts.ubuntu};
+            color: ${theme.colors.lightGrey};
+        }
+    }
+    &:hover{
+        transform: scale(1.01);
+    }
+`;
+
 export const Button = styled.div`
 
 `;
@@ -109,8 +148,4 @@ export const Button = styled.div`
 export const SearchIcon = styled(Search)`
     width: 30px;
     color: ${theme.colors.lightGrey};
-    &:hover{
-        cursor: pointer;
-        color: ${theme.colors.lightPink};
-    }
 `;
