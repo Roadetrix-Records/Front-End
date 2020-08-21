@@ -16,23 +16,41 @@ import Arrow from '../../../assets/arrow.svg';
 import { Recent } from '../styles';
 
 export default () => {
+    const [ featured, setFeatured ] = useState([])
     const [ latest, setLatest ] = useState([])
 
-    useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/latest-6`)
+    //  This would be a good spot to add useMemo
+    const fetchLatest = () => {
+        axios.get(`${BASE_URL}/spotify/latest`)
         .then(res => {
             setLatest(res.data);
         })
         .catch(err => {
             console.log(err);
         })
+    }
+
+    const fetchFeatured = () => {
+        axios.get(`${BASE_URL}/spotify/featured`)
+        .then(res => {
+            console.log(res.data)
+            setFeatured(res.data)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+    useEffect(() => {
+        fetchLatest();
+        fetchFeatured();
     }, [])
 
     return(
         <Recent>
             {latest.length > 0 && (
                 <>
-                    <FeaturedCard release={latest[0]}/>
+                    <FeaturedCard release={featured}/>
                     <div className='latest-container'>
                         <div className='see-all'>
                             <div className='header'>

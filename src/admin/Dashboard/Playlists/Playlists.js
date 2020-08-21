@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../../../enviornment';
@@ -70,27 +70,37 @@ export default () => {
 
     const handleDelete = id => {
         setPlaylists(playlists.filter(playlist => playlist.id !== id));
+        // Post new playlists array to database
     }
 
-    // Performs a swap in the playlists array
+    // Performs an immutable swap in the playlists array
     const movePlaylists = (oldIndex, newIndex) => {
-        setPlaylists(arrayMove(playlists, oldIndex, newIndex));
-    }
-
-    const updateOrder = () => {
-        setPlaylists(prevState => prevState.map((playlist, i) => {
-            return {
-                ...playlist,
-                id: i + 1
-            }
-        }));
+        setPlaylists(p => arrayMove(p, oldIndex, newIndex));
     }
 
     // This function runs everytime a playlist has been dragged
     const onSortEnd = async ({ oldIndex, newIndex }) => {
+        console.log(playlists)
         await movePlaylists(oldIndex, newIndex);
-        await updateOrder();
-        await axios.post(`${BASE_URL}/playlists`, playlists, {
+        console.log('after update', playlists)
+        await postPlaylists();
+    }
+
+    const fetchPlaylists = () => {
+        axios.get(`${BASE_URL}/playlists`)
+        .then(res => {
+            console.log(res.data);
+            setPlaylists(res.data.sort((a, b) => {
+                return a.id - b.id
+            }));
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+    const postPlaylists = () => {
+        axios.post(`${BASE_URL}/playlists`, playlists, {
             headers: {
                 Authorization: window.localStorage.getItem('adminToken')
             }
@@ -104,15 +114,7 @@ export default () => {
 
     // When the component render, fetch current playlists from database
     useEffect(() => {
-        axios.get(`${BASE_URL}/playlists`)
-        .then(res => {
-            setPlaylists(res.data.sort((a, b) => {
-                return a.id - b.id
-            }));
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        fetchPlaylists();
     }, [])
 
     return(
