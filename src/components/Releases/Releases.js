@@ -22,16 +22,20 @@ import {
     ReleaseContainer,
     ReleaseWrapper
 } from './styles';
+import { Search } from 'styled-icons/boxicons-solid';
 
 
 export default () => {
     const [ releases, setReleases ] = useState([]);
     const [ featured, setFeatured ] = useState(null);
+    const [ search, setSearch ] = useState('');
+    const [ filtered, setFiltered ] = useState([]);
 
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/albums`)
         .then(res => {
             setReleases(res.data);
+            setFiltered(res.data);
         })
         .catch(err => {
             console.log(err);
@@ -46,8 +50,13 @@ export default () => {
         })
     }, [])
 
-    console.log(releases);
-    console.log(featured);
+    useEffect(() => {
+        if(search === ''){
+            setFiltered(releases);
+        } else {
+            setFiltered(releases.filter(release => release.name.toLowerCase().includes(search)));
+        }
+    }, [search])
 
     return (
         <Releases>
@@ -75,15 +84,17 @@ export default () => {
                         <SearchIcon/>
                         <input
                             placeholder='Search our releases!'
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
                         />
                     </div>
                 </div>
                 <Divider/>
             </SubHeader>
-            {releases && (
+            {filtered && (
                 <ReleaseWrapper>
                     <ReleaseContainer>
-                        {releases.map(release => {
+                        {filtered.map(release => {
                             return <ReleaseCard release={release} key={release.id}/>
                         })}
                     </ReleaseContainer>

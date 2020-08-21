@@ -116,7 +116,7 @@ export const ReleaseContainer = styled.div`
 
 export const ReleaseCard = styled.div`
     cursor: pointer;
-    border: 1px solid ${theme.colors.lightGrey};
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     border-radius: 5px;
     margin: 10px;
     width: 250px;
@@ -124,7 +124,6 @@ export const ReleaseCard = styled.div`
         width: 100%;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        border-bottom: 1px solid ${theme.colors.lightGrey};
     }
     .info-container{
         display: flex;
