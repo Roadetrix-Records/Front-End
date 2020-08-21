@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 // Component Imports
 import ReleaseCard from './ReleaseCard';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Dependency Imports
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
 
 // Util Imports
 import { BASE_URL } from '../../enviornment';
@@ -22,10 +25,17 @@ import {
     ReleaseContainer,
     ReleaseWrapper
 } from './styles';
-import { Search } from 'styled-icons/boxicons-solid';
 
+const useStyles = makeStyles((theme) => ({
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff',
+    },
+}));
 
 export default () => {
+    const classes = useStyles();
+
     const [ releases, setReleases ] = useState([]);
     const [ featured, setFeatured ] = useState(null);
     const [ search, setSearch ] = useState('');
@@ -50,16 +60,24 @@ export default () => {
         })
     }, [])
 
+    /**
+     * Allows the user to search releases by release name
+     */
     useEffect(() => {
         if(search === ''){
             setFiltered(releases);
         } else {
-            setFiltered(releases.filter(release => release.name.toLowerCase().includes(search)));
+            setFiltered(releases.filter(release => {
+                return release.name.toLowerCase().includes(search)
+            }));
         }
     }, [search])
 
     return (
         <Releases>
+            <Backdrop className={classes.backdrop} open={!featured || !releases}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <Featured>
                 {featured && (
                     <Header>
