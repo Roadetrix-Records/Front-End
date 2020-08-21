@@ -1,10 +1,10 @@
 import React from 'react';
 import { ReleaseCard } from './styles';
 
-export default ({ release }) => {
+export default ({ release, handleClick }) => {
     return (
-        <ReleaseCard>
-            <img src={release.imgUrl}/>
+        <ReleaseCard onClick={() => handleClick(release.id)}>
+            <img src={release.imgUrl} alt={release.name}/>
             <div className='info-container'>
                 <h2>{release.name}</h2>
             </div>

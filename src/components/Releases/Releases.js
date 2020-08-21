@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // Component Imports
 import ReleaseCard from './ReleaseCard';
+import Details from './Details';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
       zIndex: theme.zIndex.drawer + 1,
       color: '#fff',
     },
+    root: {
+        position: 'relative',
+    }
 }));
 
 export default () => {
@@ -40,6 +44,15 @@ export default () => {
     const [ featured, setFeatured ] = useState(null);
     const [ search, setSearch ] = useState('');
     const [ filtered, setFiltered ] = useState([]);
+    const [ detailsId, setDetailsId ] = useState(null);
+
+    const handleClick = id => {
+        setDetailsId(id);
+    }
+
+    const handleClose = () => {
+        setDetailsId(null);
+    }
 
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/albums`)
@@ -71,19 +84,22 @@ export default () => {
                 return release.name.toLowerCase().includes(search)
             }));
         }
-    }, [search])
+    }, [search, releases])
 
     return (
         <Releases>
             <Backdrop className={classes.backdrop} open={!featured || !releases}>
                 <CircularProgress color="inherit" />
             </Backdrop>
+            <Backdrop className={classes.backdrop} open={detailsId !== null} onClick={handleClose}>
+                <Details id={detailsId}/>
+            </Backdrop>
             <Featured>
                 {featured && (
                     <Header>
                         <ImgContainer img={featured.albumImgUrl}/>
                         <FeaturedInfo>
-                            <img src={featured.albumImgUrl}/>
+                            <img src={featured.albumImgUrl} alt={featured.albumName}/>
                             <div className='info'>
                                 <div>
                                     <h1>Check out our featured release!</h1>
@@ -113,7 +129,7 @@ export default () => {
                 <ReleaseWrapper>
                     <ReleaseContainer>
                         {filtered.map(release => {
-                            return <ReleaseCard release={release} key={release.id}/>
+                            return <ReleaseCard release={release} key={release.id} handleClick={handleClick}/>
                         })}
                     </ReleaseContainer>
                 </ReleaseWrapper>

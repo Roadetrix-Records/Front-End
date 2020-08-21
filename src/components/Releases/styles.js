@@ -140,6 +140,13 @@ export const ReleaseCard = styled.div`
     }
 `;
 
+export const Details = styled.div`
+    width: 400px;
+    height: 600px;
+    background-color: ${theme.colors.white};
+    border-radius: 10px;
+`;
+
 export const Button = styled.div`
 
 `;
