@@ -55,8 +55,9 @@ export default () => {
     }
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/albums`)
+        axios.get(`${BASE_URL}/spotify/releases`)
         .then(res => {
+            console.log(res.data);
             setReleases(res.data);
             setFiltered(res.data);
         })
@@ -129,7 +130,7 @@ export default () => {
                 <ReleaseWrapper>
                     <ReleaseContainer>
                         {filtered.map(release => {
-                            return <ReleaseCard release={release} key={release.id} handleClick={handleClick}/>
+                            return <ReleaseCard release={release} key={release.albumId} handleClick={handleClick}/>
                         })}
                     </ReleaseContainer>
                 </ReleaseWrapper>
