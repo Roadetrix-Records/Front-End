@@ -44,19 +44,20 @@ export default () => {
     const [ featured, setFeatured ] = useState(null);
     const [ search, setSearch ] = useState('');
     const [ filtered, setFiltered ] = useState([]);
-    const [ detailsId, setDetailsId ] = useState(null);
+    const [ currentRelease, setCurrentRelease ] = useState(null); 
 
     const handleClick = id => {
-        setDetailsId(id);
+        setCurrentRelease(releases.find(release => release.albumId === id));
     }
 
     const handleClose = () => {
-        setDetailsId(null);
+        setCurrentRelease(null);
     }
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/albums`)
+        axios.get(`${BASE_URL}/spotify/releases`)
         .then(res => {
+            console.log(res.data);
             setReleases(res.data);
             setFiltered(res.data);
         })
@@ -80,8 +81,11 @@ export default () => {
         if(search === ''){
             setFiltered(releases);
         } else {
+            const searchAsLower = search.toLowerCase();
             setFiltered(releases.filter(release => {
-                return release.name.toLowerCase().includes(search)
+                return release.albumName.toLowerCase().includes(searchAsLower) ||
+                    release.artists.some(artist => artist.artistName.toLowerCase().includes(searchAsLower)) ||
+                    release.tracks.some(track => track.trackName.toLowerCase().includes(searchAsLower))
             }));
         }
     }, [search, releases])
@@ -91,8 +95,8 @@ export default () => {
             <Backdrop className={classes.backdrop} open={!featured || !releases}>
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Backdrop className={classes.backdrop} open={detailsId !== null} onClick={handleClose}>
-                <Details id={detailsId}/>
+            <Backdrop className={classes.backdrop} open={currentRelease !== null} onClick={handleClose}>
+                <Details release={currentRelease}/>
             </Backdrop>
             <Featured>
                 {featured && (
@@ -101,12 +105,14 @@ export default () => {
                         <FeaturedInfo>
                             <img src={featured.albumImgUrl} alt={featured.albumName}/>
                             <div className='info'>
-                                <div>
+                                <div className='featured-header'>
                                     <h1>Check out our featured release!</h1>
                                     <Divider color='white'/>
                                     <p>{featured.albumName}</p>
                                 </div>
-                                <Button>View Details</Button>
+                                <Button>
+                                    <p>View Details</p>
+                                </Button>
                             </div>
                         </FeaturedInfo>                         
                     </Header>
@@ -129,7 +135,7 @@ export default () => {
                 <ReleaseWrapper>
                     <ReleaseContainer>
                         {filtered.map(release => {
-                            return <ReleaseCard release={release} key={release.id} handleClick={handleClick}/>
+                            return <ReleaseCard release={release} key={release.albumId} handleClick={handleClick}/>
                         })}
                     </ReleaseContainer>
                 </ReleaseWrapper>
