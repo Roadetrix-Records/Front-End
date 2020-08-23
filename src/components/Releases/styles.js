@@ -54,15 +54,17 @@ export const FeaturedInfo = styled.section`
         margin-left: 10px;
         display: flex;
         flex-direction: column;
-        h1{
-            font-family: ${theme.fonts.anton};
-            font-size: 3.5rem;
-            color: ${theme.colors.white};
-        }
-        p{
-            font-family: ${theme.fonts.ubuntu};
-            font-size: 2rem;
-            color: ${theme.colors.lightPink};
+        .featured-header{
+            h1{
+                font-family: ${theme.fonts.anton};
+                font-size: 3.5rem;
+                color: ${theme.colors.white};
+            }
+            p{
+                font-family: ${theme.fonts.ubuntu};
+                font-size: 2rem;
+                color: ${theme.colors.lightPink};
+            }
         }
     }
 `;
@@ -148,7 +150,26 @@ export const Details = styled.div`
 `;
 
 export const Button = styled.div`
-
+    cursor: pointer;
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${theme.colors.lightPink};
+    border: 1px solid ${theme.colors.lightPink};
+    border-radius: 10px;
+    color: ${theme.colors.white};
+    p{
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 1.5rem;
+    }
+    &:hover{
+        border: 1px solid ${theme.colors.lightPink};
+        background-color: transparent;
+        color: ${theme.colors.lightPink};
+    }
 `;
 
 export const SearchIcon = styled(Search)`
