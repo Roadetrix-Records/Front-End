@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import theme from '../../theme';
 import { Search } from '@styled-icons/boxicons-regular/';
+import { Close } from '@styled-icons/evaicons-solid/';
+import { Spotify } from '@styled-icons/boxicons-logos/';
 
 export const Releases = styled.section`
     
@@ -143,10 +145,88 @@ export const ReleaseCard = styled.div`
 `;
 
 export const Details = styled.div`
-    width: 400px;
-    height: 600px;
+    width: 350px;
     background-color: ${theme.colors.white};
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    .img-container{
+        width: 100%;
+        position: relative;
+        .logo-wrapper{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .label-wrapper{
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            a{
+                text-decoration: none;
+            }
+            .label{
+                background-color: ${theme.spotify.darkGreen};
+                width: 90px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    font-family: ${theme.fonts.ubuntu};
+                    font-size: 1.5rem;
+                    color: ${theme.colors.white};
+                }
+            }
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .main-info{
+        margin: 10px 0;
+        margin-left: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .album-name{
+            display: flex;
+            align-items: center;
+            h3{
+                color: ${theme.colors.lightGrey};
+                font-family: ${theme.fonts.anton};
+                font-size: 3rem;
+                margin-bottom: 5px;
+                margin-right: 5px;
+            }
+        }
+        p{
+            color: ${theme.colors.lightGrey};
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+`;
+
+export const Artist = styled.div`
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    color: ${theme.colors.lightGrey};
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    &:hover{
+        color: ${theme.spotify.darkGreen} !important;
+    }
 `;
 
 export const Button = styled.div`
@@ -175,4 +255,18 @@ export const Button = styled.div`
 export const SearchIcon = styled(Search)`
     width: 30px;
     color: ${theme.colors.lightGrey};
+`;
+
+export const CloseIcon = styled(Close)`
+    cursor: pointer;
+    width: 40px;
+    color: ${theme.colors.lightGrey};
+    &:hover{
+        color: ${theme.colors.lightPink};
+    }
+`;
+
+export const SpotifyLogo = styled(Spotify)`
+    width: 80px;
+    color: ${theme.spotify.darkGreen};
 `;

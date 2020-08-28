@@ -75,7 +75,7 @@ export default () => {
     }, [])
 
     /**
-     * Allows the user to search releases by release name
+     * Allows the user to search releases by release name, artist name, or track name
      */
     useEffect(() => {
         if(search === ''){
@@ -95,8 +95,10 @@ export default () => {
             <Backdrop className={classes.backdrop} open={!featured || !releases}>
                 <CircularProgress color="inherit" />
             </Backdrop>
-            <Backdrop className={classes.backdrop} open={currentRelease !== null} onClick={handleClose}>
-                <Details release={currentRelease}/>
+            <Backdrop className={classes.backdrop} open={currentRelease !== null}>
+                {currentRelease && (
+                    <Details release={currentRelease} handleClose={handleClose}/>
+                )}
             </Backdrop>
             <Featured>
                 {featured && (
@@ -110,7 +112,7 @@ export default () => {
                                     <Divider color='white'/>
                                     <p>{featured.albumName}</p>
                                 </div>
-                                <Button>
+                                <Button onClick={() => handleClick(featured.albumId)}>
                                     <p>View Details</p>
                                 </Button>
                             </div>
