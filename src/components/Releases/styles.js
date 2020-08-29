@@ -186,7 +186,7 @@ export const Details = styled.div`
     }
     .main-info{
         margin: 10px 0;
-        margin-left: 10px;
+        margin-left: 30px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -210,6 +210,23 @@ export const Details = styled.div`
         a{
             text-decoration: none;
         }
+    }
+    .tracks{
+        width: 100%;
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h2{
+            color: ${theme.colors.lightGrey};
+            font-family: ${theme.fonts.anton};
+            font-size: 2rem;
+
+        }
+    }
+    .btn-container{
+        width: 100%;
+        display: flex;
     }
 `;
 

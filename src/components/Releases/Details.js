@@ -36,6 +36,9 @@ export default ({ release, handleClose }) => {
                     )
                 })}
             </div>
+            <div className='tracks'>
+                <h2>Tracks</h2>
+            </div>
             <div className='btn-container'>
                 <Button onClick={handleClose}>
                     <p>Close</p>
