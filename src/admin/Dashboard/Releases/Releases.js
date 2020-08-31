@@ -74,8 +74,11 @@ export default () => {
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/admin-featured`)
         .then(res => {
-            console.log(res.data);
-            setFeaturedRelease(res.data);
+            setFeaturedRelease({
+                ...res.data,
+                albumId: res.data.id,
+                albumImgUrl: res.data.imgUrl
+            });
         })
         .catch(err => {
             console.log(err);
@@ -130,9 +133,9 @@ export default () => {
                         return <ReleasePreview 
                                     key={release.albumId} 
                                     release={release} 
+                                    featuredId={featuredRelease && featuredRelease.id}
                                     selectingFeatured={selectingFeatured} 
                                     handleSelect={handleSelect}
-                                    featuredId={featuredRelease && featuredRelease.id}
                                 />
                     })}
                 </div>
