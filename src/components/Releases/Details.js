@@ -1,5 +1,5 @@
 import React from 'react';
-import { Details, SpotifyLogo, Button, Artist, Track, ExplicitIcon } from './styles';
+import { Details, SpotifyLogo, Button, Artist, Track, ExplicitIcon, DetailsButton } from './styles';
 
 /**
  * convertMsToMinute
@@ -7,11 +7,17 @@ import { Details, SpotifyLogo, Button, Artist, Track, ExplicitIcon } from './sty
  * 
  */
 const convertMsToMinute = ms => {
+    let minutes = Math.floor((ms / 1000 / 60 / 60) * 60);
+    let seconds = Math.floor(((ms / 1000 / 60/ 60) * 60 - minutes) * 60);
 
+    if(seconds < 10){
+        seconds = `0${seconds}`
+    }
+
+    return `${minutes}:${seconds}`
 }
 
 export default ({ release, handleClose }) => {
-    console.log(release)
     return (
         <Details>
             <div className='img-container'>
@@ -50,10 +56,11 @@ export default ({ release, handleClose }) => {
                 <div className='tracks-wrapper'>
                     {release.tracks.map((track, index) => {
                         return (
-                            <Track key={track.id} index={index}>
+                            <Track key={track.trackId} index={index}>
                                 <p>{track.trackName}</p>
                                 <div className='info'>
                                     {track.explicit && <ExplicitIcon/>}
+                                    <p>{convertMsToMinute(track.duration)}</p>
                                 </div>
                             </Track>
                         )
@@ -61,12 +68,14 @@ export default ({ release, handleClose }) => {
                 </div>
             </div>
             <div className='btn-container'>
-                <Button onClick={handleClose}>
+                <DetailsButton onClick={handleClose}>
                     <p>Close</p>
-                </Button>
-                <Button>
-                    <p>Listen on Spotify</p>
-                </Button>
+                </DetailsButton>
+                <a href={release.albumPublicUrl}>
+                    <DetailsButton color='spotify'>
+                        <p>Listen on Spotify</p>
+                    </DetailsButton>
+                </a>
             </div>
         </Details>
     );

@@ -226,13 +226,17 @@ export const Details = styled.div`
         }
         .tracks-wrapper{
             max-height: 300px;
-            overflow: scroll;
             width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden
         }
     }
     .btn-container{
         width: 100%;
         display: flex;
+        a{
+            text-decoration: none;
+        }
     }
 `;
 
@@ -253,7 +257,7 @@ export const Artist = styled.div`
 `;
 
 export const Track = styled.div`
-    cursor: pointer;
+    cursor: default;
     width: 100%;
     background-color: ${props => props.index % 2 == 1 ? theme.colors.lightGrey : theme.colors.white};
     height: 40px;
@@ -268,6 +272,9 @@ export const Track = styled.div`
     }
     .info{
         margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 `;
 
@@ -291,6 +298,28 @@ export const Button = styled.div`
         border: 1px solid ${theme.colors.lightPink};
         background-color: transparent;
         color: ${theme.colors.lightPink};
+    }
+`;
+
+export const DetailsButton = styled.div`
+    cursor: pointer;
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+    border: 1px solid ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+    color: ${theme.colors.white};
+    p{
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 1.5rem;
+    }
+    &:hover{
+        border: 1px solid ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+        background-color: transparent;
+        color: ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
     }
 `;
 
