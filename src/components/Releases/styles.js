@@ -3,6 +3,7 @@ import theme from '../../theme';
 import { Search } from '@styled-icons/boxicons-regular/';
 import { Close } from '@styled-icons/evaicons-solid/';
 import { Spotify } from '@styled-icons/boxicons-logos/';
+import { Explicit } from '@styled-icons/material/';
 
 export const Releases = styled.section`
     
@@ -145,7 +146,7 @@ export const ReleaseCard = styled.div`
 `;
 
 export const Details = styled.div`
-    width: 350px;
+    width: 400px;
     background-color: ${theme.colors.white};
     display: flex;
     flex-direction: column;
@@ -213,15 +214,20 @@ export const Details = styled.div`
     }
     .tracks{
         width: 100%;
-        margin-left: 30px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         h2{
+            margin-left: 15px;
             color: ${theme.colors.lightGrey};
             font-family: ${theme.fonts.anton};
             font-size: 2rem;
 
+        }
+        .tracks-wrapper{
+            max-height: 300px;
+            overflow: scroll;
+            width: 100%;
         }
     }
     .btn-container{
@@ -243,6 +249,25 @@ export const Artist = styled.div`
     }
     &:hover{
         color: ${theme.spotify.darkGreen} !important;
+    }
+`;
+
+export const Track = styled.div`
+    cursor: pointer;
+    width: 100%;
+    background-color: ${props => props.index % 2 == 1 ? theme.colors.lightGrey : theme.colors.white};
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p{
+        color: ${theme.colors.lightPink};
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 1.5rem;
+        margin-left: 15px;
+    }
+    .info{
+        margin-right: 15px;
     }
 `;
 
@@ -286,4 +311,9 @@ export const CloseIcon = styled(Close)`
 export const SpotifyLogo = styled(Spotify)`
     width: 80px;
     color: ${theme.spotify.darkGreen};
+`;
+
+export const ExplicitIcon = styled(Explicit)`
+    width: 20px;
+    color: ${theme.colors.lightPink};
 `;

@@ -1,5 +1,14 @@
 import React from 'react';
-import { Details, SpotifyLogo, Button, Artist } from './styles';
+import { Details, SpotifyLogo, Button, Artist, Track, ExplicitIcon } from './styles';
+
+/**
+ * convertMsToMinute
+ * @param {int} ms - represents time in milliseconds
+ * 
+ */
+const convertMsToMinute = ms => {
+
+}
 
 export default ({ release, handleClose }) => {
     console.log(release)
@@ -38,6 +47,18 @@ export default ({ release, handleClose }) => {
             </div>
             <div className='tracks'>
                 <h2>Tracks</h2>
+                <div className='tracks-wrapper'>
+                    {release.tracks.map((track, index) => {
+                        return (
+                            <Track key={track.id} index={index}>
+                                <p>{track.trackName}</p>
+                                <div className='info'>
+                                    {track.explicit && <ExplicitIcon/>}
+                                </div>
+                            </Track>
+                        )
+                    })}
+                </div>
             </div>
             <div className='btn-container'>
                 <Button onClick={handleClose}>
