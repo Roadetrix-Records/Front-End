@@ -54,7 +54,7 @@ export default () => {
     }
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/spotify/albums`)
+        axios.get(`${BASE_URL}/spotify/releases`)
         .then(res => {
             setReleases(res.data);
         })
@@ -74,8 +74,11 @@ export default () => {
     useEffect(() => {
         axios.get(`${BASE_URL}/spotify/admin-featured`)
         .then(res => {
-            console.log('Inside fetch', res.data)
-            setFeaturedRelease(res.data);
+            setFeaturedRelease({
+                ...res.data,
+                albumId: res.data.id,
+                albumImgUrl: res.data.imgUrl
+            });
         })
         .catch(err => {
             console.log(err);
@@ -109,6 +112,7 @@ export default () => {
                         key={`featured-${featuredRelease.id}`} 
                         release={featuredRelease} 
                         featuredId={featuredRelease && featuredRelease.id}
+                        imgUrl={featuredRelease.imgUrl}
                     />
                 )}
             </div>
@@ -127,11 +131,11 @@ export default () => {
                 <div className='release-container'>
                     {releases && releases.map(release => {
                         return <ReleasePreview 
-                                    key={release.id} 
+                                    key={release.albumId} 
                                     release={release} 
+                                    featuredId={featuredRelease && featuredRelease.id}
                                     selectingFeatured={selectingFeatured} 
                                     handleSelect={handleSelect}
-                                    featuredId={featuredRelease && featuredRelease.id}
                                 />
                     })}
                 </div>

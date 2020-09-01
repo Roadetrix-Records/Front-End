@@ -277,13 +277,13 @@ export const RecentCard = styled.div`
         font-size: 1.8rem;
     }
     @media (max-width: 1600px){
-        display: ${props => props.index === 5 && 'none'};
-    }
-    @media (max-width: 1050px){
         display: ${props => props.index === 4 && 'none'};
     }
-    @media (max-width: 800px){
+    @media (max-width: 1050px){
         display: ${props => props.index === 3 && 'none'};
+    }
+    @media (max-width: 800px){
+        display: ${props => props.index === 2 && 'none'};
     }
 `;
 

@@ -89,7 +89,6 @@ export default () => {
     const fetchPlaylists = () => {
         axios.get(`${BASE_URL}/playlists`)
         .then(res => {
-            console.log(res.data);
             setPlaylists(res.data.sort((a, b) => {
                 return a.id - b.id
             }));

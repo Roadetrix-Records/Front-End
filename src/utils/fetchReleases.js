@@ -74,6 +74,7 @@ export const fetchReleases = async () => {
             })
             .then(res => {
                 const tracksRes = res.data.items;
+                console.log(tracksRes)
                 for(let j=0; j<tracksRes.length; j++){
 
                     // Get data for albumId with trackId
@@ -97,7 +98,10 @@ export const fetchReleases = async () => {
                         id: tracksRes[j].id,
                         name: tracksRes[j].name,
                         externalUrl: tracksRes[j].external_urls.spotify,
-                        privateUrl: tracksRes[j].href
+                        privateUrl: tracksRes[j].href,
+                        duration: tracksRes[j].duration_ms,
+                        explicit: tracksRes[j].explicit,
+                        previewUrl: tracksRes[j].preview_url
                     })
                 }
             })

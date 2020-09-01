@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../theme';
 import { Search } from '@styled-icons/boxicons-regular/';
+import { Close } from '@styled-icons/evaicons-solid/';
+import { Spotify } from '@styled-icons/boxicons-logos/';
+import { Explicit } from '@styled-icons/material/';
 
 export const Releases = styled.section`
     
@@ -144,9 +147,135 @@ export const ReleaseCard = styled.div`
 
 export const Details = styled.div`
     width: 400px;
-    height: 600px;
     background-color: ${theme.colors.white};
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    .img-container{
+        width: 100%;
+        position: relative;
+        .logo-wrapper{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .label-wrapper{
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            a{
+                text-decoration: none;
+            }
+            .label{
+                background-color: ${theme.spotify.darkGreen};
+                width: 90px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    font-family: ${theme.fonts.ubuntu};
+                    font-size: 1.5rem;
+                    color: ${theme.colors.white};
+                }
+            }
+        }
+        img{
+            width: 100%;
+        }
+    }
+    .main-info{
+        margin: 10px 0;
+        margin-left: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .album-name{
+            display: flex;
+            align-items: center;
+            h3{
+                color: ${theme.colors.lightGrey};
+                font-family: ${theme.fonts.anton};
+                font-size: 3rem;
+                margin-bottom: 5px;
+                margin-right: 5px;
+            }
+        }
+        p{
+            color: ${theme.colors.lightGrey};
+            font-family: ${theme.fonts.ubuntu};
+            font-size: 1.5rem;
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+    .tracks{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h2{
+            margin-left: 15px;
+            color: ${theme.colors.lightGrey};
+            font-family: ${theme.fonts.anton};
+            font-size: 2rem;
+
+        }
+        .tracks-wrapper{
+            max-height: 300px;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden
+        }
+    }
+    .btn-container{
+        width: 100%;
+        display: flex;
+        a{
+            text-decoration: none;
+        }
+    }
+`;
+
+export const Artist = styled.div`
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    color: ${theme.colors.lightGrey};
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    &:hover{
+        color: ${theme.spotify.darkGreen} !important;
+    }
+`;
+
+export const Track = styled.div`
+    cursor: default;
+    width: 100%;
+    background-color: ${props => props.index % 2 == 1 ? theme.colors.lightGrey : theme.colors.white};
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p{
+        color: ${theme.colors.lightPink};
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 1.5rem;
+        margin-left: 15px;
+    }
+    .info{
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 `;
 
 export const Button = styled.div`
@@ -172,7 +301,48 @@ export const Button = styled.div`
     }
 `;
 
+export const DetailsButton = styled.div`
+    cursor: pointer;
+    margin-top: 10px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+    border: 1px solid ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+    color: ${theme.colors.white};
+    p{
+        font-family: ${theme.fonts.ubuntu};
+        font-size: 1.5rem;
+    }
+    &:hover{
+        border: 1px solid ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+        background-color: transparent;
+        color: ${props => props.color === 'spotify' ? theme.spotify.darkGreen : theme.colors.black};
+    }
+`;
+
 export const SearchIcon = styled(Search)`
     width: 30px;
     color: ${theme.colors.lightGrey};
+`;
+
+export const CloseIcon = styled(Close)`
+    cursor: pointer;
+    width: 40px;
+    color: ${theme.colors.lightGrey};
+    &:hover{
+        color: ${theme.colors.lightPink};
+    }
+`;
+
+export const SpotifyLogo = styled(Spotify)`
+    width: 80px;
+    color: ${theme.spotify.darkGreen};
+`;
+
+export const ExplicitIcon = styled(Explicit)`
+    width: 20px;
+    color: ${theme.colors.lightPink};
 `;

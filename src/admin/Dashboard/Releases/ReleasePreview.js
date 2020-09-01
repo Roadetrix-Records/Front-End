@@ -4,15 +4,17 @@ import { BASE_URL } from '../../../enviornment';
 import { ReleasePreview, HideOverlay, HideIcon } from '../styles';
 
 export default ({ release, selectingFeatured, handleSelect, featuredId }) => {
-    // if(featuredId){
-    //     console.log(featuredId)
-    //     console.log(release.albumId)
-    // }
+
     const [ hidden, setHidden ] = useState(release.isHidden);
 
+    /**
+     * handleHidden - handles changing the state of an album's visibility status.
+     * If the track selected is a featured track, nothing happens.
+     * To determine this, we check to see if featuredId is equal to the release id
+     */
     const handleHidden = () => {
         if(featuredId !== release.albumId || !featuredId){
-            axios.put(`${BASE_URL}/spotify/set-hidden/${release.id}`, {
+            axios.put(`${BASE_URL}/spotify/set-hidden/${release.albumId}`, {
                 isHidden: !hidden
             })
             .then(() => {
@@ -27,9 +29,9 @@ export default ({ release, selectingFeatured, handleSelect, featuredId }) => {
     return (
         <ReleasePreview>
             <div className='img-container' onClick={() => {
-                if(release.id !== featuredId){
+                if(release.albumId !== featuredId){
                     if (selectingFeatured){
-                        handleSelect(release.id);
+                        handleSelect(release.albumId);
                     } else {
                         handleHidden();
                     }
@@ -39,9 +41,9 @@ export default ({ release, selectingFeatured, handleSelect, featuredId }) => {
                 <HideOverlay display={hidden ? 1 : 0}>
                     <HideIcon/>
                 </HideOverlay>
-                    <img alt={release.name} src={release.imgUrl}/>
+                    <img alt={release.albumName} src={release.albumImgUrl}/>
             </div>
-            <p>{release.name}</p>
+            <p>{release.albumName}</p>
         </ReleasePreview>
     );
 }

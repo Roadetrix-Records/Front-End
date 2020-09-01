@@ -19,22 +19,23 @@ export default () => {
     const [ featured, setFeatured ] = useState([])
     const [ latest, setLatest ] = useState([])
 
-    //  This would be a good spot to add useMemo
-    const fetchLatest = () => {
-        axios.get(`${BASE_URL}/spotify/latest`)
+    const fetchFeatured = () => {
+        axios.get(`${BASE_URL}/spotify/featured`)
         .then(res => {
-            setLatest(res.data);
+            console.log(res.data)
+            setFeatured(res.data)
         })
         .catch(err => {
             console.log(err);
         })
     }
 
-    const fetchFeatured = () => {
-        axios.get(`${BASE_URL}/spotify/featured`)
+    //  This would be a good spot to add useMemo
+    const fetchLatest = () => {
+        axios.get(`${BASE_URL}/spotify/latest`)
         .then(res => {
-            console.log(res.data)
-            setFeatured(res.data)
+            console.log(res.data);
+            setLatest(res.data);
         })
         .catch(err => {
             console.log(err);
@@ -69,10 +70,7 @@ export default () => {
                         </div>
                         <div className='recent-releases'>
                             {latest && latest.map((release, index) => {
-                                if(index > 0){
-                                    return <RecentCard release={release} key={release.albumId} index={index}/>
-                                }
-                                return null
+                                return <RecentCard release={release} key={release.albumId} index={index}/>
                             })}
                         </div>
                     </div>
