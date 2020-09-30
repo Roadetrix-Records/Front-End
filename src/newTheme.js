@@ -5,7 +5,9 @@ export default {
         },
         neutral: {
             black: '#1D1D1D',
-            white: '#FFFFFF'
+            white: '#FFFFFF',
+            grey: '#EBEBEB',
+            darkGrey: '#848484'
         },
         gradient: {
             darkGradient: 'background: linear-gradient(0deg, rgba(29,29,29,1) 0%, rgba(0,0,0,1) 100%)'

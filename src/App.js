@@ -8,6 +8,9 @@ import Submissions from './components/Submissions';
 import Login from './admin/Login';
 import About from './components/About';
 
+// New Components
+// import Home from './components/NewHome';
+
 import Dashboard from './admin/Dashboard/Dashboard';
 
 // Dependency Imports
