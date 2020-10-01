@@ -14,7 +14,6 @@ export const Nav = styled.nav`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 1000px;
         width: 80%;
         height: 70px;
         img {
@@ -28,11 +27,12 @@ export const Nav = styled.nav`
             width: 480px;
         }  
     } 
-    ${props => props.scrollPosition > 100 && `
+    ${props => props.scrollPosition > 30 && `
         height: 90px;
         background-color: ${theme.colors.neutral.black};
         transition: .5s ease;
     `}
+    z-index: 999;
 `;
 
 export const Link = styled.a`
@@ -42,7 +42,7 @@ export const Link = styled.a`
     font-size: 18px;
     color: ${theme.colors.neutral.white};
     &:hover{
-        color: ${theme.colors.neutral.darkGrey};
+        text-decoration: underline;
         transition: .5s ease;
     }
 `;

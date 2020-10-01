@@ -2,14 +2,14 @@ import React from 'react';
 
 // Component Imports
 import Header from './components/Header/Header';
-import Home from './components/Home/Home';
+// import Home from './components/Home/Home';
 import Releases from './components/Releases/Releases';
 import Submissions from './components/Submissions';
 import Login from './admin/Login';
 import About from './components/About';
 
 // New Components
-// import Home from './components/NewHome';
+import Home from './components/NewHome';
 
 import Dashboard from './admin/Dashboard/Dashboard';
 

@@ -3,6 +3,8 @@ import Nav from '../Nav/Nav';
 import Header from './Header/Header';
 import { Home } from './homeStyles';
 
+//TODO: Add support for routing
+
 export default () => {
     const data = [];
     for(let i=0; i<200; i++){
