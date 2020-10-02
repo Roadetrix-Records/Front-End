@@ -46,6 +46,21 @@ export const H3 = styled.h1`
     `}
 `;
 
+export const H4 = styled.h4`
+    font-family: ${theme.font.family};
+    font-size: 20px;
+    color: ${theme.colors.neutral.black};
+    ${props => props.bold && css`
+        font-weight: bold;
+    `}
+    ${props => props.color === 'green' && css`
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'white' && css`
+        color: ${theme.colors.neutral.white};
+    `}
+`;
+
 export const Text = styled.p`
     font-family: ${theme.font.family};
     font-size: 18px;

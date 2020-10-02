@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import Header from './Header/Header';
 import Playlist from './Playlist/Playlist';
+import CTA from './CTA/CTA';
 import { Home } from './homeStyles';
 
 //TODO: Add support for routing
@@ -17,6 +18,7 @@ export default () => {
             <Nav/>
             <Header/>
             <Playlist/>
+            <CTA/>
             {/* {data.map(text => {
                 return <div>{text}</div>
             })} */}
