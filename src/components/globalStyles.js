@@ -1,32 +1,123 @@
-import styled, { css } from 'styled';
+import styled, { css } from 'styled-components';
 import theme from '../newTheme';
 
-// TODO: Add support for white color
-export const Button = styled.div`
+export const H1 = styled.h1`
+    font-family: ${theme.font.family};
+    font-size: 50px;
+    color: ${theme.colors.neutral.black};
+    ${props => props.bold && css`
+        font-weight: bold;
+    `}
+    ${props => props.color === 'green' && css`
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'white' && css`
+        color: ${theme.colors.neutral.white};
+    `}
+`;
+
+export const H2 = styled.h2`
+    font-family: ${theme.font.family};
+    font-size: 40px;
+    color: ${theme.colors.neutral.black};
+    ${props => props.bold && css`
+        font-weight: bold;
+    `}
+    ${props => props.color === 'green' && css`
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'white' && css`
+        color: ${theme.colors.neutral.white};
+    `}
+`;
+
+export const H3 = styled.h1`
+    font-family: ${theme.font.family};
+    font-size: 25px;
+    color: ${theme.colors.neutral.black};
+    ${props => props.bold && css`
+        font-weight: bold;
+    `}
+    ${props => props.color === 'green' && css`
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'white' && css`
+        color: ${theme.colors.neutral.white};
+    `}
+`;
+
+export const Text = styled.p`
+    font-family: ${theme.font.family};
+    font-size: 18px;
+    color: ${theme.colors.neutral.black};
+    ${props => props.bold && css`
+        font-weight: bold;
+    `}
+    ${props => props.color === 'green' && css`
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'white' && css`
+        color: ${theme.colors.neutral.white};
+    `}
+`;
+
+export const SolidButton = styled.div`
     width: ${props => props.width};
     height: ${props => props.height};
-    border: 1px solid ${props => props.color === 'black' ? theme.colors.neutral.black : theme.colors.primary.spotifyGreen};
-    color: ${props => props.color === 'black' ? theme.colors.neutral.black : theme.colors.primary.spotifyGreen};
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
     font-family: ${theme.font.family};
     font-size: 18px;
-    transition: .5s ease;
-    ${props => props.solid && css`
-        background-color: ${props => props.color === 'black' ? theme.colors.neutral.black : theme.colors.primary.spotifyGreen};
+    cursor: pointer;
+    border-radius: 5px;
+    ${props => props.color === 'green' && css`
+        border: 1px solid ${theme.colors.primary.spotifyGreen};
+        background-color: ${theme.colors.primary.spotifyGreen};
         color: ${theme.colors.neutral.white};
     `}
+    transition: .5s ease;
     &:hover {
-        background-color: ${props => props.color === 'black' ? theme.colors.neutral.black : theme.colors.primary.spotifyGreen};
-        color: ${props => props.color === 'black' && theme.colors.neutral.white};
-        transition: .5s ease;
-        ${props => props.solid && css`
-            background-color: ${props => props.color === 'black' ? theme.colors.neutral.blackLight : theme.colors.primary.lightGreen};
+        ${props => props.color === 'green' && css`
+            border: 1px solid ${theme.colors.primary.lightGreen};
+            background-color: ${theme.colors.primary.lightGreen};
+            color: ${theme.colors.neutral.white};
+            transition: .5s ease;
         `}
     }
 `;
 
-//TODO: Add Links
+export const Button = styled.div`
+    width: ${props => props.width};
+    height: ${props => props.height};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: ${theme.font.family};
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    ${props => props.color === 'green' && css`
+        border: 1px solid ${theme.colors.primary.spotifyGreen};
+        color: ${theme.colors.primary.spotifyGreen};
+    `}
+    ${props => props.color === 'black' && css`
+        border: 1px solid ${theme.colors.neutral.black};
+        color: ${theme.colors.neutral.black};
+    `}
+    transition: .5s ease;
+    &:hover {
+        ${props => props.color === 'green' && css`
+            border: 1px solid ${theme.colors.primary.spotifyGreen};
+            background-color: ${theme.colors.primary.spotifyGreen};
+            color: ${theme.colors.neutral.white};
+        `}
+        ${props => props.color === 'black' && css`
+            border: 1px solid ${theme.colors.neutral.black};
+            background-color: ${theme.colors.neutral.black};
+            color: ${theme.colors.neutral.white};
+        `}
+        transition: .5s ease;
+    }
+`;
+

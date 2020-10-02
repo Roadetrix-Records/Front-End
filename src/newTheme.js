@@ -29,10 +29,13 @@ export default {
         }
     },
     breakpoints: {
-        
+        lgDesktop: '@media (max-width: 1300px)',
+        desktop: '@media (max-width: 1052px)',
+        tablet: '@media (max-width: 800px)',
+        phone: '@media (max-width: 500px)'
     },
     spacing: {
-        maxWidth: '',
+        maxWidth: '1400px',
         wrapper: '80%'
     }
 }

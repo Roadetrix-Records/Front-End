@@ -9,6 +9,7 @@ export const Nav = styled.nav`
     position: fixed;
     transition: .5s ease;
     .wrapper {
+        max-width: 1400px;
         padding: 10px 0;
         margin: 0 auto;
         display: flex;

@@ -1,31 +1,33 @@
 import React from 'react';
-import { Header, Button } from './headerStyles';
+import { Header } from './headerStyles';
+import { H1, H3, Text, SolidButton, Button } from '../../globalStyles';
 import spotifyMac from '../../../assets/spotify-mac.png';
 
 export default () => {
     return (
         <Header>
-            <div className='header-wrapper'>
-                <div className='col-1'>
-                    <h1>Roadetrix Records</h1>
-                    <h2>Helping Artists in the Lo-fi community</h2>
-                    <p>Submit your demo or view our releases!</p>
-                    <div className='btn-wrapper'>
-                        <Button 
-                            color='black' 
-                            width='150px' 
-                            height='35px'
-                        >Submit</Button>
-                        <Button 
-                            color='green' 
-                            width='200px' 
-                            height='35px'
-                            solid={true}
-                        >View Releases</Button>
-                    </div>
-                </div>
-                <div className='col-2'>
+            <div className='header-row-top'>
+                <div className='img-wrapper'>
                     <img src={spotifyMac}/>
+                </div>
+            </div>
+            <div className='header-row-bottom'>
+                <H1>Roadetrix Records</H1>
+                <div style={{ margin: '20px 0' }}>
+                    <H3 bold={true}>Helping Artists in the Lo-fi Community</H3>
+                </div>
+                <Text>Submit a demo or view our releases!</Text>
+                <div className='btn-wrapper'>
+                    <Button
+                        width='170px'
+                        height='40px'
+                        color='black'
+                    >Submit Demo</Button>
+                    <SolidButton
+                        width='170px'
+                        height='40px'
+                        color='green'
+                    >View Releases</SolidButton>
                 </div>
             </div>
         </Header>
