@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import Playlist from './Playlist/Playlist';
 import CTA from './CTA/CTA';
 import Social from './Social/Social';
+import About from './About/About';
 import { Home } from './homeStyles';
 
 //TODO: Add support for routing
@@ -16,6 +17,7 @@ export default () => {
             <Playlist/>
             <CTA/>
             <Social/>
+            <About/>
         </Home>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Nav, Link, Button, SpotifyIcon } from './navStyles';
 import logo from '../../assets/logo-white.png';
 
@@ -12,7 +12,7 @@ export default () => {
     return (
         <Nav scrollPosition={scrollPosition}>
             <div className='wrapper'>
-                <img src={logo}/>
+                <img src={logo} alt='Roadetrix flower'/>
                 <div className='btn-wrapper'>
                     <Link>Releases</Link>
                     <Link>Submissions</Link>

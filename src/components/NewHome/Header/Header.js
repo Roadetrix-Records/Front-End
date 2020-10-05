@@ -8,7 +8,7 @@ export default () => {
         <Header>
             <div className='header-row-top'>
                 <div className='img-wrapper'>
-                    <img src={spotifyMac}/>
+                    <img src={spotifyMac} alt='Roadetrix on mac'/>
                 </div>
             </div>
             <div className='header-row-bottom'>

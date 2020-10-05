@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components';
-import theme from '../../../newTheme';
+import styled from 'styled-components';
+// import theme from '../../../newTheme';
 import bg from '../../../assets/bg-blurred.png';
 
 

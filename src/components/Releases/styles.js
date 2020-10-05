@@ -259,7 +259,7 @@ export const Artist = styled.div`
 export const Track = styled.div`
     cursor: default;
     width: 100%;
-    background-color: ${props => props.index % 2 == 1 ? theme.colors.lightGrey : theme.colors.white};
+    background-color: ${props => props.index % 2 === 1 ? theme.colors.lightGrey : theme.colors.white};
     height: 40px;
     display: flex;
     align-items: center;

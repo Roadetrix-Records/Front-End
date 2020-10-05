@@ -1,5 +1,5 @@
 import React from 'react';
-import { Details, SpotifyLogo, Button, Artist, Track, ExplicitIcon, DetailsButton } from './styles';
+import { Details, SpotifyLogo, Artist, Track, ExplicitIcon, DetailsButton } from './styles';
 
 /**
  * convertMsToMinute
