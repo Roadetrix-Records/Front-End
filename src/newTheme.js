@@ -24,7 +24,7 @@ export default {
             h1: '',
             h2: '',
             h3: '',
-            text: '',
+            text: '18px',
             smText: ''
         }
     },

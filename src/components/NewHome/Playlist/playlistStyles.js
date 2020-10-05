@@ -10,6 +10,7 @@ export const Playlist = styled.section`
     background-position: center;
     backgroun-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     .playlist-wrapper {
         width: ${theme.spacing.wrapper};
         max-width: ${theme.spacing.maxWidth};

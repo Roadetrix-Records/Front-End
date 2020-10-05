@@ -12,7 +12,7 @@ export const Social = styled.section`
     background-repeat: no-repeat;
     background-color: ${theme.colors.neutral.black};
     background-attachment: fixed;
-    background-position: 20% 130%;
+    background-position: 20% 120%;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -28,32 +28,40 @@ export const Social = styled.section`
 export const YoutubeIcon = styled(Youtube)`
     width: 70px;
     color: ${theme.colors.primary.spotifyGreen};
+    transition: .5s ease;
     &:hover{
         color: ${theme.colors.primary.lightGreen};
+        transition: .5s ease;
     }
 `;
 
 export const DiscordIcon = styled(Discord)`
     width: 60px;
     color: ${theme.colors.primary.spotifyGreen};
+    transition: .5s ease;
     &:hover{
         color: ${theme.colors.primary.lightGreen};
+        transition: .5s ease;
     }
 `;
 
 export const TikTokIcon = styled(LogoTiktok)`
     width: 50px;
     color: ${theme.colors.primary.spotifyGreen};
+    transition: .5s ease;
     &:hover{
         color: ${theme.colors.primary.lightGreen};
+        transition: .5s ease;
     }
 `;
 
 export const InstagramIcon = styled(Instagram)`
     width: 60px;
     color: ${theme.colors.primary.spotifyGreen};
+    transition: .5s ease;
     &:hover{
         color: ${theme.colors.primary.lightGreen};
+        transition: .5s ease;
     }
 `;
 

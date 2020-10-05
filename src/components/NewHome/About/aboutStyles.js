@@ -2,7 +2,7 @@ import styled from 'styled-components';
 // import theme from '../../../newTheme';
 
 export const About = styled.section`
-    width: 100%;
+    width: 80%;
     max-width: 700px;
     padding: 100px 0;
     display: flex;
