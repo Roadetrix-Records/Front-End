@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Nav, Link, Button, SpotifyIcon } from './navStyles';
+import { 
+    Nav, 
+    StyledLink,
+    //Button, 
+    //SpotifyIcon 
+} from './navStyles';
 import logo from '../../assets/logo-white.png';
 
 export default () => {
@@ -14,17 +19,16 @@ export default () => {
             <div className='wrapper'>
                 <img src={logo} alt='Roadetrix flower'/>
                 <div className='btn-wrapper'>
-                    <Link>Releases</Link>
-                    <Link>Submissions</Link>
-                    <Link>About</Link>
-                    <Link>Contact</Link>
-                    <Button>
+                    <StyledLink to='/releases'>Releases</StyledLink>
+                    <StyledLink to='/submissions'>Submissions</StyledLink>
+                    <StyledLink to='/about'>About</StyledLink>
+                    <StyledLink to='/contact'>Contact</StyledLink>
+                    {/* <Button>
                         <SpotifyIcon/>
                         Log In
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
-            
         </Nav>
     )
 }

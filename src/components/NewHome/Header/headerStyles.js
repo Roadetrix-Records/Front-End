@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import theme from '../../../newTheme';
+import theme from '../../../newTheme';
 import bg from '../../../assets/bg-blurred.png';
 
 
@@ -23,6 +23,11 @@ export const Header = styled.header`
                 position: absolute;
                 right: 0;
                 bottom: -140px;
+                ${theme.breakpoints.lgDesktop}{
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                }
             }
         }
     }
@@ -39,6 +44,10 @@ export const Header = styled.header`
             display: flex;
             justify-content: space-between;
             width: 350px;
+        }
+        ${theme.breakpoints.lgDesktop}{
+            height: 600px;
+            align-items: center;
         }
     }
 `;

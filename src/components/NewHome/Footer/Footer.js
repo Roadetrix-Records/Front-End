@@ -2,7 +2,6 @@ import React from 'react';
 import { 
     Footer,
     YoutubeIcon,
-    DiscordIcon,
     TikTokIcon,
     InstagramIcon,
     StyledLink
@@ -39,16 +38,13 @@ export default () => {
                         </div>
                     </div>
                     <div className='footer-social'>
-                        <a href='https://www.youtube.com/channel/UClgt44OQ1TPnQIjYJJ_aNxQ'>
+                        <a href='https://www.youtube.com/channel/UClgt44OQ1TPnQIjYJJ_aNxQ/'>
                             <YoutubeIcon/>
                         </a>
-                        <a href='https://www.youtube.com/channel/UClgt44OQ1TPnQIjYJJ_aNxQ'>
-                            <DiscordIcon/>
-                        </a>
-                        <a href='https://www.youtube.com/channel/UClgt44OQ1TPnQIjYJJ_aNxQ'>
+                        <a href='https://www.tiktok.com/@roadetrixrecords?source=h5_m'>
                             <TikTokIcon/>
                         </a>
-                        <a href='https://www.youtube.com/channel/UClgt44OQ1TPnQIjYJJ_aNxQ'>
+                        <a href='https://www.instagram.com/roadetrix_records/'>
                             <InstagramIcon/>
                         </a>
                     </div>

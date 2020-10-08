@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../../newTheme';
 
-import { Youtube, Discord, Instagram } from '@styled-icons/boxicons-logos';
+import { Youtube, Instagram } from '@styled-icons/boxicons-logos';
 import { LogoTiktok } from '@styled-icons/ionicons-solid';
 
 import { Link } from 'react-router-dom';
@@ -42,6 +42,10 @@ export const Footer = styled.footer`
                     flex-direction: column;
                     align-items: flex-start;
                 }
+                ${theme.breakpoints.desktop}{
+                    margin-top: 40px;
+                    margin-bottom: 20px;
+                }
             }
             .footer-social {
                 width: 300px;
@@ -52,9 +56,15 @@ export const Footer = styled.footer`
                 a {
                     margin-left: 10px;
                 }
+                ${theme.breakpoints.desktop}{
+                    justify-content: center;
+                }
+            }
+            ${theme.breakpoints.desktop}{
+                flex-direction: column;
+                align-items: center;
             }
         }
-        
     }
 `;
 
@@ -73,16 +83,6 @@ export const StyledLink = styled(Link)`
 
 export const YoutubeIcon = styled(Youtube)`
     width: 40px;
-    color: ${theme.colors.primary.spotifyGreen};
-    transition: .5s ease;
-    &:hover{
-        color: ${theme.colors.primary.lightGreen};
-        transition: .5s ease;
-    }
-`;
-
-export const DiscordIcon = styled(Discord)`
-    width: 30px;
     color: ${theme.colors.primary.spotifyGreen};
     transition: .5s ease;
     &:hover{

@@ -19,5 +19,30 @@ export const Playlist = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
+        img {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            right: 0;
+            ${theme.breakpoints.desktop}{
+                width: 300px;
+                height: 300px;
+            }
+            ${theme.breakpoints.tablet}{
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 40px;
+            }
+        }
+        ${theme.breakpoints.tablet}{
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+    ${theme.breakpoints.tablet}{
+        height: 560px;
+        padding-bottom: 40px;
     }
 `;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../../newTheme';
 import socialBg from '../../../assets/social-bg.png';
 
-import { Youtube, Discord, Instagram } from '@styled-icons/boxicons-logos';
+import { Youtube, Instagram } from '@styled-icons/boxicons-logos';
 import { LogoTiktok } from '@styled-icons/ionicons-solid';
 
 
@@ -27,16 +27,6 @@ export const Social = styled.section`
 
 export const YoutubeIcon = styled(Youtube)`
     width: 70px;
-    color: ${theme.colors.primary.spotifyGreen};
-    transition: .5s ease;
-    &:hover{
-        color: ${theme.colors.primary.lightGreen};
-        transition: .5s ease;
-    }
-`;
-
-export const DiscordIcon = styled(Discord)`
-    width: 60px;
     color: ${theme.colors.primary.spotifyGreen};
     transition: .5s ease;
     &:hover{

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../newTheme';
+import { Link } from 'react-router-dom';
 
 import {Spotify} from '@styled-icons/boxicons-logos/';
 
@@ -25,7 +26,7 @@ export const Nav = styled.nav`
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 480px;
+            width: 400px;
         }  
     } 
     ${props => props.scrollPosition > 30 && `
@@ -36,14 +37,15 @@ export const Nav = styled.nav`
     z-index: 999;
 `;
 
-export const Link = styled.a`
+export const StyledLink = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     font-family: ${theme.font.family};
     font-size: 18px;
     color: ${theme.colors.neutral.white};
+    transition: .5s ease;
     &:hover{
-        text-decoration: underline;
+        color: ${theme.colors.neutral.darkGrey};
         transition: .5s ease;
     }
 `;

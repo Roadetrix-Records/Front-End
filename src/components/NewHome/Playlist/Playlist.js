@@ -1,6 +1,7 @@
 import React from 'react';
 import { Playlist } from './playlistStyles';
 import { H2, Text, SolidButton } from '../../globalStyles';
+import playlists from '../../../assets/playlists.png';
 
 export default () => {
     return (
@@ -16,6 +17,7 @@ export default () => {
                     height='40px' 
                     color='green'
                 >View Playlists</SolidButton>
+                <img src={playlists} alt='Playlists'/>
             </div>
         </Playlist>
     );

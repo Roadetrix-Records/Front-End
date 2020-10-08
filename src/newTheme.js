@@ -30,8 +30,9 @@ export default {
     },
     breakpoints: {
         lgDesktop: '@media (max-width: 1300px)',
-        desktop: '@media (max-width: 1052px)',
-        tablet: '@media (max-width: 800px)',
+        desktop: '@media (max-width: 1070px)',
+        tablet: '@media (max-width: 880px)',
+        smTablet: '@media (max-width: 690px)',
         phone: '@media (max-width: 500px)'
     },
     spacing: {

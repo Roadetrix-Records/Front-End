@@ -16,20 +16,33 @@ export const CTA = styled.section`
         align-items: center;
         position: relative;
         z-index: 5;
+        ${theme.breakpoints.tablet}{
+            height: 90%;
+            flex-direction: column;
+        }
+    }
+    ${theme.breakpoints.tablet}{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
 export const Card = styled.div`
-    width: 500px;
-    height: 300px;
+    width: 45%;
     display: flex;
     justify-content: center;
     box-shadow: 0px 0px 5px -3px rgba(0,0,0,0.75);
     border-radius: 10px;
     background-color: ${theme.colors.neutral.white};
     .content {
-        margin-top: 20%;
         line-height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px;
+        line-height: 30px;
         .title {
             display: flex;
             align-items: center;
@@ -40,6 +53,10 @@ export const Card = styled.div`
                 transition: .5s ease;
             }
         }
+    }
+    ${theme.breakpoints.tablet}{
+        width: 100%;
+        min-height: 230px;
     }
 `;
 
@@ -53,6 +70,10 @@ export const Bar = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    ${theme.breakpoints.tablet}{
+        width: 5px;
+        height: 80%;
+    }
 `;
 
 export const ArrowIcon = styled(ArrowForwardOutline)`
