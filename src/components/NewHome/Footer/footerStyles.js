@@ -24,12 +24,12 @@ export const Footer = styled.footer`
             width: 100%;
             margin-bottom: 60px;
             .logo-wrapper {
-                width: 300px;
+                width: 250px;
                 height: 70px;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 img {
-                    margin-right: 20px;
                     width: 70px;
                     height: 70px;
                 }
@@ -48,7 +48,7 @@ export const Footer = styled.footer`
                 }
             }
             .footer-social {
-                width: 300px;
+                width: 250px;
                 height: 40px;
                 display: flex;
                 justify-content: flex-end;

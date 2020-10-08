@@ -33,6 +33,9 @@ export const YoutubeIcon = styled(Youtube)`
         color: ${theme.colors.primary.lightGreen};
         transition: .5s ease;
     }
+    ${theme.breakpoints.smTablet}{
+        width: 60px;
+    }
 `;
 
 export const TikTokIcon = styled(LogoTiktok)`
@@ -43,6 +46,9 @@ export const TikTokIcon = styled(LogoTiktok)`
         color: ${theme.colors.primary.lightGreen};
         transition: .5s ease;
     }
+    ${theme.breakpoints.smTablet}{
+        width: 40px;
+    }
 `;
 
 export const InstagramIcon = styled(Instagram)`
@@ -52,6 +58,9 @@ export const InstagramIcon = styled(Instagram)`
     &:hover{
         color: ${theme.colors.primary.lightGreen};
         transition: .5s ease;
+    }
+    ${theme.breakpoints.smTablet}{
+        width: 50px;
     }
 `;
 

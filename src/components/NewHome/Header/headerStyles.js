@@ -28,7 +28,14 @@ export const Header = styled.header`
                     left: 0;
                     right: 0;
                 }
+                ${theme.breakpoints.smTablet}{
+                    width: 300px;
+                    bottom: -100px;
+                }
             }
+        }
+        ${theme.breakpoints.smTablet}{
+            height: 250px;
         }
     }
     .header-row-bottom {
@@ -44,10 +51,17 @@ export const Header = styled.header`
             display: flex;
             justify-content: space-between;
             width: 350px;
+            ${theme.breakpoints.smTablet}{
+                width: 320px;
+            }
         }
         ${theme.breakpoints.lgDesktop}{
             height: 600px;
             align-items: center;
+        }
+        ${theme.breakpoints.smTablet}{
+            padding-top: 100px;
+            height: 250px;
         }
     }
 `;

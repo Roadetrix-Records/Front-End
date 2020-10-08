@@ -14,6 +14,9 @@ export const H1 = styled.h1`
     ${props => props.color === 'white' && css`
         color: ${theme.colors.neutral.white};
     `}
+    ${theme.breakpoints.smTablet}{
+        font-size: 40px;
+    }
 `;
 
 export const H2 = styled.h2`
@@ -29,9 +32,12 @@ export const H2 = styled.h2`
     ${props => props.color === 'white' && css`
         color: ${theme.colors.neutral.white};
     `}
+    ${theme.breakpoints.smTablet}{
+        font-size: 25px;
+    }
 `;
 
-export const H3 = styled.h1`
+export const H3 = styled.h3`
     font-family: ${theme.font.family};
     font-size: 25px;
     color: ${theme.colors.neutral.black};
@@ -44,6 +50,9 @@ export const H3 = styled.h1`
     ${props => props.color === 'white' && css`
         color: ${theme.colors.neutral.white};
     `}
+    ${theme.breakpoints.smTablet}{
+        font-size: 20px;
+    }
 `;
 
 export const H4 = styled.h4`
@@ -100,6 +109,11 @@ export const SolidButton = styled.div`
             transition: .5s ease;
         `}
     }
+    ${theme.breakpoints.smTablet}{
+        width: calc(${props => props.width} - 20px);
+        height: calc(${props => props.height} - 5px);
+        font-size: 16px;
+    }
 `;
 
 export const Button = styled.div`
@@ -133,6 +147,11 @@ export const Button = styled.div`
             color: ${theme.colors.neutral.white};
         `}
         transition: .5s ease;
+    }
+    ${theme.breakpoints.smTablet}{
+        width: calc(${props => props.width} - 20px);
+        height: calc(${props => props.height} - 5px);
+        font-size: 16px;
     }
 `;
 
