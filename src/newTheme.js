@@ -1,3 +1,11 @@
+// Define max-width screen sizes
+const LG_DESKTOP = 1300;
+const DESKTOP = 1070;
+const TABLET = 880;
+const SM_TABLET = 690;
+const PHONE = 500;
+
+// Export theme object
 export default {
     colors: {
         primary: {
@@ -29,11 +37,12 @@ export default {
         }
     },
     breakpoints: {
-        lgDesktop: '@media (max-width: 1300px)',
-        desktop: '@media (max-width: 1070px)',
-        tablet: '@media (max-width: 880px)',
-        smTablet: '@media (max-width: 690px)',
-        phone: '@media (max-width: 500px)'
+        lgDesktop: `@media (max-width: ${LG_DESKTOP}px)`,
+        desktop: `@media (max-width: ${DESKTOP}px)`,
+        tablet: `@media (max-width: ${TABLET}px)`,
+        smTablet: `@media (max-width: ${SM_TABLET}px)`,
+        phone: `@media (max-width: ${PHONE}px)`,
+        minTablet: `@media (min-width: ${TABLET + 1}px)`
     },
     spacing: {
         maxWidth: '1400px',
