@@ -17,6 +17,9 @@ export const H1 = styled.h1`
     ${theme.breakpoints.smTablet}{
         font-size: 40px;
     }
+    ${theme.breakpoints.phone}{
+        font-size: 30px;
+    }
 `;
 
 export const H2 = styled.h2`
@@ -53,6 +56,10 @@ export const H3 = styled.h3`
     ${theme.breakpoints.smTablet}{
         font-size: 20px;
     }
+    ${theme.breakpoints.phone}{
+        font-size: 18px;
+        text-align: center;
+    }
 `;
 
 export const H4 = styled.h4`
@@ -68,6 +75,9 @@ export const H4 = styled.h4`
     ${props => props.color === 'white' && css`
         color: ${theme.colors.neutral.white};
     `}
+    ${theme.breakpoints.phone}{
+        font-size: 17px;
+    }
 `;
 
 export const Text = styled.p`
@@ -83,6 +93,9 @@ export const Text = styled.p`
     ${props => props.color === 'white' && css`
         color: ${theme.colors.neutral.white};
     `}
+    ${theme.breakpoints.phone}{
+        text-align: center;
+    }
 `;
 
 export const SolidButton = styled.div`
@@ -112,6 +125,11 @@ export const SolidButton = styled.div`
     ${theme.breakpoints.smTablet}{
         width: calc(${props => props.width} - 20px);
         height: calc(${props => props.height} - 5px);
+        font-size: 16px;
+    }
+    ${theme.breakpoints.smTablet}{
+        width: calc(${props => props.width} - 30px);
+        height: calc(${props => props.height} - 10px);
         font-size: 16px;
     }
 `;
@@ -151,6 +169,11 @@ export const Button = styled.div`
     ${theme.breakpoints.smTablet}{
         width: calc(${props => props.width} - 20px);
         height: calc(${props => props.height} - 5px);
+        font-size: 16px;
+    }
+    ${theme.breakpoints.smTablet}{
+        width: calc(${props => props.width} - 30px);
+        height: calc(${props => props.height} - 10px);
         font-size: 16px;
     }
 `;

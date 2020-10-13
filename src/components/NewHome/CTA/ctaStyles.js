@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 import theme from '../../../newTheme';
 
+import bg from '../../../assets/cta-bg-blurred.png';
+
 import { ArrowForwardOutline } from '@styled-icons/evaicons-outline';
 
 export const CTA = styled.section`
-    width: ${theme.spacing.wrapper};
-    max-width: 1100px;
+    width: 100%;
     height: 600px;
-    position: relative;
+    background-image: url(${bg});
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     .wrapper {
-        width: 100%;
+        margin: 0 auto;
+        width: ${theme.spacing.wrapper};
+        max-width: 1100px;
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-        z-index: 5;
         ${theme.breakpoints.tablet}{
             height: 90%;
             flex-direction: column;
@@ -53,6 +57,9 @@ export const Card = styled.div`
                 transition: .5s ease;
             }
         }
+        ${theme.breakpoints.phone}{
+            align-items: center;
+        }
     }
     ${theme.breakpoints.tablet}{
         width: 100%;
@@ -60,23 +67,26 @@ export const Card = styled.div`
     }
 `;
 
-export const Bar = styled.div`
-    background-color: ${theme.colors.primary.spotifyGreen};
-    width: 80%;
-    margin: 0 auto;
-    height: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    ${theme.breakpoints.tablet}{
-        width: 5px;
-        height: 80%;
-    }
-`;
+// export const Bar = styled.div`
+//     background-color: ${theme.colors.primary.spotifyGreen};
+//     width: 80%;
+//     margin: 0 auto;
+//     height: 5px;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     z-index: 1;
+//     ${theme.breakpoints.tablet}{
+//         width: 5px;
+//         height: 80%;
+//     }
+// `;
 
 export const ArrowIcon = styled(ArrowForwardOutline)`
     width: 30px;
     color: ${theme.colors.primary.spotifyGreen};
+    ${theme.breakpoints.phone}{
+        display: none;
+    }
 `;

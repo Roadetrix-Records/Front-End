@@ -66,7 +66,10 @@ Client ID (public): `c7499dcc8400439d8db3799a33de0f08`
 | [playlist-bg-1.svg](./src/assets/playlist-bg-1.svg) | Josiah Roa | N/A |
 | [playlist-bg-2.svg](./src/assets/playlist-bg-2.svg) | Josiah Roa | N/A |
 | [about-bg-wave.svg](./src/assets/about-bg-wave.svg) | Josiah Roa | N/A |
-| [bg-blurred.png](./src/assets/bg-blurred.png) | Jonah Tuska & Josiah Roa | N/A |
+| [bg-blurred.png](./src/assets/bg-blurred.png) | Jonah Tuska & Josiah Roa | N/A | 
+
+https://pixabay.com/illustrations/photo-manipulation-digital-art-421405/
+https://pixabay.com/photos/nature-landscape-dream-time-water-4552717/
 
 ## Environments
 Different enviornments set up different urls for endpoints to connect to production,

@@ -32,6 +32,10 @@ export const Header = styled.header`
                     width: 300px;
                     bottom: -100px;
                 }
+                ${theme.breakpoints.phone}{
+                    width: 200px;
+                    bottom: -60px;
+                }
             }
         }
         ${theme.breakpoints.smTablet}{
@@ -53,6 +57,9 @@ export const Header = styled.header`
             width: 350px;
             ${theme.breakpoints.smTablet}{
                 width: 320px;
+            }
+            ${theme.breakpoints.phone}{
+                width: 290px;
             }
         }
         ${theme.breakpoints.lgDesktop}{

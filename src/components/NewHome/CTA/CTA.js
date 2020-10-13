@@ -1,11 +1,10 @@
 import React from 'react';
-import { CTA, Card, Bar, ArrowIcon } from './ctaStyles';
+import { CTA, Card, ArrowIcon } from './ctaStyles';
 import { H4, Text } from '../../globalStyles';
 
 export default () => {
     return (
         <CTA>
-            <Bar/>
             <div className='wrapper'>
                 <Card>
                     <div className='content'>

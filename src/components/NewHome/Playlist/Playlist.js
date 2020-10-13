@@ -8,9 +8,8 @@ export default () => {
         <Playlist>
             <div className='playlist-wrapper'>
                 <H2 color='green' bold={true}>Our Playlists</H2>
-                <div style={{ margin: '30px 0' }}>
-                    <Text color='white'>With 20,000+ followers across our playlists,</Text>
-                    <Text color='white'>we can generate streams for your music.</Text>
+                <div style={{ margin: '30px 0', maxWidth: '300px', lineHeight: '25px' }}>
+                    <Text color='white'>With 20,000+ followers across our playlists, we can generate streams for your music.</Text>
                 </div>
                 <SolidButton 
                     width='150px' 

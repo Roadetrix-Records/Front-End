@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+// Component Imports
 import { Link } from 'react-router-dom';
 import { 
     Nav, 
@@ -6,11 +8,14 @@ import {
     DesktopNav,
     MobileNav,
     OpenNav,
-    //Button, 
-    //SpotifyIcon 
 } from './navStyles';
-import logo from '../../assets/logo-white.png';
 import Hamburger from '../Hamburger';
+
+// Asset imports
+import logo from '../../assets/logo-white.png';
+
+//TODO: Add support for routing
+
 
 export default () => {
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -31,10 +36,6 @@ export default () => {
                     <StyledLink to='/submissions'>Submissions</StyledLink>
                     <StyledLink to='/about'>About</StyledLink>
                     <StyledLink to='/contact'>Contact</StyledLink>
-                    {/* <Button>
-                        <SpotifyIcon/>
-                        Log In
-                    </Button> */}
                 </DesktopNav>
                 <MobileNav onClick={() => setOpenNav(!openNav)}>
                     <Hamburger/>

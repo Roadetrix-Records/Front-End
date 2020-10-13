@@ -35,6 +35,10 @@ export const Playlist = styled.section`
                 right: 0;
                 top: 40px;
             }
+            ${theme.breakpoints.phone}{
+                width: 200px;
+                height: 200px;
+            }
         }
         ${theme.breakpoints.tablet}{
             align-items: center;
@@ -44,5 +48,8 @@ export const Playlist = styled.section`
     ${theme.breakpoints.tablet}{
         height: 560px;
         padding-bottom: 40px;
+    }
+    ${theme.breakpoints.phone}{
+        height: 450px;
     }
 `;
